@@ -10,7 +10,7 @@ class MiniGame1 extends Phaser.Scene {
     create()
     {
         this.add.image(960,540 , 'background');
-        this.score = 14;
+        game1score = 14;
 
         //  player rectangle
         this.player = this.physics.add.image(960, 590, 'bob').setScale(1.5).setBounce(.6, .6);
@@ -113,9 +113,9 @@ class MiniGame1 extends Phaser.Scene {
         this.groupTop.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
-                this.score++;  // Increment the score
+                game1score++;  // Increment the score
 
-                if (this.score >= 15) {
+                if (game1score >= 15) {
                     // Fade in and start the intro scene
                     this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
@@ -127,8 +127,8 @@ class MiniGame1 extends Phaser.Scene {
         this.groupBot.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
-                this.score++;  // Increment the score
-                if (this.score >= 15) {
+                game1score++;  // Increment the score
+                if (game1score >= 15) {
                     // Fade in and start the intro scene
                     this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
@@ -140,9 +140,9 @@ class MiniGame1 extends Phaser.Scene {
         this.groupLeft.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
-                this.score++;  // Increment the score
+                game1score++;  // Increment the score
 
-                if (this.score >= 15) {
+                if (game1score >= 15) {
                     // Fade in and start the intro scene
                     this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
@@ -154,8 +154,8 @@ class MiniGame1 extends Phaser.Scene {
         this.groupRight.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
-                this.score++;  // Increment the score
-                if (this.score >= 15) {
+                game1score++;  // Increment the score
+                if (game1score >= 15) {
                     // Fade in and start the intro scene
                     this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
@@ -239,9 +239,8 @@ class MiniGame1 extends Phaser.Scene {
         this.secondCount = this.add.text(795,122).setStyle({ fontSize: 25, color: '#fff' })
 
     }
-
     update(){
-        this.scoreCount.setText(this.score);
+        this.scoreCount.setText(game1score);
         this.secondCount.setText(this.timeLeft);
     }
 }

@@ -37,3 +37,4 @@ class load extends Phaser.Scene {
 housing = 0;
 progress = 0;
 NPCmessage = 0;
+game1score = 0;
