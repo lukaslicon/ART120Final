@@ -7,6 +7,7 @@ class load extends Phaser.Scene {
         //global images
         this.load.path = 'assets/images/';
         this.load.image("background", "map.png");
+        this.load.image("introScreen", "introScreen.png");
 
         //npcScreen
         
@@ -23,6 +24,7 @@ class load extends Phaser.Scene {
         this.load.image("side", "game1/sideBoarder.png");
         this.load.image("reset", "game1/reset.png");
 
+        //game2
     }
     create()
     {
