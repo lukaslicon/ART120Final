@@ -1,21 +1,21 @@
-class npcScreen extends InventoryScene {
+class npcScreen extends Phaser.Scene {
     constructor() {
-        super("npcScreen", "Grass");
+        super('npcScreen')
     }
-    onEnter() {
+    create() {
         this.add.image(960, 540, 'background');
         this.player = this.physics.add.image(960, 590, 'player').setScale(1.5);
         this.player.body.setCollideWorldBounds(true);
-        this.npc = this.physics.add.image(960, 300, 'NPC').setScale(1.5);
-        this.npc.body.setImmovable(true); // NPC will not move when collision occurs
 
-        // Add a collider between the player and the npc
+        this.npc = this.physics.add.image(960, 300, 'NPC').setScale(1.5);
+        this.npc.body.setImmovable(true); 
+        
+        //collider
         this.physics.add.collider(this.player, this.npc, this.handlePlayerNPCOverlap, null, this);
 
-        // Add a click (or touch) event listener to the scene
+        //click to move
         this.input.on('pointerdown', (pointer) => {
             this.physics.moveTo(this.player, pointer.x, pointer.y, 300);
-            // Save destination coordinates
             this.targetX = pointer.x;
             this.targetY = pointer.y;
         });
@@ -23,7 +23,6 @@ class npcScreen extends InventoryScene {
         //score
         this.add.text(100, 92, 'NPC MESSAGES: ').setStyle({ fontSize: 50, color: '#fff' })
         this.messageCount = this.add.text(500, 93).setStyle({ fontSize: 50, color: '#fff' })
-        this.checkMiniGame1();
     }
 
     update() {
@@ -75,7 +74,7 @@ class npcScreen extends InventoryScene {
                 this.message4.destroy();
                 this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
                     if (progress === 1) {
-                        this.scene.start('outro');
+                        this.scene.start('MiniGame1', {}, { alpha: 0, duration: 1000 });
                     }
                 });
             }, [], this);
