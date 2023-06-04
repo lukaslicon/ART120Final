@@ -1,6 +1,5 @@
 
 playerVelocity = 2500;
-let housing = 0;
 
 class MiniGame1 extends Phaser.Scene {
     constructor() {
@@ -160,7 +159,7 @@ class MiniGame1 extends Phaser.Scene {
 
                 if (this.score >= 15) {
                     // Fade in and start the intro scene
-                    this.scene.start('intro', {}, { alpha: 0, duration: 1000 });
+                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
 
             }, null, this);
@@ -226,9 +225,10 @@ class MiniGame1 extends Phaser.Scene {
                 this.timerMask.x -=  stepWidth;
                 if(this.timeLeft <= 0){
                     this.timeLeft = 60;
+                    housing = this.score;
                     this.cameras.main.fadeOut(1000, 0, 0, 0)
                     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
-                        this.scene.start('intro')
+                        this.scene.start('npcScreen')
                     })
                 }
             },

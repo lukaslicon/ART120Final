@@ -35,3 +35,6 @@ class load extends Phaser.Scene {
     let gameOptions = {
         initialTime: 60
     }
+
+    let housing = 0;
+    let progress = 0;
