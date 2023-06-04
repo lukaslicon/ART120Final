@@ -5,22 +5,37 @@ class intro extends Phaser.Scene {
     create() {
         let image = this.add.sprite(960, 540, 'introScreen');
         image.alpha = 0;
-        this.fadeInthenOut(image, 2000, 2000);
-
-        let introText = "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world. The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay. The scent of salt air intermingles with the charred remnants of a civilization, hinting at the nearby ocean, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different.";
-        let text = this.add.text(960, 538, introText, { 
+        this.fadeInthenOut(image, 2000, 2000, 0);
+        let text1 = this.add.text(960, 538, "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world.", { 
             font: "42px Arial", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
-        this.fadeIn(text, 2000, 5500);
+        this.fadeInthenOut(text1, 4000, 4000, 6000);
+
+        let text2 = this.add.text(960, 538, "The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay.", { 
+            font: "42px Arial", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        this.fadeInthenOut(text2, 4000, 4000, 16000 );
+
+        let text3 = this.add.text(960, 538, "The scent of salt air intermingles with the charred remnants of a civilization, hinting at the nearby ocean, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different...", { 
+            font: "42px Arial", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        this.fadeInthenOut(text3, 5000, 5000, 26000);
     }
-    fadeInthenOut(target, time1, time2){
+    fadeInthenOut(target, time1, time2, delay){
         this.tweens.add({
             targets: target,
             alpha: 1,
             duration: time1, 
+            delay: delay, 
             ease: 'Linear',
             onComplete: () => {
                 this.time.delayedCall(2000, () => {

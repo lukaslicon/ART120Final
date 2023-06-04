@@ -3,7 +3,7 @@ class outro extends Phaser.Scene {
         super('outro');
     }
     create() {
-        let introText = "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world. The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay. The scent of salt air intermingles with the charred remnants of a civilization, hinting at the nearby ocean, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different.";
+        let introText = "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality. Relief floods through you, a tide of joy that sends every nerve singing. You're back, back to the place that's yours, that's home, basking in the reassurance of the familiar mountains, the soothing lull of the nearby ocean - you're back at the UC Santa Cruz you know and love.";
         let text = this.add.text(960, 540, introText, { 
             font: "42px Arial", 
             fill: "#ffffff", 
@@ -11,10 +11,22 @@ class outro extends Phaser.Scene {
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
         this.fadeIn(text, 2000, 0);
-        this.fadeOut(text, 2000, 6000)
+        this.fadeOut(text, 2000, 15000)
+        
         let image = this.add.sprite(960, 540, 'introScreen');
         image.alpha = 0;
-        this.fadeInthenOut(image, 2000, 2000, 8000);
+        this.fadeInthenOut(image, 2000, 2000, 17000);
+
+
+        let END = this.add.text(960, 538, "THE END", { 
+            font: "96px Arial", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        this.fadeIn(END, 2000, 21000);
+
+
     }
     fadeInthenOut(target, time1, time2, delay){
         this.tweens.add({
