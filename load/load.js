@@ -14,7 +14,7 @@ class load extends Phaser.Scene {
         this.load.image('NPC', 'npcScreen/PixelArtNPC.png');
 
         //game1
-        this.load.image('bob', 'game1/bob.png');
+        this.load.image('app', 'game1/HousingApp.png');
         this.load.image('boundary', 'game1/boundary.png');
         this.load.image('sideBoundary', 'game1/sideBoundary.png');
         this.load.image("timerBar", "game1/timerBar.png");

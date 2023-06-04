@@ -13,7 +13,7 @@ class MiniGame1 extends Phaser.Scene {
         game1score = 14;
 
         //  player rectangle
-        this.player = this.physics.add.image(960, 590, 'bob').setScale(1.5).setBounce(.6, .6);
+        this.player = this.physics.add.image(960, 590, 'app').setScale(1.5).setBounce(.6, .6);
         this.player.body.setCollideWorldBounds(true); 
         
         this.timeLeft = gameOptions.initialTime;
