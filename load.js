@@ -9,21 +9,21 @@ class load extends Phaser.Scene {
         this.load.image("background", "map.png");
 
         //npcScreen
-        this.load.path = 'assets/images/npcScreen';
-        this.load.image('player', 'PixelArtCharacter.png');
-        this.load.image('NPC', 'PixelArtNPC.png');
+        
+        this.load.image('player', 'npcScreen/PixelArtCharacter.png');
+        this.load.image('NPC', 'npcScreen/PixelArtNPC.png');
 
         //game1
-        this.load.path = 'assets/images/game1';
-        this.load.image('summaryScreen', 'summaryscreen.png');
-        this.load.image('bob', 'bob.png');
-        this.load.image('boundary', 'boundary.png');
-        this.load.image('sideBoundary', 'sideBoundary.png');
-        this.load.image("timerBar", "timerBar.png");
-        this.load.image("timerBarBackground", "backgroundbar.png");
-        this.load.image("boarder", "boarder.png");
-        this.load.image("side", "sideBoarder.png");
-        this.load.image("reset", "reset.png");
+
+        this.load.image('summaryScreen', 'game1/summaryscreen.png');
+        this.load.image('bob', 'game1/bob.png');
+        this.load.image('boundary', 'game1/boundary.png');
+        this.load.image('sideBoundary', 'game1/sideBoundary.png');
+        this.load.image("timerBar", "game1/timerBar.png");
+        this.load.image("timerBarBackground", "game1/backgroundbar.png");
+        this.load.image("boarder", "game1/boarder.png");
+        this.load.image("side", "game1/sideBoarder.png");
+        this.load.image("reset", "game1/reset.png");
 
     }
     create()
@@ -32,6 +32,6 @@ class load extends Phaser.Scene {
     }
 }
 
-let gameOptions = {
-    initialTime: 60
-}
+    let gameOptions = {
+        initialTime: 60
+    }
