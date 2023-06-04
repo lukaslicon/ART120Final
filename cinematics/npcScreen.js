@@ -1,13 +1,11 @@
-class npcScreen extends Phaser.Scene {
+class npcScreen extends InventoryScene {
     constructor() {
-        super('npcScreen')
+        super("npcScreen", "Grass");
     }
-
-    create() {
+    onEnter() {
         this.add.image(960, 540, 'background');
         this.player = this.physics.add.image(960, 590, 'player').setScale(1.5);
         this.player.body.setCollideWorldBounds(true);
-
         this.npc = this.physics.add.image(960, 300, 'NPC').setScale(1.5);
         this.npc.body.setImmovable(true); // NPC will not move when collision occurs
 
@@ -25,6 +23,7 @@ class npcScreen extends Phaser.Scene {
         //score
         this.add.text(100, 92, 'NPC MESSAGES: ').setStyle({ fontSize: 50, color: '#fff' })
         this.messageCount = this.add.text(500, 93).setStyle({ fontSize: 50, color: '#fff' })
+        this.checkMiniGame1();
     }
 
     update() {
@@ -83,3 +82,6 @@ class npcScreen extends Phaser.Scene {
         }
     }
 }
+
+
+

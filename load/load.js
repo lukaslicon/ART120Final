@@ -26,7 +26,7 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('MiniGame1');
+        this.scene.start('npcScreen');
     }
 }
 

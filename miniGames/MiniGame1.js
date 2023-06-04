@@ -206,8 +206,6 @@ class MiniGame1 extends Phaser.Scene {
         });
 
 
-
-
         // timer bar        
         this.add.image(game.config.width / 2, game.config.height / 8, "timerBarBackground"); //background bar
         let timer = this.add.sprite(game.config.width / 2, game.config.height / 8, "timerBar");
