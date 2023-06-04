@@ -17,7 +17,12 @@ class intro extends Phaser.Scene {
           );
 
         this.input.on('pointerdown', () => {
-            this.scene.start('npcScreen')
+            this.cameras.main.fadeOut(1500); // 1000ms = 1 second
+            // Set up a callback function when the fade out is complete
+            this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                // Switch to another scene or perform any other action
+                this.scene.start('npcScreen');
+            }, this);
         });
     }
 }

@@ -23,6 +23,9 @@ class npcScreen extends Phaser.Scene {
         //score
         this.add.text(100, 92, 'NPC MESSAGES: ').setStyle({ fontSize: 50, color: '#fff' })
         this.messageCount = this.add.text(500, 93).setStyle({ fontSize: 50, color: '#fff' })
+
+        //fade
+        this.fadeInScene();
     }
 
     update() {
@@ -31,7 +34,19 @@ class npcScreen extends Phaser.Scene {
             this.player.body.setVelocity(0);
         }
     }
-
+    fadeInScene() {
+        this.cameras.main.setAlpha(0);
+        this.tweens.add({
+          targets: this.cameras.main,
+          alpha: 1,
+          duration: 1000,
+          ease: 'Linear',
+          onComplete: function () {
+            console.log("Fade-in complete");
+          }
+        });
+      }
+    //NPC collision and bounce based on NPCmessage count
     handlePlayerNPCOverlap(player, npc) {
         NPCmessage++;
         this.player.body.setVelocity(0);
@@ -48,9 +63,11 @@ class npcScreen extends Phaser.Scene {
             this.player.body.moves = false;
             this.time.delayedCall(2000, () => {
                 this.message1.destroy();
-                this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
-                    this.scene.start('MiniGame1', {}, { alpha: 0, duration: 1000 });
-                });
+                //fade
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('MiniGame1');
+                }, this);
             }, [], this);
         }
         if(NPCmessage == 2){
@@ -81,6 +98,5 @@ class npcScreen extends Phaser.Scene {
         }
     }
 }
-
 
 

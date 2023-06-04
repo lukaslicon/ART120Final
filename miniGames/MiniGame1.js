@@ -9,6 +9,7 @@ class MiniGame1 extends Phaser.Scene {
     }
     create()
     {
+
         this.add.image(960,540 , 'background');
         game1score = 11;
 
@@ -116,8 +117,12 @@ class MiniGame1 extends Phaser.Scene {
                 game1score++;  // Increment the score
 
                 if (game1score >= 12) {
-                    // Fade in and start the intro scene
-                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
+                this.player.body.moves = false;
+                //fade
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('npcScreen');
+                }, this);
                 }
 
             }, null, this);
@@ -129,8 +134,12 @@ class MiniGame1 extends Phaser.Scene {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
                 game1score++;  // Increment the score
                 if (game1score >= 12) {
-                    // Fade in and start the intro scene
-                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
+                this.player.body.moves = false;
+                //fade
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('npcScreen');
+                }, this);
                 }
 
             }, null, this);
@@ -143,8 +152,12 @@ class MiniGame1 extends Phaser.Scene {
                 game1score++;  // Increment the score
 
                 if (game1score >= 12) {
-                    // Fade in and start the intro scene
-                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
+                this.player.body.moves = false;
+                //fade
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('npcScreen');
+                }, this);
                 }
 
             }, null, this);
@@ -156,8 +169,12 @@ class MiniGame1 extends Phaser.Scene {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
                 game1score++;  // Increment the score
                 if (game1score >= 12) {
-                    // Fade in and start the intro scene
-                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
+                this.player.body.moves = false;
+                //fade
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('npcScreen');
+                }, this);;
                 }
 
             }, null, this);
@@ -236,10 +253,25 @@ class MiniGame1 extends Phaser.Scene {
         this.add.text(720, 122, 'Time: ').setStyle({ fontSize: 25, color: '#fff' })
         this.secondCount = this.add.text(795,122).setStyle({ fontSize: 25, color: '#fff' })
 
+        //fade
+        this.fadeInScene();
+
     }
     update(){
         this.scoreCount.setText(game1score);
         this.secondCount.setText(this.timeLeft);
+    }
+    fadeInScene(){
+        this.cameras.main.setAlpha(0);
+        this.tweens.add({
+            targets: this.cameras.main,
+            alpha: 1,
+            duration: 1000,
+            ease: 'Linear', 
+            onComplete: function() {
+            console.log("Fade-in complete");
+            }
+        });
     }
 }
     
