@@ -45,12 +45,9 @@ class npcScreen extends Phaser.Scene {
             x: player.x + Math.cos(bounceDirection) * 80, // Adjust these values to control the bounce back distance
             y: player.y + Math.sin(bounceDirection) * 80,
         });
-
         if(NPCmessage == 1){
-            // Create the "HELLO" message
             this.message1 = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'STORY MESSAGE 1', { fontSize: '64px', fill: '#fff' }).setOrigin(0.5);
             this.player.body.moves = false;
-            // Use a timed event to remove the "HELLO" message after 5 seconds
             this.time.delayedCall(2000, () => {
                 this.message1.destroy();
                 this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
@@ -59,31 +56,24 @@ class npcScreen extends Phaser.Scene {
             }, [], this);
         }
         if(NPCmessage == 2){
-            // Create the "HELLO" message
             this.message2 = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'STORY MESSAGE 2', { fontSize: '64px', fill: '#fff' }).setOrigin(0.5);
             this.player.body.moves = false;
-            // Use a timed event to remove the "HELLO" message after 5 seconds
-            this.time.delayedCall(5000, () => {
+            this.time.delayedCall(3000, () => {
                 this.message2.destroy();
             }, [], this);
         }
         if(NPCmessage == 3){
-            // Create the "HELLO" message
             this.message3 = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'STORY MESSAGE 3', { fontSize: '64px', fill: '#fff' }).setOrigin(0.5);
             this.player.body.moves = false;
-            // Use a timed event to remove the "HELLO" message after 5 seconds
-            this.time.delayedCall(5000, () => {
+            this.time.delayedCall(3000, () => {
                 this.message3.destroy();
             }, [], this);
         }
         if (NPCmessage == 4) {
-            // Create the "HELLO" message
             this.message4 = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'STORY MESSAGE 4', { fontSize: '64px', fill: '#fff' }).setOrigin(0.5);
             this.player.body.moves = false;
-            // Use a timed event to remove the "HELLO" message after 5 seconds
-            this.time.delayedCall(1000, () => {
+            this.time.delayedCall(3000, () => {
                 this.message4.destroy();
-                // Fade out and transition to another scene
                 this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
                     if (progress === 1) {
                         this.scene.start('outro');
