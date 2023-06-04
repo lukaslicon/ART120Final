@@ -54,7 +54,11 @@ class npcScreen extends Phaser.Scene {
             // Use a timed event to remove the "HELLO" message after 5 seconds
             this.time.delayedCall(5000, () => {
                 this.message1.destroy();
-                
+                this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
+                    if (this.progress == 0) {
+                        this.scene.start('outro');
+                    }
+                });
             }, [], this);
         }
         if(this.NPCmessage == 2){
