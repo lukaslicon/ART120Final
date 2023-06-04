@@ -1,2 +1,2 @@
-# introScene
-this is an intro scene/ area for ART120 game
+# ART120Final
+this is a game created for ART120
