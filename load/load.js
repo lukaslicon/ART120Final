@@ -34,5 +34,6 @@ class load extends Phaser.Scene {
         initialTime: 60
     }
 
-    let housing = 0;
-    let progress = 0;
+housing = 0;
+progress = 0;
+NPCmessage = 0;
