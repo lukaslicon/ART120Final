@@ -3,14 +3,14 @@ playerVelocity = 2500;
 
 class MiniGame1 extends Phaser.Scene {
     constructor() {
-        super('MiniGame')
+        super('MiniGame1')
         this.shadedRectangle = null; // Reference to the currently shaded rectangle
 
     }
     create()
     {
         this.add.image(960,540 , 'background');
-        this.score = 0;
+        this.score = 14;
 
         //  player rectangle
         this.player = this.physics.add.image(960, 590, 'bob').setScale(1.5).setBounce(.6, .6);
@@ -117,7 +117,7 @@ class MiniGame1 extends Phaser.Scene {
 
                 if (this.score >= 15) {
                     // Fade in and start the intro scene
-                    this.scene.start('intro', {}, { alpha: 0, duration: 1000 });
+                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
 
             }, null, this);
@@ -128,10 +128,9 @@ class MiniGame1 extends Phaser.Scene {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
                 this.score++;  // Increment the score
-
                 if (this.score >= 15) {
                     // Fade in and start the intro scene
-                    this.scene.start('intro', {}, { alpha: 0, duration: 1000 });
+                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
 
             }, null, this);
@@ -145,7 +144,7 @@ class MiniGame1 extends Phaser.Scene {
 
                 if (this.score >= 15) {
                     // Fade in and start the intro scene
-                    this.scene.start('intro', {}, { alpha: 0, duration: 1000 });
+                    this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
                 }
 
             }, null, this);
@@ -156,7 +155,6 @@ class MiniGame1 extends Phaser.Scene {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
                 this.score++;  // Increment the score
-
                 if (this.score >= 15) {
                     // Fade in and start the intro scene
                     this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
