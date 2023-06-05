@@ -1,8 +1,17 @@
+let music = false;
 class npcScreen extends Phaser.Scene {
     constructor() {
         super('npcScreen')
     }
     create() {
+        if(music == false){
+        music = true;
+        this.backMusic = this.sound.add("BGM");
+        this.backMusic.loop = true;
+        this.backMusic.setVolume(.25);
+        this.backMusic.play();
+        }
+
         this.add.image(960, 540, 'background');
         this.player = this.physics.add.image(960, 590, 'player').setScale(3);
         this.player.body.setCollideWorldBounds(true);
