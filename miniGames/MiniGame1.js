@@ -242,7 +242,7 @@ class MiniGame1 extends Phaser.Scene {
                     housing = this.score;
                     this.cameras.main.fadeOut(1000, 0, 0, 0)
                     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
-                        this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
+                        this.scene.start('Homeless', {}, { alpha: 0, duration: 1000 });
                     })
                 }
             },
@@ -272,6 +272,22 @@ class MiniGame1 extends Phaser.Scene {
             onComplete: function() {
             console.log("Fade-in complete");
             }
+        });
+    }
+}
+
+class Homeless extends Phaser.Scene {
+    constructor() {
+        super('Homeless');
+    }
+    create() {
+        this.cameras.main.fadeIn(1000, 0, 0, 0);
+        this.add.text(560,560, "You failed!").setFontSize(50);
+        this.add.text(660,660, "You are now homeless...").setFontSize(20);
+        this.add.text(760,760, "Click anywhere to continue.").setFontSize(20);
+        this.input.on('pointerdown', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
         });
     }
 }

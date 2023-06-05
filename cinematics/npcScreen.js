@@ -131,6 +131,7 @@ class npcScreen extends Phaser.Scene {
             this.player.body.moves = false;
             this.time.delayedCall(10000, () => {
                 this.message4.destroy();
+                this.backMusic.stop();
                 this.cameras.main.fadeOut(3000, 0, 0, 0, (camera, progress) => {
                     if (progress === 1) {
                         this.scene.start('outro', {}, { alpha: 0, duration: 1000 });
