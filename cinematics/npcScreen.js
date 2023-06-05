@@ -65,13 +65,13 @@ class npcScreen extends Phaser.Scene {
         //first game
         if(NPCmessage == 1){
             this.message1 = this.add.text(900, 780, "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse.", { 
-                font: "42px pixelfont", 
+                fontFamily: "pmd", 
                 fill: "#ffffff", 
                 align: "center",
                 wordWrap: { width: 600 } // wrap words that exceed this width
-            }).setOrigin(0.5).setAlpha(1); // set origin to center
+            }).setOrigin(0.5).setAlpha(1).setFontSize(42); // set origin to center
             this.player.body.moves = false;
-            this.time.delayedCall(10000, () => {
+            this.time.delayedCall(13000, () => {
                 this.message1.destroy();
                 //fade
                 this.cameras.main.fadeOut(3000);
@@ -91,7 +91,7 @@ class npcScreen extends Phaser.Scene {
             }).setOrigin(0.5).setAlpha(1); // set origin to center
 
             this.player.body.moves = false;
-            this.time.delayedCall(10000, () => {
+            this.time.delayedCall(13000, () => {
                 this.message2.destroy();
                 this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
@@ -110,7 +110,7 @@ class npcScreen extends Phaser.Scene {
             }).setOrigin(0.5).setAlpha(1); // set origin to center
 
             this.player.body.moves = false;
-            this.time.delayedCall(10000, () => {
+            this.time.delayedCall(13000, () => {
                 this.message3.destroy();
                 this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
@@ -129,7 +129,7 @@ class npcScreen extends Phaser.Scene {
             }).setOrigin(0.5).setAlpha(1); // set origin to center
 
             this.player.body.moves = false;
-            this.time.delayedCall(10000, () => {
+            this.time.delayedCall(13000, () => {
                 this.message4.destroy();
                 this.backMusic.stop();
                 this.cameras.main.fadeOut(3000, 0, 0, 0, (camera, progress) => {

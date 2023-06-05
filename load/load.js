@@ -4,7 +4,11 @@ class load extends Phaser.Scene {
     }
     preload ()
     {
+        //font
+        this.load.text('pmd', 'font.css');
+        
         //global images
+
         this.load.path = 'assets/images/';
         this.load.audio('BGM', 'music/BGM.mp3')
         this.load.audio('titleMusic', 'music/titleMusic.mp3')
