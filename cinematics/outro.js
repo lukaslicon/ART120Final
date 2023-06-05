@@ -39,12 +39,11 @@ class outro extends Phaser.Scene {
         this.anims.create({
             key: 'gifAnimation',
             frames: this.anims.generateFrameNumbers('OutroGif', { start: 0, end: 17 }),
-            frameRate: 3,
-            repeat: -1
+            frameRate: 2
         });
-        let image = this.add.sprite(960, 540, 'OutroGif');
-        image.play('gifAnimation');
-        //this.fadeInthenOut(image, 3000, 3000, 0);
+
+        let image = this.add.sprite(960, 540, 'OutroGif').setAlpha(0);
+        this.playGif(image);
 
 
         let END = this.add.text(960, 538, "THE END", { 
@@ -56,6 +55,17 @@ class outro extends Phaser.Scene {
         this.fadeIn(END, 3000, 47000);
 
 
+    }
+    playGif(image){
+        
+
+        this.fadeInthenOut(image, 3000, 3000, 40000);
+        this.anims.create({
+            key: 'gifAnimation',
+            frames: this.anims.generateFrameNumbers('OutroGif', { start: 0, end: 17 }),
+            frameRate: 2
+        });
+        image.play('gifAnimation');
     }
     fadeInthenOut(target, time1, time2, delay){
         this.tweens.add({
