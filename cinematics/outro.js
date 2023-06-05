@@ -7,6 +7,7 @@ class outro extends Phaser.Scene {
         this.outroMusic.loop = true;
         this.outroMusic.play();
 
+
         let text1 = this.add.text(960, 538, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
             font: "42px Arial", 
             fill: "#ffffff", 

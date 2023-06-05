@@ -329,11 +329,12 @@ class Fail2 extends Phaser.Scene {
     }
     create() {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text(760,560, "You failed!").setFontSize(50);
-        this.add.text(760,760, "Click anywhere to restart.").setFontSize(20);
+        this.add.text(game.config.width/2, game.config.height/2 + 100, "You failed!").setFontSize(50).setOrigin(0.5);
+        this.add.text(660,660, "The koi fish were infected...").setFontSize(20);
+        this.add.text(760,760, "Click anywhere to continue.").setFontSize(20);
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('MiniGame3'));
+            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
         });
     }
 }
