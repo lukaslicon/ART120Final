@@ -8,6 +8,7 @@ class load extends Phaser.Scene {
         this.load.path = 'assets/images/';
         this.load.image("background", "map.png");
         this.load.image("introScreen", "introScreen.png");
+        this.load.spritesheet('OutroGif', 'spritesheet.png', { frameWidth: 1920, frameHeight: 1082 });
 
         //npcScreen
         

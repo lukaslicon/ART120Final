@@ -3,19 +3,48 @@ class outro extends Phaser.Scene {
         super('outro');
     }
     create() {
-        let introText = "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality. Relief floods through you, a tide of joy that sends every nerve singing. You're back, back to the place that's yours, that's home, basking in the reassurance of the familiar mountains, the soothing lull of the nearby ocean - you're back at the UC Santa Cruz you know and love.";
-        let text = this.add.text(960, 540, introText, { 
+        let text1 = this.add.text(960, 538, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
             font: "42px Arial", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
-        this.fadeIn(text, 2000, 0);
-        this.fadeOut(text, 2000, 15000)
+        this.fadeInthenOut(text1, 4000, 4000, 0);
+
+        let text2 = this.add.text(960, 538, " Relief floods through you, a tide of joy that sends every nerve singing. ", { 
+            font: "42px Arial", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        this.fadeInthenOut(text2, 4000, 4000, 10000);
+
+        let text3 = this.add.text(960, 538, "You're back to the place that's yours, that's home, basking in the reassurance of the familiar mountains.", { 
+            font: "42px Arial", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        this.fadeInthenOut(text3, 4000, 4000, 20000);
+
+        let text4 = this.add.text(960, 538, "You hear the soothing lull of the nearby ocean - you're back at the UC Santa Cruz you know and love!", { 
+            font: "42px Arial", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        this.fadeInthenOut(text4, 4000, 4000, 30000);
         
-        let image = this.add.sprite(960, 540, 'introScreen');
-        image.alpha = 0;
-        this.fadeInthenOut(image, 2000, 2000, 17000);
+        //gif
+        this.anims.create({
+            key: 'gifAnimation',
+            frames: this.anims.generateFrameNumbers('OutroGif', { start: 0, end: 17 }),
+            frameRate: 3,
+            repeat: -1
+        });
+        let image = this.add.sprite(960, 540, 'OutroGif');
+        image.play('gifAnimation');
+        //this.fadeInthenOut(image, 3000, 3000, 0);
 
 
         let END = this.add.text(960, 538, "THE END", { 
@@ -24,7 +53,7 @@ class outro extends Phaser.Scene {
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
-        this.fadeIn(END, 2000, 21000);
+        this.fadeIn(END, 3000, 47000);
 
 
     }
