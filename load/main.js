@@ -12,7 +12,7 @@ let config = {
             debugShowVelocity: false
     }
 },
-scene: [load, intro, npcScreen, MiniGame1, outro],
+scene: [load, intro, npcScreen, MiniGame1, MiniGame2, MiniGame3, outro],
 title: "Mini Game Prototype",
 };
 

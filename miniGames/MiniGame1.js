@@ -22,25 +22,25 @@ class MiniGame1 extends Phaser.Scene {
 //boundaries/goals
         //top
         this.groupTop = this.physics.add.group({
-            key: 'boundary',
+            key: 'topHouse',
             frameQuantity: 13,
             immovable: true
         });
         //bot
         this.groupBot = this.physics.add.group({
-            key: 'boundary',
+            key: 'bottomHouse',
             frameQuantity: 13,
             immovable: true
         });
         //left
         this.groupLeft = this.physics.add.group({
-            key: 'sideBoundary',
+            key: 'leftHouse',
             frameQuantity: 4,
             immovable: true
         });
         //right
         this.groupRight = this.physics.add.group({
-            key: 'sideBoundary',
+            key: 'rightHouse',
             frameQuantity: 4,
             immovable: true
         });
