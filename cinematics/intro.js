@@ -3,16 +3,26 @@ class intro extends Phaser.Scene {
         super('intro');
     }
     create() {
+        let Jlogo = this.add.sprite(1260, 640, 'JLogo').setScale(.5);
+        Jlogo.alpha = 0;
+        this.fadeInthenOut(Jlogo, 3000, 3000, 0);
+        let LLogo = this.add.sprite(660, 640, 'LLogo').setScale(.5);
+        LLogo.alpha = 0;
+        this.fadeInthenOut(LLogo, 3000, 3000, 0);
+        let MLogo = this.add.sprite(960, 340, 'MLogo').setScale(1);
+        MLogo.alpha = 0;
+        this.fadeInthenOut(MLogo, 3000, 3000, 0);
+
         let image = this.add.sprite(960, 540, 'introScreen');
         image.alpha = 0;
-        this.fadeInthenOut(image, 2000, 2000, 0);
+        this.fadeInthenOut(image, 2000, 2000, 10000);
         let text1 = this.add.text(960, 538, "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world.", { 
             font: "42px Arial", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
-        this.fadeInthenOut(text1, 4000, 4000, 6000);
+        this.fadeInthenOut(text1, 4000, 4000, 16000);
 
         let text2 = this.add.text(960, 538, "The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay.", { 
             font: "42px Arial", 
@@ -20,16 +30,26 @@ class intro extends Phaser.Scene {
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
-        this.fadeInthenOut(text2, 4000, 4000, 16000 );
+        this.fadeInthenOut(text2, 4000, 4000, 26000 );
 
-        let text3 = this.add.text(960, 538, "The scent of salt air intermingles with the charred remnants of a civilization, hinting at the nearby ocean, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different...", { 
+        let text3 = this.add.text(960, 538, "The scent of salt air intermingles with the charred remnants of a civilization, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different...", { 
             font: "42px Arial", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0); // set origin to center
-        this.fadeInthenOut(text3, 5000, 5000, 26000);
+        this.fadeInthenOut(text3, 4000, 4000, 36000);
+
+
+        this.time.delayedCall(42000, function() {
+            this.cameras.main.fadeOut(3000);
+            this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                this.scene.start('title');
+            }, this);
+        }, [], this);
+
     }
+
     fadeInthenOut(target, time1, time2, delay){
         this.tweens.add({
             targets: target,
@@ -66,4 +86,47 @@ class intro extends Phaser.Scene {
             ease: 'Linear',
         });
     }
+}
+class title extends Phaser.Scene {
+    constructor() {
+        super('title');
+    }
+    create() {
+    //fade
+    this.fadeInScene();
+    this.add.image(960, 540, 'titleScreen');
+    this.isClicked = false;
+    let playButton = this.add.image(960, 740, 'play')
+        .setScale(.8)
+        .setInteractive()
+        .on('pointerover', () => {
+            playButton.setTint(0x808080); // 0x808080 is the hex color for gray
+        })
+        .on('pointerout', () => {
+            if (this.isClicked == false) {
+                playButton.clearTint();
+            }
+        })
+        .on('pointerdown', () => {
+            this.isClicked = true;
+            playButton.removeInteractive();
+            this.cameras.main.fadeOut(2000, 0, 0, 0)
+            this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+                this.scene.start('npcScreen', {}, { alpha: 0, duration: 1000 });
+            })
+        });
+    }
+    fadeInScene(){
+        this.cameras.main.setAlpha(0);
+        this.tweens.add({
+            targets: this.cameras.main,
+            alpha: 1,
+            duration: 1000,
+            ease: 'Linear', 
+            onComplete: function() {
+            console.log("Fade-in complete");
+            }
+        });
+
+}
 }
