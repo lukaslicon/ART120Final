@@ -59,7 +59,8 @@ class npcScreen extends Phaser.Scene {
             y: player.y + Math.sin(bounceDirection) * 80,
         });
         if(NPCmessage == 1){
-            this.message1 = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'STORY MESSAGE 1', { fontSize: '64px', fill: '#fff' }).setOrigin(0.5);
+            let storymessage1 = "STORY MESSAGE 1";
+            this.message1 = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, storymessage1 , { fontSize: '64px', fill: '#fff' }).setOrigin(0.5);
             this.player.body.moves = false;
             this.time.delayedCall(2000, () => {
                 this.message1.destroy();
@@ -75,6 +76,10 @@ class npcScreen extends Phaser.Scene {
             this.player.body.moves = false;
             this.time.delayedCall(3000, () => {
                 this.message2.destroy();
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('MiniGame2');
+                }, this);
             }, [], this);
         }
         if(NPCmessage == 3){
@@ -82,6 +87,10 @@ class npcScreen extends Phaser.Scene {
             this.player.body.moves = false;
             this.time.delayedCall(3000, () => {
                 this.message3.destroy();
+                this.cameras.main.fadeOut(1500);
+                this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.scene.start('MiniGame3');
+                }, this);
             }, [], this);
         }
         if (NPCmessage == 4) {
@@ -91,7 +100,7 @@ class npcScreen extends Phaser.Scene {
                 this.message4.destroy();
                 this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
                     if (progress === 1) {
-                        this.scene.start('MiniGame1', {}, { alpha: 0, duration: 1000 });
+                        this.scene.start('outro', {}, { alpha: 0, duration: 1000 });
                     }
                 });
             }, [], this);

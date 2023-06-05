@@ -1,5 +1,6 @@
 let health = 4;
-let points = 0;
+let points = 7;
+
 
 class UI extends Phaser.Scene {
     constructor(){
@@ -44,7 +45,7 @@ class UI extends Phaser.Scene {
 
 class MiniGame3 extends Phaser.Scene {
     constructor() {
-        super('Minigame3');
+        super('MiniGame3');
     }
     path1(obj){
         this.tweens.add({
@@ -114,7 +115,7 @@ class MiniGame3 extends Phaser.Scene {
     hurt(){
         this.cameras.main.shake(300);
         --health;
-        this.dmg.play();
+        this.dmg.play(tuboConfig);
     }
     pointt(obj){
         obj.destroy();
@@ -123,6 +124,25 @@ class MiniGame3 extends Phaser.Scene {
     }
     create(){
         this.scene.launch('ui');
+
+        this.CleanText = this.add.text(540, 500, "Let's clean this water full of toxins! \n Don't hurt the koi fish!").setStyle({ fontSize: 50, color: '#fff' })
+        this.time.delayedCall(3000, () => {
+            this.tweens.add({
+                targets: this.CleanText,
+                alpha: 0,
+                duration: 1000 // This is the duration of the fade out
+            });
+        }, [], this);
+
+        this.HUDD = this.add.text(590, 900, 'Click to move.').setStyle({ fontSize: 50, color: '#fff' })
+        this.time.delayedCall(5000, () => {
+            this.tweens.add({
+                targets: this.HUDD,
+                alpha: 0,
+                duration: 1000 // This is the duration of the fade out
+            });
+        }, [], this);
+
         //Make camera follow player type thing
         //Tap to dash, pick up objects type minigame
         //Avoid Koi fish
@@ -133,7 +153,7 @@ class MiniGame3 extends Phaser.Scene {
 
         const cursor = this.add.image(0, 0, 'cursor').setVisible(false);
 
-        this.bg1 = this.add.image(0, 0, 'bg').setOrigin(0);
+        this.bg1 = this.add.image(0, 0, 'bg1').setOrigin(0);
         this.bg1.displayHeight = this.sys.game.config.height;
         this.bg1.scaleX = this.bg1.scaleY;
         //
@@ -221,6 +241,7 @@ class MiniGame3 extends Phaser.Scene {
         this.path4(this.coin4);
         this.path5(this.coin5);
     }
+
     update(){
         this.flip1(this.flipper1, this.coin1);
         this.flip2(this.flipper2, this.coin1);
@@ -291,30 +312,28 @@ class MiniGame3 extends Phaser.Scene {
         }
         if (health == 0) {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () =>this.scene.start('fail'));
+            this.scene.stop('ui');
+            this.time.delayedCall(1000, () =>this.scene.start('Fail2'));
         }
         if (points == 8) {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () =>this.scene.start('fail')); //change fail to new next game
+            this.scene.stop('ui');
+            this.time.delayedCall(1000, () =>this.scene.start('npcScreen')); //change fail to new next game
         }
     }
 }
-class Fail extends Phaser.Scene {
+
+class Fail2 extends Phaser.Scene {
     constructor() {
-        super('fail');
-    }
-    preload(){
-        this.load.image('fail', 'assets/coin.png');
-        this.load.image('tryagain','assets/testt.png')
+        super('Fail2');
     }
     create() {
-        this.scene.stop('ui');
         this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.image(1920/2,1080/2,'fail');
-        this.add.image(1920/2,650,'tryagain');
+        this.add.text(760,560, "You failed!").setFontSize(50);
+        this.add.text(960,760, "Click anywhere to restart.").setFontSize(20);
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('mini2'));
+            this.time.delayedCall(1000, () => this.scene.start('MiniGame3'));
         });
     }
 }

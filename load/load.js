@@ -16,8 +16,6 @@ class load extends Phaser.Scene {
 
         //game1
         this.load.image('app', 'game1/HousingApp.png');
-        this.load.image('boundary', 'game1/boundary.png');
-        this.load.image('sideBoundary', 'game1/sideBoundary.png');
         this.load.image("timerBar", "game1/timerBar.png");
         this.load.image("timerBarBackground", "game1/backgroundbar.png");
         this.load.image("boarder", "game1/boarder.png");
@@ -40,8 +38,8 @@ class load extends Phaser.Scene {
         this.load.audio('catch','game2/catch.wav');
 
         //game3
-        this.load.image('turbo', 'game3/turbo.png');
-        this.load.image('bg','game3/background.png');
+        this.load.image('turbo', 'game3/gLOVE.png');
+        this.load.image('bg1','game3/background1.png');
         this.load.image('obs','game3/KoiDown.png');
         this.load.image('obs2','game3/KoiUp.png');
         this.load.image('obs3','game3/KoiUpR.png');

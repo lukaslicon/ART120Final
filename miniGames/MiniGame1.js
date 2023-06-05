@@ -7,9 +7,7 @@ class MiniGame1 extends Phaser.Scene {
         this.shadedRectangle = null; // Reference to the currently shaded rectangle
 
     }
-    create()
-    {
-
+    create(){
         this.add.image(960,540 , 'background');
         game1score = 11;
 
@@ -85,8 +83,6 @@ class MiniGame1 extends Phaser.Scene {
         const botSquare = new Phaser.Geom.Line(150, 1080, 1910, 1080);
         const leftSquare = new Phaser.Geom.Line(0, 110, 0, 1210);
         const rightSquare = new Phaser.Geom.Line(1920, 110, 1920, 1210);
-
-
 
         //place houses
         Phaser.Actions.PlaceOnLine(this.groupTop.getChildren(),topSquare);
@@ -221,8 +217,7 @@ class MiniGame1 extends Phaser.Scene {
             this.player.x = 960;
             this.player.y = 590;
         });
-
-
+        
         // timer bar        
         this.add.image(game.config.width / 2, game.config.height / 8, "timerBarBackground"); //background bar
         let timer = this.add.sprite(game.config.width / 2, game.config.height / 8, "timerBar");

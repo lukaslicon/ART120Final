@@ -1,7 +1,15 @@
+let tuboConfig = {
+    volume: 0.5,
+    loop: false,
+    rate: 1,
+    mute: false,
+}
+
 class MiniGame2 extends Phaser.Scene {
     constructor() {
-        super('Minigame2');
+        super('MiniGame2');
     }
+
     path1(obj){
         this.target1 = new Phaser.Math.Vector2();
             this.target1.x = 1532
@@ -53,7 +61,26 @@ class MiniGame2 extends Phaser.Scene {
         })
     }
     create(){
+        let CleanText = this.add.text(540, 500, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
+        this.time.delayedCall(3000, () => {
+            this.tweens.add({
+                targets: CleanText,
+                alpha: 0,
+                duration: 1000 // This is the duration of the fade out
+            });
+        }, [], this);
+
+        let HUD = this.add.text(590, 900, 'Click on the slugs').setStyle({ fontSize: 50, color: '#fff' })
+        this.time.delayedCall(5000, () => {
+            this.tweens.add({
+                targets: HUD,
+                alpha: 0,
+                duration: 1000 // This is the duration of the fade out
+            });
+        }, [], this);
+
         this.dmg = this.sound.add("dmg");
+
         this.catch = this.sound.add("catch");
         this.cameras.main.fadeIn(1000, 0, 0, 0);
         this.bbg = this.add.image(0,0,'bg')
@@ -61,10 +88,10 @@ class MiniGame2 extends Phaser.Scene {
         this.bbg.scaleX = this.bbg.scaleY;
         this.bbg.x = this.sys.game.config.width/2;
         this.bbg.y = this.sys.game.config.height/2;
-        //ADD CONDITION FOR FAKE COINS, IF CLICKED YOU LOSE AND HAVE TO RESTART
+
         this.pointcount = this.add.text(0,0)
             .setStyle({ fontSize: 200, color: '#fff' })
-        this.points = 0;
+        this.points = 9;
         this.health = 4;
         this.sh1 = this.add.image(1800,120,'sh1')
             this.sh1.setScale(0.25)
@@ -268,7 +295,7 @@ class MiniGame2 extends Phaser.Scene {
                     duration: 750,
                     onComplete: () => this.coin12.destroy()
                 })
-                this.dmg.play();
+                this.dmg.play(tuboConfig);
                 this.cameras.main.shake(300)
                 this.health--;
             })
@@ -285,7 +312,7 @@ class MiniGame2 extends Phaser.Scene {
                     duration: 750,
                     onComplete: () => this.coin13.destroy()
                 })
-                this.dmg.play();
+                this.dmg.play(tuboConfig);
                 this.cameras.main.shake(300)
                 this.health--;
             })
@@ -302,7 +329,7 @@ class MiniGame2 extends Phaser.Scene {
                     duration: 750,
                     onComplete: () => this.coin14.destroy()
                 })
-                this.dmg.play();
+                this.dmg.play(tuboConfig);
                 this.cameras.main.shake(300)
                 this.health--;
             })
@@ -319,7 +346,7 @@ class MiniGame2 extends Phaser.Scene {
                     duration: 750,
                     onComplete: () => this.coin15.destroy()
                 })
-                this.dmg.play();
+                this.dmg.play(tuboConfig);
                 this.cameras.main.shake(300)
                 this.health--;
             })
@@ -338,6 +365,7 @@ class MiniGame2 extends Phaser.Scene {
         this.path1(this.coin13);
         this.path1(this.coin14);
         this.path3(this.coin15);
+        
     }
     update(){
         if (this.health == 3) {
@@ -359,12 +387,27 @@ class MiniGame2 extends Phaser.Scene {
         }
         if (this.health == 0) {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () =>this.scene.start('fail'));
+            this.time.delayedCall(1000, () =>this.scene.start('Fail'));
         }
         if (this.points == 10) {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () =>this.scene.start('fail')); //change fail to new next game
+            this.time.delayedCall(1000, () =>this.scene.start('npcScreen')); //change fail to new next game
         }
         this.pointcount.setText(this.points);
+    }
+}
+
+class Fail extends Phaser.Scene {
+    constructor() {
+        super('Fail');
+    }
+    create() {
+        this.cameras.main.fadeIn(1000, 0, 0, 0);
+        this.add.text(960,560, "You failed!").setFontSize(50);
+        this.add.text(960,7600, "Click anywhere to restart.").setFontSize(20);
+        this.input.on('pointerdown', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+            this.time.delayedCall(1000, () => this.scene.start('MiniGame2'));
+        });
     }
 }
