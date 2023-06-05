@@ -9,8 +9,9 @@ class MiniGame1 extends Phaser.Scene {
     }
     create(){
         this.add.image(960,540 , 'background');
-        game1score = 11;
-
+        game1score = 0;
+        this.dmg = this.sound.add("dmg");
+        this.catch = this.sound.add("catch");
         //  player rectangle
         this.player = this.physics.add.image(960, 590, 'app').setScale(1.3).setBounce(.6, .6);
         this.player.body.setCollideWorldBounds(true); 
@@ -110,6 +111,7 @@ class MiniGame1 extends Phaser.Scene {
         this.groupTop.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
+                this.catch.play();
                 game1score++;  // Increment the score
 
                 if (game1score >= 12) {
@@ -128,6 +130,7 @@ class MiniGame1 extends Phaser.Scene {
         this.groupBot.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
+                this.catch.play();
                 game1score++;  // Increment the score
                 if (game1score >= 12) {
                 this.player.body.moves = false;
@@ -145,6 +148,7 @@ class MiniGame1 extends Phaser.Scene {
         this.groupLeft.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
+                this.catch.play();
                 game1score++;  // Increment the score
 
                 if (game1score >= 12) {
@@ -163,6 +167,7 @@ class MiniGame1 extends Phaser.Scene {
         this.groupRight.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
+                this.catch.play();
                 game1score++;  // Increment the score
                 if (game1score >= 12) {
                 this.player.body.moves = false;
@@ -217,7 +222,7 @@ class MiniGame1 extends Phaser.Scene {
             this.player.x = 960;
             this.player.y = 590;
         });
-        
+
         // timer bar        
         this.add.image(game.config.width / 2, game.config.height / 8, "timerBarBackground"); //background bar
         let timer = this.add.sprite(game.config.width / 2, game.config.height / 8, "timerBar");
@@ -232,6 +237,7 @@ class MiniGame1 extends Phaser.Scene {
                 let stepWidth = this.timerMask.displayWidth / gameOptions.initialTime*1;
                 this.timerMask.x -=  stepWidth;
                 if(this.timeLeft <= 0){
+                    this.dmg.play();
                     this.timeLeft = 60;
                     housing = this.score;
                     this.cameras.main.fadeOut(1000, 0, 0, 0)

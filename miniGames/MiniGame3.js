@@ -1,5 +1,5 @@
 let health = 4;
-let points = 7;
+let points = 0;
 
 
 class UI extends Phaser.Scene {
@@ -161,7 +161,7 @@ class MiniGame3 extends Phaser.Scene {
         //
         this.player = this.physics.add.image(100, 540, 'turbo');
         this.player.setCollideWorldBounds(true);
-        this.player.setScale(0.07);
+        this.player.setScale(3);
 
         this.target = new Phaser.Math.Vector2();
         this.input.on('pointerdown', (pointer) =>
@@ -330,7 +330,7 @@ class Fail2 extends Phaser.Scene {
     create() {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
         this.add.text(760,560, "You failed!").setFontSize(50);
-        this.add.text(960,760, "Click anywhere to restart.").setFontSize(20);
+        this.add.text(760,760, "Click anywhere to restart.").setFontSize(20);
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
             this.time.delayedCall(1000, () => this.scene.start('MiniGame3'));

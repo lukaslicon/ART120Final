@@ -91,7 +91,7 @@ class MiniGame2 extends Phaser.Scene {
 
         this.pointcount = this.add.text(0,0)
             .setStyle({ fontSize: 200, color: '#fff' })
-        this.points = 9;
+        this.points = 0;
         this.health = 4;
         this.sh1 = this.add.image(1800,120,'sh1')
             this.sh1.setScale(0.25)
@@ -403,8 +403,8 @@ class Fail extends Phaser.Scene {
     }
     create() {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text(960,560, "You failed!").setFontSize(50);
-        this.add.text(960,7600, "Click anywhere to restart.").setFontSize(20);
+        this.add.text(760,560, "You failed!").setFontSize(50);
+        this.add.text(760,7600, "Click anywhere to restart.").setFontSize(20);
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
             this.time.delayedCall(1000, () => this.scene.start('MiniGame2'));

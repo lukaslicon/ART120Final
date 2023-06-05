@@ -7,12 +7,19 @@ class load extends Phaser.Scene {
         //global images
         this.load.path = 'assets/images/';
         this.load.image("background", "map.png");
-        this.load.image("introScreen", "introScreen.png");
+        this.load.image("introScreen", "preTitleScreen.png");
         this.load.spritesheet('OutroGif', 'spritesheet.png', { frameWidth: 1920, frameHeight: 1082 });
+        this.load.image("titleScreen", "TitleScreen.png");
+        this.load.image('play', 'play.png')
+
+        //logos
+        this.load.image('JLogo', 'logos/JEMStudios.png');
+        this.load.image('LLogo', 'logos/buggyGames.png');
+        this.load.image('MLogo', 'logos/MLogo.png');
 
         //npcScreen
-        this.load.image('player', 'npcScreen/PixelArtCharacter.png');
-        this.load.image('NPC', 'npcScreen/PixelArtNPC.png');
+        this.load.image('player', 'npcScreen/mainCharacter.png');
+        this.load.image('NPC', 'npcScreen/npc.png');
 
         //game1
         this.load.image('app', 'game1/HousingApp.png');
@@ -53,7 +60,7 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('intro');
+        this.scene.start('title');
     }
 }
 

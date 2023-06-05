@@ -1,4 +1,4 @@
 @font-face {
-    font-family: CustomFont;
-    src: url('./Custom-Font.ttf');
+    font-family: pixelfont;
+    src: url('./globalFont.ttf');
 }
