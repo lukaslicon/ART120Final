@@ -6,6 +6,8 @@ class load extends Phaser.Scene {
     {
         //global images
         this.load.path = 'assets/images/';
+        this.load.audio('BGM', 'music/BGM.mp3')
+        this.load.audio('titleMusic', 'music/titleMusic.mp3')
         this.load.image("background", "map.png");
         this.load.image("introScreen", "preTitleScreen.png");
         this.load.spritesheet('OutroGif', 'spritesheet.png', { frameWidth: 1920, frameHeight: 1082 });
@@ -60,10 +62,9 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('title');
+        this.scene.start('intro');
     }
 }
-
     let gameOptions = {
         initialTime: 60
     }

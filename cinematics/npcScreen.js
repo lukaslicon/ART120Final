@@ -70,7 +70,7 @@ class npcScreen extends Phaser.Scene {
             this.time.delayedCall(10000, () => {
                 this.message1.destroy();
                 //fade
-                this.cameras.main.fadeOut(2000);
+                this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('MiniGame1');
                 }, this);
@@ -89,7 +89,7 @@ class npcScreen extends Phaser.Scene {
             this.player.body.moves = false;
             this.time.delayedCall(10000, () => {
                 this.message2.destroy();
-                this.cameras.main.fadeOut(2000);
+                this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('MiniGame2');
                 }, this);
@@ -106,9 +106,9 @@ class npcScreen extends Phaser.Scene {
             }).setOrigin(0.5).setAlpha(1); // set origin to center
 
             this.player.body.moves = false;
-            this.time.delayedCall(3000, () => {
+            this.time.delayedCall(10000, () => {
                 this.message3.destroy();
-                this.cameras.main.fadeOut(1500);
+                this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('MiniGame3');
                 }, this);
@@ -125,9 +125,9 @@ class npcScreen extends Phaser.Scene {
             }).setOrigin(0.5).setAlpha(1); // set origin to center
 
             this.player.body.moves = false;
-            this.time.delayedCall(3000, () => {
+            this.time.delayedCall(10000, () => {
                 this.message4.destroy();
-                this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
+                this.cameras.main.fadeOut(3000, 0, 0, 0, (camera, progress) => {
                     if (progress === 1) {
                         this.scene.start('outro', {}, { alpha: 0, duration: 1000 });
                     }

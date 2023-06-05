@@ -3,6 +3,10 @@ class outro extends Phaser.Scene {
         super('outro');
     }
     create() {
+        this.outroMusic = this.sound.add("titleMusic");
+        this.outroMusic.loop = true;
+        this.outroMusic.play();
+
         let text1 = this.add.text(960, 538, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
             font: "42px Arial", 
             fill: "#ffffff", 
@@ -45,7 +49,7 @@ class outro extends Phaser.Scene {
         let image = this.add.sprite(960, 540, 'OutroGif').setAlpha(0);
         this.fadeInthenOut(image, 2000, 1800, 40000);
         image.play('gifAnimation');
-        
+
         let END = this.add.text(960, 538, "THE END", { 
             font: "96px Arial", 
             fill: "#ffffff", 

@@ -40,7 +40,6 @@ class intro extends Phaser.Scene {
         }).setOrigin(0.5).setAlpha(0); // set origin to center
         this.fadeInthenOut(text3, 4000, 4000, 36000);
 
-
         this.time.delayedCall(42000, function() {
             this.cameras.main.fadeOut(3000);
             this.cameras.main.once('camerafadeoutcomplete', function (camera) {
@@ -94,6 +93,9 @@ class title extends Phaser.Scene {
     create() {
     //fade
     this.fadeInScene();
+    this.titleMusic = this.sound.add("titleMusic");
+    this.titleMusic.loop = true;
+    this.titleMusic.play();
     this.add.image(960, 540, 'titleScreen');
     this.isClicked = false;
     let playButton = this.add.image(960, 740, 'play')
