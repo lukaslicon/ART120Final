@@ -3,6 +3,13 @@ class intro extends Phaser.Scene {
         super('intro');
     }
     create() {
+        this.add.text(960, 538, "The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay.", { 
+            font: "42px Brush Script MT ", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: 800 } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(1); // set origin to center
+
         let Jlogo = this.add.sprite(1260, 640, 'JLogo').setScale(.5);
         Jlogo.alpha = 0;
         this.fadeInthenOut(Jlogo, 3000, 3000, 0);
@@ -17,7 +24,7 @@ class intro extends Phaser.Scene {
         image.alpha = 0;
         this.fadeInthenOut(image, 2000, 2000, 10000);
         let text1 = this.add.text(960, 538, "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world.", { 
-            font: "42px Arial", 
+            font: "42px Press Start 2P", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
@@ -25,7 +32,7 @@ class intro extends Phaser.Scene {
         this.fadeInthenOut(text1, 4000, 4000, 16000);
 
         let text2 = this.add.text(960, 538, "The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay.", { 
-            font: "42px Arial", 
+            font: "42px Press Start 2P", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width
@@ -33,7 +40,7 @@ class intro extends Phaser.Scene {
         this.fadeInthenOut(text2, 4000, 4000, 26000 );
 
         let text3 = this.add.text(960, 538, "The scent of salt air intermingles with the charred remnants of a civilization, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different...", { 
-            font: "42px Arial", 
+            font: "42px Press Start 2P", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: 800 } // wrap words that exceed this width

@@ -8,7 +8,7 @@ class MiniGame1 extends Phaser.Scene {
 
     }
     create(){
-        this.add.image(960,540 , 'background');
+        this.add.image(960,540 , 'game1bg');
         game1score = 0;
         this.dmg = this.sound.add("dmg");
         this.catch = this.sound.add("catch");

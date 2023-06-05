@@ -28,6 +28,7 @@ class load extends Phaser.Scene {
         this.load.image("timerBar", "game1/timerBar.png");
         this.load.image("timerBarBackground", "game1/backgroundbar.png");
         this.load.image("boarder", "game1/boarder.png");
+        this.load.image("game1bg", "game1/game1bg.png");
         this.load.image("side", "game1/sideBoarder.png");
         this.load.image("reset", "game1/reset.png");
         this.load.image("topHouse", "game1/topHouse.png");
@@ -62,7 +63,7 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('MiniGame1');
+        this.scene.start('npcScreen');
     }
 }
     let gameOptions = {
