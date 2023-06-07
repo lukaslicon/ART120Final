@@ -8,35 +8,35 @@ class outro extends Phaser.Scene {
         this.outroMusic.play();
 
         let text1 = this.add.text(this.game.config.width/2, this.game.config.height/2, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
-            font: "42px Arial", 
+            fontFamily: "pmd", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: this.game.config.width * .4166667 } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        }).setOrigin(0.5).setAlpha(0).setFontSize(42); // set origin to center
         this.fadeInthenOut(text1, 4000, 4000, 0);
 
         let text2 = this.add.text(this.game.config.width/2, this.game.config.height/2, " Relief floods through you, a tide of joy that sends every nerve singing. ", { 
-            font: "42px Arial", 
+            fontFamily: "pmd", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: this.game.config.width * .4166667 } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        }).setOrigin(0.5).setAlpha(0).setFontSize(42); // set origin to center
         this.fadeInthenOut(text2, 4000, 4000, 10000);
 
         let text3 = this.add.text(this.game.config.width/2, this.game.config.height/2, "You're back to the place that's yours, that's home, basking in the reassurance of the familiar mountains.", { 
-            font: "42px Arial", 
+            fontFamily: "pmd", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: this.game.config.width * .4166667 } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        }).setOrigin(0.5).setAlpha(0).setFontSize(42); // set origin to center
         this.fadeInthenOut(text3, 4000, 4000, 20000);
 
         let text4 = this.add.text(this.game.config.width/2, this.game.config.height/2, "You hear the soothing lull of the nearby ocean - you're back at the UC Santa Cruz you know and love!", { 
-            font: "42px Arial", 
+            fontFamily: "pmd", 
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: this.game.config.width * .4166667 } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0); // set origin to center
+        }).setOrigin(0.5).setAlpha(0).setFontSize(42); // set origin to center
         this.fadeInthenOut(text4, 4000, 4000, 30000);
         
         //gif
@@ -53,11 +53,11 @@ class outro extends Phaser.Scene {
         image.play('gifAnimation');
 
         let END = this.add.text(this.game.config.width/2, this.game.config.height/2, "THE END", { 
-            font: "96px Arial", 
+            fontFamily: "pmd", 
             fill: "#ffffff", 
             align: "center",
-            wordWrap: { width: 800 } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0); // set origin to center
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
         this.fadeIn(END, 3000, 45800);
     }
     fadeInthenOut(target, time1, time2, delay){
