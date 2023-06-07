@@ -15,7 +15,7 @@ class MiniGame1 extends Phaser.Scene {
         this.dmg = this.sound.add("dmg");
         this.catch = this.sound.add("catch");
         //  player rectangle
-        this.player = this.physics.add.image(this.width/2, this.height/2, 'app').setScale(1.3).setBounce(.6, .6);
+        this.player = this.physics.add.image(this.width/2, this.height/2, 'app').setScale(window.devicePixelRatio*1.3).setBounce(.6, .6);
         this.player.body.setCollideWorldBounds(true); 
         
         this.timeLeft = gameOptions.initialTime;
@@ -179,7 +179,6 @@ class MiniGame1 extends Phaser.Scene {
                     this.scene.start('npcScreen');
                 }, this);;
                 }
-
             }, null, this);
         });             
         this.bottomSide.getChildren().forEach(rectangle => {
