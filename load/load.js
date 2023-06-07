@@ -4,8 +4,6 @@ class load extends Phaser.Scene {
     }
     preload ()
     {
-        //font
-        this.load.text('pmd', 'font.css');
         
         //global images
 
@@ -67,7 +65,7 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('intro');
+        this.scene.start('MiniGame1');
     }
 }
     let gameOptions = {

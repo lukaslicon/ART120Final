@@ -8,12 +8,14 @@ class MiniGame1 extends Phaser.Scene {
 
     }
     create(){
-        this.add.image(960,540 , 'game1bg');
         game1score = 0;
+        this.width = this.game.config.width;
+        this.height = this.game.config.height;
+        this.add.image(this.width/2, this.height/2, 'game1bg');
         this.dmg = this.sound.add("dmg");
         this.catch = this.sound.add("catch");
         //  player rectangle
-        this.player = this.physics.add.image(960, 590, 'app').setScale(1.3).setBounce(.6, .6);
+        this.player = this.physics.add.image(this.width/2, this.height/2, 'app').setScale(1.3).setBounce(.6, .6);
         this.player.body.setCollideWorldBounds(true); 
         
         this.timeLeft = gameOptions.initialTime;
@@ -75,15 +77,15 @@ class MiniGame1 extends Phaser.Scene {
         });
 
         //line placements
-        const topLine = new Phaser.Geom.Line(80, 0, 1980, 0);
-        const bottomLine = new Phaser.Geom.Line(80, 1080, 1980, 1080);
-        const leftLine = new Phaser.Geom.Line(0, 40, 0, 1140);
-        const rightLine = new Phaser.Geom.Line(1920, 40, 1920, 1140);
+        const topLine = new Phaser.Geom.Line(this.width * 0.042, 0, this.width * 1.03125, 0);
+        const bottomLine = new Phaser.Geom.Line(this.width * 0.042, this.height , this.width * 1.03125, this.height);
+        const leftLine = new Phaser.Geom.Line(0, this.height * .037, 0, this.height * 1.05555556);
+        const rightLine = new Phaser.Geom.Line(this.width, this.height * .037, this.width, this.height * 1.056);
         //house placements
-        const topSquare = new Phaser.Geom.Line(150, 0, 1910, 0);
-        const botSquare = new Phaser.Geom.Line(150, 1080, 1910, 1080);
-        const leftSquare = new Phaser.Geom.Line(0, 110, 0, 1210);
-        const rightSquare = new Phaser.Geom.Line(1920, 110, 1920, 1210);
+        const topSquare = new Phaser.Geom.Line(this.width * .078125, 0, this.width * .995, 0);
+        const botSquare = new Phaser.Geom.Line(this.width * .078125, this.height, this.width * .995, this.height);
+        const leftSquare = new Phaser.Geom.Line(0, this.height * .10185185, 0, this.height * 1.12);
+        const rightSquare = new Phaser.Geom.Line(this.width, this.height * .10185185, this.width, this.height * 1.12);
 
         //place houses
         Phaser.Actions.PlaceOnLine(this.groupTop.getChildren(),topSquare);
@@ -98,7 +100,7 @@ class MiniGame1 extends Phaser.Scene {
         Phaser.Actions.PlaceOnLine(this.rightSide.getChildren(),rightLine);           
 
 
-        //invert on click effect
+        //launch on click effect
         this.input.on('pointerdown', (pointer) => {
             if (Phaser.Geom.Rectangle.Contains(this.player.getBounds(), pointer.x, pointer.y)) {
                 const velocityX = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random X velocity
@@ -194,7 +196,7 @@ class MiniGame1 extends Phaser.Scene {
         });           
         
         //game info
-        let housingText = this.add.text(540, 500, 'Quick! Get in 12 housing apps!').setStyle({ fontSize: 50, color: '#fff' })
+        let housingText = this.add.text(this.width * .28125, this.height * .46296, 'Quick! Get in 12 housing apps!').setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
                 targets: housingText,
@@ -203,6 +205,7 @@ class MiniGame1 extends Phaser.Scene {
             });
         }, [], this);
 
+        //HUD
         let HUD = this.add.text(590, 900, 'Click the player to move.').setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(5000, () => {
             this.tweens.add({
@@ -213,19 +216,19 @@ class MiniGame1 extends Phaser.Scene {
         }, [], this);
         //score
         this.add.text(100, 122, 'Score: ').setStyle({ fontSize: 50, color: '#fff' })
-        this.scoreCount = this.add.text(300,126).setStyle({ fontSize: 50, color: '#fff' })
+        this.scoreCount = this.add.text(this.width*.15625 , this.height*.11574).setStyle({ fontSize: 50, color: '#fff' })
 
 
         //reset to middle button
-        let reset = this.add.image(37.5, 1042.5 , 'reset').setInteractive();
+        let reset = this.add.image(this.width*.01953125, this.height*.96527778 , 'reset').setInteractive();
         reset.on('pointerdown', () => {
-            this.player.x = 960;
-            this.player.y = 590;
+            this.player.x = this.width/2;
+            this.player.y = this.height/2;
         });
 
         // timer bar        
-        this.add.image(game.config.width / 2, game.config.height / 8, "timerBarBackground"); //background bar
-        let timer = this.add.sprite(game.config.width / 2, game.config.height / 8, "timerBar");
+        this.add.image(this.width / 2, this.height / 8, "timerBarBackground"); //background bar
+        let timer = this.add.sprite(this.width / 2, this.height / 8, "timerBar");
         this.timerMask = this.add.sprite(timer.x, timer.y, "timerBar");
         this.timerMask.visible = false;
         timer.mask = new Phaser.Display.Masks.BitmapMask(this, this.timerMask);
@@ -251,8 +254,8 @@ class MiniGame1 extends Phaser.Scene {
         });
         
         // timer seconds
-        this.add.text(720, 122, 'Time: ').setStyle({ fontSize: 25, color: '#fff' })
-        this.secondCount = this.add.text(795,122).setStyle({ fontSize: 25, color: '#fff' })
+        this.add.text(this.width*.375, this.height*.11296296, 'Time: ').setStyle({ fontSize: 25, color: '#fff' })
+        this.secondCount = this.add.text(this.width*.4140625, this.height*.112962).setStyle({ fontSize: 25, color: '#fff' })
 
         //fade
         this.fadeInScene();
@@ -282,9 +285,9 @@ class Homeless extends Phaser.Scene {
     }
     create() {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text(560,560, "You failed!").setFontSize(50);
-        this.add.text(660,660, "You are now homeless...").setFontSize(20);
-        this.add.text(760,760, "Click anywhere to continue.").setFontSize(20);
+        this.add.text( this.game.config.width*.2916666667, this.game.config.height*.5185185, "You failed!").setFontSize(50);
+        this.add.text( this.game.config.width* .34375 , this.game.config.height* .6111111, "You are now homeless...").setFontSize(20);
+        this.add.text(this.game.config.width* .39358333 , this.game.config.height* .7037037, "Click anywhere to continue.").setFontSize(20);
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
             this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
