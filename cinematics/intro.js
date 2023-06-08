@@ -14,7 +14,7 @@ class intro extends Phaser.Scene {
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
         //img 1
-        let image = this.add.sprite(this.game.config.width*.5, this.game.config.height*.5, 'introScreen').setScale(window.devicePixelRatio*1);
+        let image = this.add.sprite(this.game.config.width*.5, this.game.config.height*.5, 'introScreen');
         image.alpha = 0;
         this.fadeInthenOut(image, 2000, 2000, 10000);
         let text1 = this.add.text(this.game.config.width*.5, this.game.config.height*.5, "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world.", { 
