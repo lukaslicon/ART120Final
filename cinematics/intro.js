@@ -3,17 +3,18 @@ class intro extends Phaser.Scene {
         super('intro');
     }
     create() {
-        
-        let Jlogo = this.add.sprite(this.game.config.width*.65625, this.game.config.height*59259259, 'JLogo').setScale(window.devicePixelRatio*.5);
+        //logos
+        let Jlogo = this.add.sprite(this.game.config.width*.65625, this.game.config.height*.59259259, 'JLogo').setScale(window.devicePixelRatio*.2);
         Jlogo.alpha = 0;
         this.fadeInthenOut(Jlogo, 3000, 3000, 0);
-        let LLogo = this.add.sprite(this.game.config.width*.34375, this.game.config.width*.59259259, 'LLogo').setScale(window.devicePixelRatio*.5);
+        let LLogo = this.add.sprite(this.game.config.width*.34375, this.game.config.height*.59259259, 'LLogo').setScale(window.devicePixelRatio*.3);
         LLogo.alpha = 0;
         this.fadeInthenOut(LLogo, 3000, 3000, 0);
-        let MLogo = this.add.sprite(this.game.config.width*.5, this.game.config.height*.31481481, 'MLogo').setScale(window.devicePixelRatio*1);
+        let MLogo = this.add.sprite(this.game.config.width*.5, this.game.config.height*.31481481, 'MLogo').setScale(window.devicePixelRatio*.4);
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
-        let image = this.add.sprite(this.game.config.width*.5, this.game.config.height*.5, 'introScreen');
+        //img 1
+        let image = this.add.sprite(this.game.config.width*.5, this.game.config.height*.5, 'introScreen').setScale(window.devicePixelRatio*1);
         image.alpha = 0;
         this.fadeInthenOut(image, 2000, 2000, 10000);
         let text1 = this.add.text(this.game.config.width*.5, this.game.config.height*.5, "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world.", { 
