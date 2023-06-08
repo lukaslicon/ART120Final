@@ -4,13 +4,13 @@ class intro extends Phaser.Scene {
     }
     create() {
         //logos
-        let Jlogo = this.add.sprite(this.game.config.width*.65625, this.game.config.height*.59259259, 'JLogo').setScale(window.devicePixelRatio*.2);
+        let Jlogo = this.add.sprite(this.game.config.width*.65625, this.game.config.height*.59259259, 'JLogo');
         Jlogo.alpha = 0;
         this.fadeInthenOut(Jlogo, 3000, 3000, 0);
-        let LLogo = this.add.sprite(this.game.config.width*.34375, this.game.config.height*.59259259, 'LLogo').setScale(window.devicePixelRatio*.3);
+        let LLogo = this.add.sprite(this.game.config.width*.34375, this.game.config.height*.59259259, 'LLogo');
         LLogo.alpha = 0;
         this.fadeInthenOut(LLogo, 3000, 3000, 0);
-        let MLogo = this.add.sprite(this.game.config.width*.5, this.game.config.height*.31481481, 'MLogo').setScale(window.devicePixelRatio*.4);
+        let MLogo = this.add.sprite(this.game.config.width*.5, this.game.config.height*.31481481, 'MLogo');
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
         //img 1
