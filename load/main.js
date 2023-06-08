@@ -1,4 +1,8 @@
 
+
+'use strict'
+
+
 let config = {
     type:Phaser.AUTO,
     pixelArt: true,
@@ -24,4 +28,4 @@ scene: [load, intro, title, npcScreen, MiniGame1, MiniGame2, MiniGame3, Fail, Fa
 title: "Mini Game Prototype",
 };
 
-let game = new Phaser.Game(config);
+var game = new Phaser.Game(config);
