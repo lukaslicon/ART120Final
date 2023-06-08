@@ -35,18 +35,11 @@ var game = new Phaser.Game(config);
 game.scene.scenes.forEach(function (scene) {
     scene.scale.on('orientationchange', function (orientation) {
         if (orientation === Phaser.Scale.PORTRAIT) {
-            // Code to handle portrait orientation
+            scene.scale.resize(window.innerWidth, window.innerHeight);
         } else if (orientation === Phaser.Scale.LANDSCAPE) {
-            // Code to handle landscape orientation
+            scene.scale.resize(window.innerWidth, window.innerHeight);
         }
     });
 });
 
-// Function to handle fullscreen mode
-function enableFullscreen() {
-    if (game.scale.isFullscreen) {
-        game.scale.stopFullscreen();
-    } else {
-        game.scale.startFullscreen();
-    }
-}
+
