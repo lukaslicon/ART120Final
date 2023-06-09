@@ -1,4 +1,5 @@
-let music = false;
+let musicOnStart = false;
+let musicMute = false;
 class npcScreen extends Phaser.Scene {
     constructor() {
         super('npcScreen')
@@ -9,13 +10,18 @@ class npcScreen extends Phaser.Scene {
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
 
-        if(music == false){
-        music = true;
-        this.backMusic = this.sound.add("BGM");
-        this.backMusic.loop = true;
-        this.backMusic.setVolume(.25);
-        this.backMusic.play();
+        if(musicOnStart == false){ //this is for starting on each scene... do not change this
+            musicOnStart = true; //now music is playing on a loop
+            this.backMusic = this.sound.add("BGM");
+            this.backMusic.loop = true;
+            this.backMusic.setVolume(.25);
+            this.backMusic.play();
         }
+
+        //captioning system
+        this.messageBox = this.add.text(this.gww * 0.75 + this.s, this.gwh * 0.33)
+            .setStyle({ fontSize: `${2 * this.s}px`, color: '#eea' })
+            .setWordWrapWidth(this.w * 0.25 - 2 * this.s);
 
         this.add.image(this.gww/2, this.gwh/2, 'background');
         this.player = this.physics.add.image(this.gww/2, this.gwh*0.55, 'player').setScale(window.devicePixelRatio*3);
@@ -27,24 +33,30 @@ class npcScreen extends Phaser.Scene {
         //collider
         this.physics.add.collider(this.player, this.npc, this.handlePlayerNPCOverlap, null, this);
 
-        //click to move
-        this.input.on('pointerdown', (pointer) => {
-            this.physics.moveTo(this.player, pointer.x, pointer.y, 300);
-            this.targetX = pointer.x;
-            this.targetY = pointer.y;
-        });
-        
-        this.add.image(this.gww * 0.95, this.gwh * 0.075, 'fullscreen')
-        .setInteractive()
-        .on('pointerdown', () => {
-            if (this.scale.isFullscreen) {
-                this.scale.stopFullscreen();
-            } else {
-                this.scale.startFullscreen();
-            }
-        })
-        .setScale(0.5);
+        this.isMoving = false; // Add this line in your create() method
 
+        // Inside the 'pointerdown' event
+        this.input.on('pointerdown', (pointer) => {
+            if (!this.fullscreenButton.getBounds().contains(pointer.x, pointer.y) && !this.musicButton.getBounds().contains(pointer.x, pointer.y)) {
+                this.physics.moveTo(this.player, pointer.x, pointer.y, 300);
+                this.targetX = pointer.x;
+                this.targetY = pointer.y;
+            }
+        });
+
+        this.fullScreenButton();
+        this.musicButton = this.add.image(this.gww/1.03, this.gwh/10, 'fullscreen')
+        .setInteractive({useHandCursor: true})
+        .on('pointerdown', () => {
+            if(musicMute == false){
+                musicMute = true;
+                this.backMusic.stop();
+            }
+            else{
+                musicMute = false;
+                this.backMusic.play();
+            }
+        });
 
         //fade
         this.fadeInScene();
