@@ -4,8 +4,11 @@ class npcScreen extends Phaser.Scene {
         super('npcScreen')
     }
     create() {
+
+        this.s = this.game.config.width * 0.01;
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
+
         if(music == false){
         music = true;
         this.backMusic = this.sound.add("BGM");
@@ -30,7 +33,20 @@ class npcScreen extends Phaser.Scene {
             this.targetX = pointer.x;
             this.targetY = pointer.y;
         });
-        
+
+
+        this.add.text(this.gww/2, this.gwh/2, "📺")
+        .setStyle({ fontSize: `${2 * this.s}px` })
+        .setInteractive({useHandCursor: true})
+        .on('pointerover', () => this.showMessage('Fullscreen?'))
+        .on('pointerdown', () => {
+            if (this.scale.isFullscreen) {
+                this.scale.stopFullscreen();
+            } else {
+                this.scale.startFullscreen();
+            }
+        });
+
         //fade
         this.fadeInScene();
     }
