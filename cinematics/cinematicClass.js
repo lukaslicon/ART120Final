@@ -38,17 +38,19 @@ class Cinematics extends Phaser.Scene {
             }
         });
     }
-muteButton(){
+muteButton(music){
     this.add.image(this.game.config.width/1.03, this.game.config.height/10, 'fullscreen')
     .setInteractive({useHandCursor: true})
     .on('pointerdown', () => {
         if(musicMute == false){
             musicMute = true;
-            this.backMusic.stop();
+            music.pause();
+            this.showMessage("*Music Muted*");
         }
         else{
             musicMute = false;
-            this.backMusic.play();
+            music.resume();
+            this.showMessage("*Music Unmuted*");
         }
     });
 }
@@ -113,7 +115,7 @@ muteButton(){
 
         textBox.fillStyle(0x000000, 0.5);
         textBox.fillRect(textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-        
+
     }
 //NPC collision and bounce based on NPCmessage count
     handlePlayerNPCOverlap(player, npc) {

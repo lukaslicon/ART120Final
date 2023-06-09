@@ -15,8 +15,7 @@ class intro extends Cinematics {
         let MLogo = this.add.sprite(this.game.config.width * .5, this.game.config.height * .31481481, 'MLogo');
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
-//FULLSCREEN
-        this.fullScreenButton();
+
 
         //intro image
         let image = this.add.sprite(this.game.config.width * .5, this.game.config.height * .5, 'introScreen');
@@ -57,6 +56,10 @@ class intro extends Cinematics {
                 this.scene.start('title');
             }, this);
         }, [], this);
+
+    //FULLSCREEN
+        this.fullScreenButton();
+
     }
 }
 
@@ -71,6 +74,8 @@ class title extends Cinematics {
         this.titleMusic.loop = true;
         this.titleMusic.play();
         this.add.image(960, 540, 'titleScreen');
+        this.fullScreenButton();
+        this.muteButton(this.titleMusic);
         this.isClicked = false;
         let playButton = this.add.image(960, 740, 'play')
             .setScale(.8)
