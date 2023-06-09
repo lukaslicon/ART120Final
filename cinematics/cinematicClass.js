@@ -113,7 +113,7 @@ muteButton(){
 
         textBox.fillStyle(0x000000, 0.5);
         textBox.fillRect(textBoxX, textBoxY, textBoxWidth, textBoxHeight);
-
+        
     }
 //NPC collision and bounce based on NPCmessage count
     handlePlayerNPCOverlap(player, npc) {
