@@ -8,7 +8,8 @@ class npcScreen extends Phaser.Scene {
         this.s = this.game.config.width * 0.01;
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
-
+        window.addEventListener("orientationchange", this.handleOrientationChange, false);
+        
         if(music == false){
         music = true;
         this.backMusic = this.sound.add("BGM");
@@ -52,6 +53,17 @@ class npcScreen extends Phaser.Scene {
     update() {
         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, this.targetX, this.targetY) < 10) {
             this.player.body.setVelocity(0);
+        }
+    }
+    handleOrientationChange() {
+        let orientation = window.orientation;
+        // In landscape mode, window.orientation is either -90 or 90
+        if (orientation === -90 || orientation === 90) {
+            this.gww = window.innerWidth;
+            this.gwh = window.innerHeight;
+            // Update your scene here to adapt to new landscape orientation
+        } else {
+            // Handle portrait mode
         }
     }
     fadeInScene() {
