@@ -16,9 +16,8 @@ class intro extends Phaser.Scene {
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
 //FULLSCREEN
-        this.add.text(this.gww/2, this.gwh/2, "📺")
-        .setStyle({ fontSize: `${2 * this.s}px` })
-        .setInteractive({useHandCursor: true})
+        this.add.image(this.gww/2, this.gwh/2, "fullscreen")
+        .setInteractive()
         .on('pointerdown', () => {
             if (this.scale.isFullscreen) {
                 this.scale.stopFullscreen();
