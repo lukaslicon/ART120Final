@@ -67,7 +67,7 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('intro');
+        this.scene.start('npcScreen');
     }
 }
     let gameOptions = {
@@ -78,3 +78,4 @@ housing = 0;
 progress = 0;
 NPCmessage = 0;
 game1score = 0;
+musicMute = false;
