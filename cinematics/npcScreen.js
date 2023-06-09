@@ -33,9 +33,9 @@ class npcScreen extends Phaser.Scene {
             this.targetX = pointer.x;
             this.targetY = pointer.y;
         });
-        this.add.text(this.gww/2, this.gwh/2, "📺")
-        .setStyle({ fontSize: `${2 * this.s}px` })
-        .setInteractive({useHandCursor: true})
+        
+        this.add.image(this.gww/2, this.gwh/1.25, 'fullscreen')
+        .setInteractive()
         .on('pointerdown', () => {
             if (this.scale.isFullscreen) {
                 this.scale.stopFullscreen();

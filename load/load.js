@@ -9,6 +9,7 @@ class load extends Phaser.Scene {
         
         //global images
         this.load.path = 'assets/images/';
+        this.load.image('fullscreen', 'fullscreen.png');
         this.load.audio('BGM', 'music/BGM.mp3')
         this.load.audio('titleMusic', 'music/titleMusic.mp3')
         this.load.image("background", "map.png");
