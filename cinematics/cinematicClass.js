@@ -4,6 +4,11 @@ class Cinematics extends Phaser.Scene {
         this.name = name;
     }
     create(){
+        this.titleMusic = this.sound.add("titleMusic");
+        this.titleMusic.loop = true;
+        this.backMusic = this.sound.add("BGM");
+        this.backMusic.loop = true;
+        this.backMusic.setVolume(.25);
         this.w = this.game.config.width;
         this.h = this.game.config.height;
         this.s = this.game.config.width * 0.01;
@@ -38,22 +43,34 @@ class Cinematics extends Phaser.Scene {
             }
         });
     }
-muteButton(music){
-    this.add.image(this.game.config.width/1.03, this.game.config.height/10, 'fullscreen')
-    .setInteractive({useHandCursor: true})
-    .on('pointerdown', () => {
-        if(musicMute == false){
-            musicMute = true;
-            music.pause();
-            this.showMessage("*Music Muted*");
-        }
-        else{
-            musicMute = false;
-            music.resume();
-            this.showMessage("*Music Unmuted*");
-        }
-    });
-}
+    muteButton(music){
+        this.add.image(this.game.config.width/1.03, this.game.config.height/10, 'fullscreen')
+        .setInteractive({useHandCursor: true})
+        .on('pointerdown', () => {
+            if(musicMute == false){
+                musicMute = true;
+                music.pause();
+                this.showMessage("*Music Muted*");
+            }
+            else{
+                musicMute = false;
+                // Check if the music was ever started
+                if(musicOnStart){
+                    // If the music was started and it's paused, then resume it
+                    music.resume();
+                    this.showMessage("*Music Unmuted*");
+                } else {
+                    // If the music was never started, then play it
+                    musicOnStart = true;
+                    music = this.sound.add("BGM"); 
+                    music.loop = true;
+                    music.setVolume(.25);
+                    music.play();
+                    this.showMessage("*Music Started*");
+                }
+            }
+        });
+    }
 //object
     fadeInthenOut(target, time1, time2, delay) {
         this.tweens.add({

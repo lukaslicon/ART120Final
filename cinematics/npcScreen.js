@@ -8,11 +8,8 @@ class npcScreen extends Cinematics {
         this.s = this.game.config.width * 0.01;
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
-        if(musicOnStart == false){ //this is for starting on each scene... do not change this
-            musicOnStart = true; //now music is playing on a loop
-            this.backMusic = this.sound.add("BGM");
-            this.backMusic.loop = true;
-            this.backMusic.setVolume(.25);
+        if(musicOnStart == false && musicMute == false){ //this is for starting on each scene... do not change this
+            musicOnStart = true; //now music is playing on a loop, we need this so it doesnt start everytime we re-enter the scene
             this.backMusic.play();
         }
         //rectangle behind background
@@ -40,7 +37,7 @@ class npcScreen extends Cinematics {
         //fade
         this.fadeInScene();
         this.fullScreenButton();
-        this.muteButton();
+        this.muteButton(this.backMusic);
     }
     update() {
         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, this.targetX, this.targetY) < 10) {

@@ -70,8 +70,6 @@ class title extends Cinematics {
     onEnter() {
         //fade
         this.fadeInScene();
-        this.titleMusic = this.sound.add("titleMusic");
-        this.titleMusic.loop = true;
         this.titleMusic.play();
         this.add.image(960, 540, 'titleScreen');
         this.fullScreenButton();
