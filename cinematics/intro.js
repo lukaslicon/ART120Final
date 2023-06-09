@@ -5,6 +5,7 @@ class intro extends Phaser.Scene {
 
     create() {
         this.s = this.game.config.width * 0.01;
+
         //logos
         let Jlogo = this.add.sprite(this.game.config.width * .65625, this.game.config.height * .59259259, 'JLogo');
         Jlogo.alpha = 0;
@@ -16,15 +17,7 @@ class intro extends Phaser.Scene {
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
 //FULLSCREEN
-        this.add.image(this.gww/2, this.gwh/2, "fullscreen")
-        .setInteractive()
-        .on('pointerdown', () => {
-            if (this.scale.isFullscreen) {
-                this.scale.stopFullscreen();
-            } else {
-                this.scale.startFullscreen();
-            }
-        });
+        this.fullScreenButton();
 
         //intro image
         let image = this.add.sprite(this.game.config.width * .5, this.game.config.height * .5, 'introScreen');
@@ -66,6 +59,19 @@ class intro extends Phaser.Scene {
             }, this);
         }, [], this);
     }
+
+    fullScreenButton(){
+        this.add.image(this.game.config.width/1.03, this.game.config.height/30, 'fullscreen')
+        .setInteractive()
+        .on('pointerdown', () => {
+            if (this.scale.isFullscreen) {
+                this.scale.stopFullscreen();
+            } else {
+                this.scale.startFullscreen();
+            }
+        });
+    }
+
 
     fadeInthenOut(target, time1, time2, delay) {
         this.tweens.add({

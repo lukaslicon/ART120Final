@@ -1,5 +1,6 @@
 let musicOnStart = false;
 let musicMute = false;
+
 class npcScreen extends Phaser.Scene {
     constructor() {
         super('npcScreen')
@@ -10,12 +11,12 @@ class npcScreen extends Phaser.Scene {
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
 
-        if(musicOnStart == false){ //this is for starting on each scene... do not change this
-            musicOnStart = true; //now music is playing on a loop
-            this.backMusic = this.sound.add("BGM");
-            this.backMusic.loop = true;
-            this.backMusic.setVolume(.25);
-            this.backMusic.play();
+        if(music == false){
+        music = true;
+        this.backMusic = this.sound.add("BGM");
+        this.backMusic.loop = true;
+        this.backMusic.setVolume(.25);
+        this.backMusic.play();
         }
 
         //captioning system
