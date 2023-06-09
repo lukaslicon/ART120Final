@@ -1,8 +1,8 @@
-class outro extends Phaser.Scene {
+class outro extends Cinematics {
     constructor() {
-        super('outro');
+        super('outro', 'outro');
     }
-    create() {
+    onEnter() {
         this.outroMusic = this.sound.add("titleMusic");
         this.outroMusic.loop = true;
         this.outroMusic.play();
@@ -59,42 +59,5 @@ class outro extends Phaser.Scene {
             wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
         this.fadeIn(END, 3000, 45800);
-    }
-    fadeInthenOut(target, time1, time2, delay){
-        this.tweens.add({
-            targets: target,
-            alpha: 1,
-            duration: time1, 
-            delay: delay, 
-            ease: 'Linear',
-            onComplete: () => {
-                this.time.delayedCall(2000, () => {
-                    this.tweens.add({
-                        targets: target,
-                        alpha: 0, 
-                        duration: time2, 
-                        ease: 'Linear'
-                    });
-                });
-            }
-        });
-    }
-    fadeIn(target, time, delay){
-        this.tweens.add({
-            targets: target,
-            alpha: 1,
-            duration: time,
-            delay: delay, 
-            ease: 'Linear',
-        });
-    }
-    fadeOut(target, time, delay){
-        this.tweens.add({
-            targets: target,
-            alpha: 0,
-            duration: time, 
-            delay: delay, 
-            ease: 'Linear',
-        });
     }
 }

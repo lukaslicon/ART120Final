@@ -11,15 +11,14 @@ class npcScreen extends Phaser.Scene {
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
 
-        if(music == false){
-        music = true;
-        this.backMusic = this.sound.add("BGM");
-        this.backMusic.loop = true;
-        this.backMusic.setVolume(.25);
-        this.backMusic.play();
+        if(musicOnStart == false){ //this is for starting on each scene... do not change this
+            musicOnStart = true; //now music is playing on a loop
+            this.backMusic = this.sound.add("BGM");
+            this.backMusic.loop = true;
+            this.backMusic.setVolume(.25);
+            this.backMusic.play();
         }
-
-        //captioning system
+//captioning system
         this.messageBox = this.add.text(this.gww * 0.75 + this.s, this.gwh * 0.33)
             .setStyle({ fontSize: `${2 * this.s}px`, color: '#eea' })
             .setWordWrapWidth(this.w * 0.25 - 2 * this.s);

@@ -1,9 +1,8 @@
-class intro extends Phaser.Scene {
+class intro extends Cinematics {
     constructor() {
-        super('intro');
+        super('intro', 'intro');
     }
-
-    create() {
+    onEnter() {
         this.s = this.game.config.width * 0.01;
 
         //logos
@@ -59,64 +58,13 @@ class intro extends Phaser.Scene {
             }, this);
         }, [], this);
     }
-
-    fullScreenButton(){
-        this.add.image(this.game.config.width/1.03, this.game.config.height/30, 'fullscreen')
-        .setInteractive()
-        .on('pointerdown', () => {
-            if (this.scale.isFullscreen) {
-                this.scale.stopFullscreen();
-            } else {
-                this.scale.startFullscreen();
-            }
-        });
-    }
-
-
-    fadeInthenOut(target, time1, time2, delay) {
-        this.tweens.add({
-            targets: target,
-            alpha: 1,
-            duration: time1,
-            delay: delay,
-            ease: 'Linear',
-            onComplete: () => {
-                this.time.delayedCall(2000, () => {
-                    this.tweens.add({
-                        targets: target,
-                        alpha: 0,
-                        duration: time2,
-                        ease: 'Linear'
-                    });
-                });
-            }
-        });
-    }
-
-    fadeIn(target, time, delay) {
-        this.tweens.add({
-            targets: target,
-            alpha: 1,
-            duration: time,
-            delay: delay, // Delay of 4 seconds (4000 milliseconds) before the tween starts
-            ease: 'Linear',
-        });
-    }
-
-    fadeOut(target, time) {
-        this.tweens.add({
-            targets: target,
-            alpha: 0,
-            duration: time,
-            ease: 'Linear',
-        });
-    }
 }
-class title extends Phaser.Scene {
+
+class title extends Cinematics {
     constructor() {
-        super('title');
+        super('title', 'title');
     }
-    create() {
+    onEnter() {
         //fade
         this.fadeInScene();
         this.titleMusic = this.sound.add("titleMusic");
@@ -145,16 +93,5 @@ class title extends Phaser.Scene {
                 })
             });
     }
-    fadeInScene() {
-        this.cameras.main.setAlpha(0);
-        this.tweens.add({
-            targets: this.cameras.main,
-            alpha: 1,
-            duration: 1000,
-            ease: 'Linear',
-            onComplete: function () {
-                console.log("Fade-in complete");
-            }
-        });
-    }
+
 }

@@ -67,7 +67,7 @@ class load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('npcScreen');
+        this.scene.start('intro');
     }
 }
     let gameOptions = {
