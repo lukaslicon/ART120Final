@@ -4,6 +4,7 @@ class intro extends Phaser.Scene {
     }
 
     create() {
+        this.s = this.game.config.width * 0.01;
         //logos
         let Jlogo = this.add.sprite(this.game.config.width * .65625, this.game.config.height * .59259259, 'JLogo');
         Jlogo.alpha = 0;
