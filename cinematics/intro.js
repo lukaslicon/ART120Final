@@ -76,7 +76,7 @@ class title extends Cinematics {
             .setScale(.8)
             .setInteractive()
             .on('pointerover', () => {
-                playButton.setTint(0x808080); // 0x808080 is the hex color for gray
+                playButton.setTint(0x808080);
             })
             .on('pointerout', () => {
                 if (this.isClicked == false) {
