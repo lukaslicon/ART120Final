@@ -34,7 +34,7 @@ class npcScreen extends Phaser.Scene {
             this.targetY = pointer.y;
         });
         
-        this.add.image(this.gww/2, this.gwh/1.25, 'fullscreen')
+        this.add.image(this.gww * 0.95, this.gwh * 0.075, 'fullscreen')
         .setInteractive()
         .on('pointerdown', () => {
             if (this.scale.isFullscreen) {
@@ -42,7 +42,8 @@ class npcScreen extends Phaser.Scene {
             } else {
                 this.scale.startFullscreen();
             }
-        });
+        })
+        .setScale(0.5);
 
 
         //fade
@@ -67,8 +68,31 @@ class npcScreen extends Phaser.Scene {
           }
         });
       }
+    textBox(){
+        const textBox = this.add.graphics();
+        const textBoxWidth = this.gww * 0.75;
+        const textBoxHeight = this.gwh * 0.25;
+        const textBoxX = this.gww * 0.5 - textBoxWidth * 0.5;
+        const textBoxY = this.gwh * 0.85 - textBoxHeight * 0.5;
+
+        textBox.fillStyle(0x000000, 0.5);
+        textBox.fillRect(textBoxX, textBoxY, textBoxWidth, textBoxHeight);
+        
+    }
     //NPC collision and bounce based on NPCmessage count
     handlePlayerNPCOverlap(player, npc) {
+        const textBoxWidth = this.gww * 0.75;
+        const textBoxHeight = this.gwh * 0.25;
+        const textBoxX = this.gww * 0.5 - textBoxWidth * 0.5;
+        const textBoxY = this.gwh * 0.85 - textBoxHeight * 0.5;
+
+        const textConfig = {
+            fontFamily: "pmd",
+            fill: "#ffffff",
+            align: "center",
+            wordWrap: { width: textBoxWidth * 0.9 },
+        };
+
         NPCmessage++;
         this.player.body.setVelocity(0);
         const bounceDirection = Phaser.Math.Angle.Between(npc.x, npc.y, player.x, player.y);
@@ -79,14 +103,16 @@ class npcScreen extends Phaser.Scene {
             x: player.x + Math.cos(bounceDirection) * 80, // Adjust these values to control the bounce back distance
             y: player.y + Math.sin(bounceDirection) * 80,
         });
+
         //first game
         if(NPCmessage == 1){
-            this.message1 = this.add.text(this.gww*0.46875, this.gwh*0.7222, "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse.", { 
-                fontFamily: "pmd",
-                fill: "#ffffff", 
-                align: "center",
-                wordWrap: {  width: this.game.config.width * .3125 } // wrap words that exceed this width
-            }).setOrigin(0.5).setAlpha(1).setFontSize(42); // set origin to center
+            this.textBox();
+            let storymessage1 = "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse."
+            this.message1 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage1, textConfig)
+            .setOrigin(0.5)
+            .setAlpha(1)
+            .setFontSize(64);
+
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
                 this.message1.destroy();
@@ -97,15 +123,15 @@ class npcScreen extends Phaser.Scene {
                 }, this);
             }, [], this);
         }
+
         //second game
         if(NPCmessage == 2){
+            this.textBox();
             let storymessage2 = "Then came the ghost slugs, appearing from nowhere, taking over everything. We needed exterminators, but there were too few, too late. It was a strange, slimy apocalypse.";
-            this.message2 = this.add.text(this.gww*0.46875, this.gwh*0.7222, storymessage2, { 
-                fontFamily: "pmd", 
-                fill: "#ffffff", 
-                align: "center",
-                wordWrap: {  width: this.game.config.width * .3125 } // wrap words that exceed this width
-            }).setOrigin(0.5).setAlpha(1).setFontSize(42); // set origin to center
+            this.message2 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage2, textConfig)
+            .setOrigin(0.5)
+            .setAlpha(1)
+            .setFontSize(64);
 
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
@@ -116,15 +142,15 @@ class npcScreen extends Phaser.Scene {
                 }, this);
             }, [], this);
         }
+
         //third game
         if(NPCmessage == 3){
+            this.textBox();
             let storymessage3 = "Our once thriving land began to suffocate under toxic waste, the environment decayed, and we scrambled to save what was left. The animals, the fish, their survival hung by a thread. It was a desperate race against the clock."
-            this.message3 = this.add.text(this.gww*0.46875, this.gwh*0.7222, storymessage3, { 
-                fontFamily: "pmd",  
-                fill: "#ffffff", 
-                align: "center",
-                wordWrap: { width: this.game.config.width * .3125  } // wrap words that exceed this width
-            }).setOrigin(0.5).setAlpha(1).setFontSize(42); // set origin to center
+            this.message3 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage3, textConfig)
+            .setOrigin(0.5)
+            .setAlpha(1)
+            .setFontSize(64);
 
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
@@ -135,15 +161,14 @@ class npcScreen extends Phaser.Scene {
                 }, this);
             }, [], this);
         }
+
         //outro
         if (NPCmessage == 4) {
             let storymessage4 = "You've heard my tales, seen the horrors that await. I believe you can make a difference, maybe even prevent this. Here, take this portal back to your world, learn from our future, and change yours.";
-            this.message4 = this.add.text(this.gww*0.46875, this.gwh*0.7222, storymessage4, { 
-                font: "pmd", 
-                fill: "#ffffff", 
-                align: "center",
-                wordWrap: { width: this.game.config.width * .3125 } // wrap words that exceed this width
-            }).setOrigin(0.5).setAlpha(1).setFontSize(42); // set origin to center
+            this.message4 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage4, textConfig)
+            .setOrigin(0.5)
+            .setAlpha(1)
+            .setFontSize(64);
 
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
