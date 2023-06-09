@@ -14,7 +14,7 @@ class intro extends Phaser.Scene {
         let MLogo = this.add.sprite(this.game.config.width * .5, this.game.config.height * .31481481, 'MLogo');
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
-
+//FULLSCREEN
         this.add.text(this.gww/2, this.gwh/2, "📺")
         .setStyle({ fontSize: `${2 * this.s}px` })
         .setInteractive({useHandCursor: true})
