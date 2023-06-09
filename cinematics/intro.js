@@ -15,6 +15,18 @@ class intro extends Phaser.Scene {
         MLogo.alpha = 0;
         this.fadeInthenOut(MLogo, 3000, 3000, 0);
 
+        this.add.text(this.gww/2, this.gwh/2, "📺")
+        .setStyle({ fontSize: `${2 * this.s}px` })
+        .setInteractive({useHandCursor: true})
+        .on('pointerover', () => this.showMessage('Fullscreen?'))
+        .on('pointerdown', () => {
+            if (this.scale.isFullscreen) {
+                this.scale.stopFullscreen();
+            } else {
+                this.scale.startFullscreen();
+            }
+        });
+
         //intro image
         let image = this.add.sprite(this.game.config.width * .5, this.game.config.height * .5, 'introScreen');
         image.alpha = 0;
