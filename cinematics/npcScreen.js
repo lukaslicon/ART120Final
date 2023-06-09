@@ -18,10 +18,6 @@ class npcScreen extends Phaser.Scene {
             this.backMusic.setVolume(.25);
             this.backMusic.play();
         }
-//captioning system
-        this.messageBox = this.add.text(this.gww * 0.75 + this.s, this.gwh * 0.33)
-            .setStyle({ fontSize: `${2 * this.s}px`, color: '#eea' })
-            .setWordWrapWidth(this.w * 0.25 - 2 * this.s);
 
         this.add.image(this.gww/2, this.gwh/2, 'background');
         this.player = this.physics.add.image(this.gww/2, this.gwh*0.55, 'player').setScale(window.devicePixelRatio*3);
