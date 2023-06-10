@@ -1,13 +1,13 @@
 
 playerVelocity = 2500;
 
-class MiniGame1 extends Phaser.Scene {
+class MiniGame1 extends MiniGameClass {
     constructor() {
-        super('MiniGame1')
+        super('MiniGame1', 'MiniGame1')
         this.shadedRectangle = null; // Reference to the currently shaded rectangle
 
     }
-    create(){
+    onEnter(){
         game1score = 0;
         this.width = this.game.config.width;
         this.height = this.game.config.height;
