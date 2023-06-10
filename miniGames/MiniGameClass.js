@@ -70,7 +70,7 @@ class MiniGameClass extends Phaser.Scene {
         });
     }
 //object
-    fadeInthenOut(target, time1, time2, delay) {
+    fadeInthenOutObj(target, time1, time2, delay) {
         this.tweens.add({
             targets: target,
             alpha: 1,
@@ -90,7 +90,7 @@ class MiniGameClass extends Phaser.Scene {
         });
     }
 //object
-    fadeIn(target, time, delay) {
+    fadeInObj(target, time, delay) {
         this.tweens.add({
             targets: target,
             alpha: 1,
@@ -100,7 +100,7 @@ class MiniGameClass extends Phaser.Scene {
         });
     }
 //object
-    fadeOut(target, time) {
+    fadeOutObj(target, time) {
         this.tweens.add({
             targets: target,
             alpha: 0,
@@ -108,7 +108,7 @@ class MiniGameClass extends Phaser.Scene {
             ease: 'Linear',
         });
     }
-//scene
+    //scene
     fadeInScene() {
         this.cameras.main.setAlpha(0);
         this.tweens.add({
@@ -121,8 +121,26 @@ class MiniGameClass extends Phaser.Scene {
             }
         });
     }
+//adds score counter to game (update with this.scoreCount in update)
+    addScore(textX, textY, text, fontSize, scoreX, scoreY){
+        //score
+        this.add.text(textX, textY, text).setStyle({ 
+            fontFamily: "pmd",
+            fontSize: fontSize,
+            fill: "#ffffff",
+            align: "center",
+        });
+        this.scoreCount = this.add.text(scoreX, scoreY).setStyle({ 
+            fontFamily: "pmd",
+            fontSize: fontSize,
+            fill: "#ffffff",
+            align: "center",
+        });
+    }
+
+            
 //warning on create
     onEnter() {
-        console.warn('This Cinematics did not implement onEnter():', this.constructor.name);
+        console.warn('This MiniGameClass did not implement onEnter():', this.constructor.name);
     }
 }

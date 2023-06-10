@@ -78,8 +78,8 @@ class Load extends Phaser.Scene {
         initialTime: 60
     }
 
-housing = 0;
+housing = false;
 progress = 0;
 NPCmessage = 0;
-game1score = 0;
+game1score = 11;
 musicMute = false;
