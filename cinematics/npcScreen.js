@@ -1,4 +1,3 @@
-import * as Tone from 'tone';
 let musicOnStart = false;
 
 class npcScreen extends Cinematics {
@@ -41,23 +40,22 @@ class npcScreen extends Cinematics {
         });
 
         //background wind noise from tone.js
-        const wind = new Tone.Noise('pink');
-        const noiseVol = new Tone.Volume(-20);
-        wind.chain(noiseVolume, Tone.Destination);
+        const wind = new Tone.Noise('brown');
+        // const autoFilter = new Tone.AutoFilter({
+        //     baseFrequency: 200,
+        //     octaves: 8
+        // }).toDestination().start();
+        // wind.connect(autoFilter);
 
-        let loop = new Tone.loop(() => {
-            //randomize wind noise
-            // noiseVol.volume.value = Math.random() * -5;
+        const noiseVol = new Tone.Volume(-50);
+        wind.chain(noiseVol, Tone.Destination);
+
+        let loop = new Tone.Loop(() =>{
+            noiseVol.volume.value = Math.random() *-5;
 
             wind.start();
-            wind.stop('+2');
+            wind.stop('+4');
         }, '4n');
-
-        this.scene.events.on('shutdown', () => {
-            loop.stop();
-            Tone.Transport.stop();
-          });
-        
 
         //fade
         this.fadeInScene();
