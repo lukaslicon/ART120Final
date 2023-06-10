@@ -29,6 +29,10 @@ class npcScreen extends Cinematics {
         // Inside the 'pointerdown' event
         this.input.on('pointerdown', (pointer) => {
             if (!rect.contains(pointer.x, pointer.y)) {
+                if (!this.isMoving) {
+                    this.isMoving = true;
+                    this.showMessage('*Moving*');
+                }
                 this.physics.moveTo(this.player, pointer.x, pointer.y, 300);
                 this.targetX = pointer.x;
                 this.targetY = pointer.y;
@@ -42,6 +46,14 @@ class npcScreen extends Cinematics {
     update() {
         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, this.targetX, this.targetY) < 10) {
             this.player.body.setVelocity(0);
+        }
+
+        if (Phaser.Math.Distance.Between(this.player.x, this.player.y, this.targetX, this.targetY) < 10) {
+            this.player.body.setVelocity(0);
+            if (this.isMoving) {
+                this.isMoving = false;
+                this.showMessage('*Stopped*');
+            }
         }
     }
 }
