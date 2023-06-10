@@ -8,7 +8,6 @@ class MiniGame1 extends MiniGameClass {
 
     }
     onEnter(){
-        game1score = 0;
         this.width = this.game.config.width;
         this.height = this.game.config.height;
         this.add.image(this.width/2, this.height/2, 'game1bg');
@@ -99,21 +98,22 @@ class MiniGame1 extends MiniGameClass {
         Phaser.Actions.PlaceOnLine(this.leftSide.getChildren(),leftLine);  
         Phaser.Actions.PlaceOnLine(this.rightSide.getChildren(),rightLine);           
 
-
         //launch on click effect
         this.input.on('pointerdown', (pointer) => {
             if (Phaser.Geom.Rectangle.Contains(this.player.getBounds(), pointer.x, pointer.y)) {
+                this.showMessage("*LAUNCH*");
                 const velocityX = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random X velocity
                 const velocityY = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random Y velocity
                 this.player.setVelocity(velocityX, velocityY);
             }
         });
+
 //collisions for each group
         //TOP COLLISIONS
         this.groupTop.getChildren().forEach(rectangle => {
             this.physics.add.collider(this.player, rectangle, (player, rectangle) => {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
-                this.catch.play();
+                this.catch.play(); //
                 game1score++;  // Increment the score
 
                 if (game1score >= 12) {
@@ -121,7 +121,7 @@ class MiniGame1 extends MiniGameClass {
                 //fade
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('npcScreen');
+                    this.scene.start('Housing');
                 }, this);
                 }
 
@@ -139,7 +139,7 @@ class MiniGame1 extends MiniGameClass {
                 //fade
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('npcScreen');
+                    this.scene.start('Housing');
                 }, this);
                 }
 
@@ -158,7 +158,7 @@ class MiniGame1 extends MiniGameClass {
                 //fade
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('npcScreen');
+                    this.scene.start('Housing');
                 }, this);
                 }
 
@@ -176,7 +176,7 @@ class MiniGame1 extends MiniGameClass {
                 //fade
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('npcScreen');
+                    this.scene.start('Housing');
                 }, this);;
                 }
             }, null, this);
@@ -213,9 +213,7 @@ class MiniGame1 extends MiniGameClass {
                 duration: 1000 // This is the duration of the fade out
             });
         }, [], this);
-        //score
-        this.add.text(100, 122, 'Score: ').setStyle({ fontSize: 50, color: '#fff' })
-        this.scoreCount = this.add.text(this.width*.15625 , this.height*.11574).setStyle({ fontSize: 50, color: '#fff' })
+
 
 
         //reset to middle button
@@ -253,28 +251,28 @@ class MiniGame1 extends MiniGameClass {
         });
         
         // timer seconds
-        this.add.text(this.width*.375, this.height*.11296296, 'Time: ').setStyle({ fontSize: 25, color: '#fff' })
-        this.secondCount = this.add.text(this.width*.4140625, this.height*.112962).setStyle({ fontSize: 25, color: '#fff' })
+        this.add.text(this.width*.375, this.height*.105, 'Time: ').setStyle(({ 
+            fontFamily: "pmd",
+            fontSize: 36,
+            fill: "#ffffff",
+            align: "center",
+        }))
+        this.secondCount = this.add.text(this.width*.41, this.height*.106).setStyle(({ 
+            fontFamily: "pmd",
+            fontSize: 36,
+            fill: "#ffffff",
+            align: "center",
+        }))
 
-        //fade
+        //functions
         this.fadeInScene();
-
+        this.muteButton();
+        this.fullScreenButton();
+        this.addScore(100, 122, 'Score: ', 96, this.width*.15625 , this.height*.11574);
     }
     update(){
         this.scoreCount.setText(game1score);
         this.secondCount.setText(this.timeLeft);
-    }
-    fadeInScene(){
-        this.cameras.main.setAlpha(0);
-        this.tweens.add({
-            targets: this.cameras.main,
-            alpha: 1,
-            duration: 1000,
-            ease: 'Linear', 
-            onComplete: function() {
-            console.log("Fade-in complete");
-            }
-        });
     }
 }
 
@@ -283,6 +281,7 @@ class Homeless extends Phaser.Scene {
         super('Homeless');
     }
     create() {
+        housing = false;
         this.cameras.main.fadeIn(1000, 0, 0, 0);
         this.add.text( this.game.config.width*.2916666667, this.game.config.height*.5185185, "You failed!").setFontSize(50);
         this.add.text( this.game.config.width* .34375 , this.game.config.height* .6111111, "You are now homeless...").setFontSize(20);
@@ -293,4 +292,22 @@ class Homeless extends Phaser.Scene {
         });
     }
 }
+
+class Housing extends Phaser.Scene {
+    constructor() {
+        super('Housing');
+    }
+    create() {
+        housing = true;
+        this.cameras.main.fadeIn(1000, 0, 0, 0);
+        this.add.text( this.game.config.width*.4, this.game.config.height*.5185185, "You found housing!").setFontSize(50);
+        this.add.text( this.game.config.width* .4 , this.game.config.height* .6111111, "Congratulations!").setFontSize(20);
+        this.add.text(this.game.config.width* .4 , this.game.config.height* .7037037, "Click anywhere to continue.").setFontSize(20);
+        this.input.on('pointerdown', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
+        });
+    }
+}
+
     
