@@ -8,16 +8,16 @@ class MiniGame1 extends MiniGameClass {
 
     }
     onEnter(){
+        //config
         this.width = this.game.config.width;
         this.height = this.game.config.height;
+        //background
         this.add.image(this.width/2, this.height/2, 'game1bg');
-        this.dmg = this.sound.add("dmg");
-        this.catch = this.sound.add("catch");
         //  player rectangle
         this.player = this.physics.add.image(this.width/2, this.height/2, 'app').setScale(window.devicePixelRatio*1.3).setBounce(.6, .6);
         this.player.body.setCollideWorldBounds(true); 
-        
-        this.timeLeft = gameOptions.initialTime;
+        //timer
+
         
 //boundaries/goals
         //top
@@ -223,33 +223,6 @@ class MiniGame1 extends MiniGameClass {
             this.player.y = this.height/2;
         });
 
-        // timer bar        
-        this.add.image(this.width / 2, this.height / 8, "timerBarBackground"); //background bar
-        let timer = this.add.sprite(this.width / 2, this.height / 8, "timerBar");
-        this.timerMask = this.add.sprite(timer.x, timer.y, "timerBar");
-        this.timerMask.visible = false;
-        timer.mask = new Phaser.Display.Masks.BitmapMask(this, this.timerMask);
-        this.gameTimer = this.time.addEvent({
-            delay: 1000,
-            callback: function(){
-                this.timeLeft = this.timeLeft - 1;
-                //bar width divided by the number of seconds moves bar
-                let stepWidth = this.timerMask.displayWidth / gameOptions.initialTime*1;
-                this.timerMask.x -=  stepWidth;
-                if(this.timeLeft <= 0){
-                    this.dmg.play();
-                    this.timeLeft = 60;
-                    housing = this.score;
-                    this.cameras.main.fadeOut(1000, 0, 0, 0)
-                    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
-                        this.scene.start('Homeless', {}, { alpha: 0, duration: 1000 });
-                    })
-                }
-            },
-            callbackScope: this,
-            loop: true
-        });
-        
         // timer seconds
         this.add.text(this.width*.375, this.height*.105, 'Time: ').setStyle(({ 
             fontFamily: "pmd",
@@ -269,6 +242,7 @@ class MiniGame1 extends MiniGameClass {
         this.muteButton();
         this.fullScreenButton();
         this.addScore(100, 122, 'Score: ', 96, this.width*.15625 , this.height*.11574);
+        this.addTimerBar(this.width / 2, this.height / 8, this.width*.375, this.height*.105,this.width*.41, this.height*.106);
     }
     update(){
         this.scoreCount.setText(game1score);

@@ -4,6 +4,9 @@ class MiniGameClass extends Phaser.Scene {
         this.name = name;
     }
     create(){
+        //sound
+        this.dmg = this.sound.add("dmg");
+        this.catch = this.sound.add("catch");
         this.backMusic = this.sound.add("BGM");
         this.backMusic.loop = true;
         this.backMusic.setVolume(.25);
@@ -136,6 +139,50 @@ class MiniGameClass extends Phaser.Scene {
             fill: "#ffffff",
             align: "center",
         });
+    }
+
+    addTimerBar(barX, barY, timeX, timeY, secondsX, secondsY){
+        this.timeLeft = gameOptions.initialTime;
+        // timer bar        
+        this.add.image(barX, barY, "timerBarBackground"); //background bar
+        let timer = this.add.sprite(barX, barY, "timerBar");
+        this.timerMask = this.add.sprite(timer.x, timer.y, "timerBar");
+        this.timerMask.visible = false;
+        timer.mask = new Phaser.Display.Masks.BitmapMask(this, this.timerMask);
+        this.gameTimer = this.time.addEvent({
+            delay: 1000,
+            callback: function(){
+                this.timeLeft = this.timeLeft - 1;
+                //bar width divided by the number of seconds moves bar
+                let stepWidth = this.timerMask.displayWidth / gameOptions.initialTime*1;
+                this.timerMask.x -=  stepWidth;
+                if(this.timeLeft <= 0){
+                    this.dmg.play();
+                    this.timeLeft = 60;
+                    housing = this.score;
+                    this.cameras.main.fadeOut(1000, 0, 0, 0)
+                    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+                        this.scene.start('Homeless', {}, { alpha: 0, duration: 1000 });
+                    })
+                }
+            },
+            callbackScope: this,
+            loop: true
+        });
+        
+        // timer seconds
+        this.add.text(timeX, timeY, 'Time: ').setStyle(({ 
+            fontFamily: "pmd",
+            fontSize: 36,
+            fill: "#ffffff",
+            align: "center",
+        }))
+        this.secondCount = this.add.text(secondsX, secondsY).setStyle(({ 
+            fontFamily: "pmd",
+            fontSize: 36,
+            fill: "#ffffff",
+            align: "center",
+        }))
     }
 
             
