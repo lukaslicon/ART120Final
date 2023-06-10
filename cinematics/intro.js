@@ -1,3 +1,4 @@
+
 class Intro extends Cinematics {
     constructor() {
         super('intro', 'intro');
