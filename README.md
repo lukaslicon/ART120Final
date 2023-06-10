@@ -15,7 +15,7 @@ Our team tackled this idea quite literally, with the player being sent forward i
 - **Akhror:**
 
 - **Jentsen:**
-**Asset Credits:**
+- **Asset Credits:**
 Tileset for NPC Screen: https://clockworkraven.itch.io/raven-fantasy-pixel-art-tileset-green-forest
 
 Font: https://www.dafont.com/pkmn-mystery-dungeon.font

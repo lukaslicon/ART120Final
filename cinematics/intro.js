@@ -85,6 +85,7 @@ class TextIntro extends Cinematics {
 
         //FULLSCREEN
         this.fullScreenButton();
+
     }
 }
 

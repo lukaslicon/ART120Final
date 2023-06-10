@@ -18,11 +18,11 @@ let config = {
                 x: 0,
                 y: 0
             },
-            debug: false,
+            debug: true,
             debugShowVelocity: false
         }
     },
-    scene: [Load, Intro, Title, TextIntro, npcScreen, MiniGame1, MiniGame2, MiniGame3, Fail, Fail2, outro, UI, Homeless],
+    scene: [Load, Intro, Title, TextIntro, npcScreen, MiniGame1, MiniGame2, MiniGame3, Fail, Fail2, outro, UI, Homeless, Housing],
     title: "Mini Game Prototype",
     scaleMode: Phaser.Scale.ScaleModes.RESIZE,
     autoRound: true,
