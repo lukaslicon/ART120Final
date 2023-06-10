@@ -142,6 +142,7 @@ class Cinematics extends Phaser.Scene {
         const textBoxY = this.gwh * 0.85 - textBoxHeight * 0.5;
         const textConfig = {
             fontFamily: "pmd",
+            fontSize: 64,
             fill: "#ffffff",
             align: "center",
             wordWrap: { width: textBoxWidth * 0.9 },
@@ -163,8 +164,7 @@ class Cinematics extends Phaser.Scene {
             let storymessage1 = "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse."
             this.message1 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage1, textConfig)
             .setOrigin(0.5)
-            .setAlpha(1)
-            .setFontSize(64);
+            .setAlpha(1);
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
                 this.message1.destroy();
@@ -181,8 +181,7 @@ class Cinematics extends Phaser.Scene {
             let storymessage2 = "Then came the ghost slugs, appearing from nowhere, taking over everything. We needed exterminators, but there were too few, too late. It was a strange, slimy apocalypse.";
             this.message2 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage2, textConfig)
             .setOrigin(0.5)
-            .setAlpha(1)
-            .setFontSize(64);
+            .setAlpha(1);
 
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
@@ -199,8 +198,8 @@ class Cinematics extends Phaser.Scene {
             let storymessage3 = "Our once thriving land began to suffocate under toxic waste, the environment decayed, and we scrambled to save what was left. The animals, the fish, their survival hung by a thread. It was a desperate race against the clock."
             this.message3 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage3, textConfig)
             .setOrigin(0.5)
-            .setAlpha(1)
-            .setFontSize(64);
+            .setAlpha(1);
+
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
                 this.message3.destroy();
@@ -215,9 +214,8 @@ class Cinematics extends Phaser.Scene {
             let storymessage4 = "You've heard my tales, seen the horrors that await. I believe you can make a difference, maybe even prevent this. Here, take this portal back to your world, learn from our future, and change yours.";
             this.message4 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage4, textConfig)
             .setOrigin(0.5)
-            .setAlpha(1)
-            .setFontSize(64);
-
+            .setAlpha(1);
+            
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
                 this.message4.destroy();

@@ -1,4 +1,4 @@
-class intro extends Cinematics {
+class Intro extends Cinematics {
     constructor() {
         super('intro', 'intro');
     }
@@ -22,8 +22,33 @@ class intro extends Cinematics {
         image.alpha = 0;
         this.fadeInthenOut(image, 2000, 2000, 10000);
 
+
+        this.time.delayedCall(16000, function () {
+            this.cameras.main.fadeOut(3000);
+            this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                this.scene.start('text');
+            }, this);
+        }, [], this);
+
+        //FULLSCREEN
+        this.fullScreenButton();
+    }
+}
+class TextIntro extends Cinematics {
+    constructor() {
+        super('text', 'text');
+    }
+    onEnter() {
+        //portal shader
+        const portal = this.add.shader('Tunnel', 0, 0, this.game.config.width, this.game.config.height, ['portal'])
+            .setDepth(0)
+            .setOrigin(0)
+            .setAlpha(0);
+        this.fadeIn(portal, 4000, 0);
+
         const textConfig = {
             fontFamily: "pmd",
+            fontSize: "64px",
             fill: "#ffffff",
             align: "center",
             wordWrap: { width: this.game.config.width * .4166667 } // wrap words that exceed this width
@@ -32,23 +57,23 @@ class intro extends Cinematics {
         let text1 = this.add.text(this.game.config.width * .5, this.game.config.height * .5, "As the last vibrations of the portal die away, you find yourself standing amidst a crumbled, apocalypse-ravaged world.", textConfig)
             .setOrigin(0.5)
             .setAlpha(0)
-            .setFontSize(64)
+            .setDepth(1)
             .setInteractive();
-        this.fadeInthenOut(text1, 4000, 4000, 16000);
+        this.fadeInthenOut(text1, 4000, 4000, 5000);
 
         let text2 = this.add.text(this.game.config.width * .5, this.game.config.height * .5, "The quiet whispers of the mountains echo around you, their familiar yet alien outlines resembling a life once known, now bathed in the uneasy stillness of decay.", textConfig)
             .setOrigin(0.5)
             .setAlpha(0)
-            .setFontSize(64)
+            .setDepth(1)
             .setInteractive();
-        this.fadeInthenOut(text2, 4000, 4000, 26000);
+        this.fadeInthenOut(text2, 4000, 4000, 15000);
 
         let text3 = this.add.text(this.game.config.width * .5, this.game.config.height * .5, "The scent of salt air intermingles with the charred remnants of a civilization, a stark reminder of a time and place akin to UC Santa Cruz, yet profoundly different...", textConfig)
             .setOrigin(0.5)
             .setAlpha(0)
-            .setFontSize(64)
+            .setDepth(1)
             .setInteractive();
-        this.fadeInthenOut(text3, 4000, 4000, 36000);
+        this.fadeInthenOut(text3, 4000, 4000, 25000);
 
         this.time.delayedCall(42000, function () {
             this.cameras.main.fadeOut(3000);
@@ -57,13 +82,12 @@ class intro extends Cinematics {
             }, this);
         }, [], this);
 
-    //FULLSCREEN
+        //FULLSCREEN
         this.fullScreenButton();
-
     }
 }
 
-class title extends Cinematics {
+class Title extends Cinematics {
     constructor() {
         super('title', 'title');
     }

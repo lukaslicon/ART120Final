@@ -1,4 +1,4 @@
-class load extends Phaser.Scene {
+class Load extends Phaser.Scene {
     constructor(){
         super('load');
     }
@@ -6,6 +6,10 @@ class load extends Phaser.Scene {
     {
         //font
         this.load.text('pmd', 'font.css');
+        
+        //shaders
+        this.load.glsl('bundle', 'assets/shaders/bundle.glsl.js');
+        this.load.image('portal', 'assets/images/portal.png')
         
         //global images
         this.load.path = 'assets/images/';
