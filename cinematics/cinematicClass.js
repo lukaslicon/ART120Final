@@ -9,11 +9,10 @@ class Cinematics extends Phaser.Scene {
         this.backMusic = this.sound.add("BGM");
         this.backMusic.loop = true;
         this.backMusic.setVolume(.25);
-        this.w = this.game.config.width;
-        this.h = this.game.config.height;
+
         this.s = this.game.config.width * 0.01;
 
-        this.messageBox = this.add.text(this.w * 0.75 + this.s, this.h * 0.33)
+        this.messageBox = this.add.text(this.game.config.width * .455,  this.game.config.height * 0.68)
         .setStyle({ fontSize: `${2 * this.s}px`, color: '#eea' })
         .setWordWrapWidth(this.w * 0.25 - 2 * this.s);
 
@@ -22,6 +21,7 @@ class Cinematics extends Phaser.Scene {
 //captioning
     showMessage(message) {
         this.messageBox.setText(message);
+        this.messageBox.setDepth(1); 
         this.tweens.add({
             targets: this.messageBox,
             alpha: { from: 1, to: 0 },
@@ -152,7 +152,7 @@ class Cinematics extends Phaser.Scene {
         const bounceDirection = Phaser.Math.Angle.Between(npc.x, npc.y, player.x, player.y);
         this.tweens.add({
             targets: player,
-            duration: 400, // The duration of the bounce back in milliseconds
+            duration: 400, 
             ease: 'Power1',
             x: player.x + Math.cos(bounceDirection) * 80, // Adjust these values to control the bounce back distance
             y: player.y + Math.sin(bounceDirection) * 80,
