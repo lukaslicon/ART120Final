@@ -38,7 +38,7 @@ class npcScreen extends Cinematics {
                 this.targetY = pointer.y;
             }
         });
-
+/*
         //background wind noise from tone.js
         const wind = new Tone.Noise('brown');
          const autoFilter = new Tone.AutoFilter({
@@ -56,7 +56,7 @@ class npcScreen extends Cinematics {
             wind.start();
             wind.stop('+4');
         }, '4n');
-
+*/
         //fade
         this.fadeInScene();
         this.fullScreenButton();
