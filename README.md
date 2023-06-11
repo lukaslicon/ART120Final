@@ -17,10 +17,17 @@ Our team tackled this idea quite literally, with the player being sent forward i
 - **Jentsen:**
 
 **Asset Credits:**
-Tileset for NPC Screen: https://clockworkraven.itch.io/raven-fantasy-pixel-art-tileset-green-forest
+- Tileset for NPC Screen: https://clockworkraven.itch.io/raven-fantasy-pixel-art-tileset-green-forest
 
-Font: https://www.dafont.com/pkmn-mystery-dungeon.font
+- Font: https://www.dafont.com/pkmn-mystery-dungeon.font
 
-Shader Code: https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/shaders/bundle.glsl.js
+- Shader Code: https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/shaders/bundle.glsl.js
 
-**Playable Prototypes:**
+**Playable Prototypes:** 
+- Scene Flow: https://lukaslicon.github.io/SceneFlowPrototype/
+
+- Core Gameplay: https://lukaslicon.github.io/CoreGameplayPrototype/
+
+- Cinematics: https://lukaslicon.github.io/CinematicPrototype/
+
+
