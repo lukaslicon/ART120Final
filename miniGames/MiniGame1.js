@@ -122,7 +122,7 @@ class MiniGame1 extends MiniGameClass {
                 this.winCondition(game1win);
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('Housing');
+                    this.scene.start('npcScreen');
                 }, this);
                 }
 
@@ -141,7 +141,7 @@ class MiniGame1 extends MiniGameClass {
                 this.winCondition(game1win);
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('Housing');
+                    this.scene.start('npcScreen');
                 }, this);
                 }
 
@@ -218,7 +218,7 @@ class MiniGame1 extends MiniGameClass {
             });
         }, [], this);
 
-
+//as
 
         //reset to middle button
         let reset = this.add.image(this.width*.01953125, this.height*.96527778 , 'reset').setInteractive();
@@ -227,26 +227,12 @@ class MiniGame1 extends MiniGameClass {
             this.player.y = this.height/2;
         });
 
-        // timer seconds
-        this.add.text(this.width*.375, this.height*.105, 'Time: ').setStyle(({ 
-            fontFamily: "pmd",
-            fontSize: 36,
-            fill: "#ffffff",
-            align: "center",
-        }))
-        this.secondCount = this.add.text(this.width*.41, this.height*.106).setStyle(({ 
-            fontFamily: "pmd",
-            fontSize: 36,
-            fill: "#ffffff",
-            align: "center",
-        }))
-
         //functions
         this.fadeInScene();
         this.muteButton();
         this.fullScreenButton();
         this.addScore(100, 122, 'Score: ', 96, this.width*.15625 , this.height*.11574);
-        this.addTimerBar(this.width / 2, this.height / 8, this.width*.375, this.height*.105,this.width*.41, this.height*.106);
+        this.addTimerBar(this.width / 2, this.height / 8, this.width*.375, this.height*.105,this.width*.41, this.height*.106, this.player);
     }
     update(){
         this.scoreCount.setText(game1score);
@@ -254,38 +240,6 @@ class MiniGame1 extends MiniGameClass {
     }
 }
 
-class Homeless extends Phaser.Scene {
-    constructor() {
-        super('Homeless');
-    }
-    create() {
-        housing = false;
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text( this.game.config.width*.2916666667, this.game.config.height*.5185185, "You failed!").setFontSize(50);
-        this.add.text( this.game.config.width* .34375 , this.game.config.height* .6111111, "You are now homeless...").setFontSize(20);
-        this.add.text(this.game.config.width* .39358333 , this.game.config.height* .7037037, "Click anywhere to continue.").setFontSize(20);
-        this.input.on('pointerdown', () => {
-            this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
-        });
-    }
-}
 
-class Housing extends Phaser.Scene {
-    constructor() {
-        super('Housing');
-    }
-    create() {
-        housing = true;
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text( this.game.config.width*.4, this.game.config.height*.5185185, "You found housing!").setFontSize(50);
-        this.add.text( this.game.config.width* .4 , this.game.config.height* .6111111, "Congratulations!").setFontSize(20);
-        this.add.text(this.game.config.width* .4 , this.game.config.height* .7037037, "Click anywhere to continue.").setFontSize(20);
-        this.input.on('pointerdown', () => {
-            this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
-        });
-    }
-}
 
     

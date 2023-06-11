@@ -185,7 +185,6 @@ class Cinematics extends Phaser.Scene {
             this.message2 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage2, textConfig)
             .setOrigin(0.5)
             .setAlpha(1);
-
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
                 this.message2.destroy();

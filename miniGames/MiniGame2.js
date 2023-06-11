@@ -10,59 +10,6 @@ class MiniGame2 extends Phaser.Scene {
         super('MiniGame2');
     }
 
-    pathFunction1(obj){
-        this.target1 = new Phaser.Math.Vector2();
-            this.target1.x = this.gww*0.8
-            this.target1.y = this.gwh*0.74
-        this.physics.moveToObject(obj,this.target1,600);
-        this.tweens.add({
-            targets: obj,
-            alpha: { from: 0.5, to: 0 },
-            yoyo: true,
-            duration: 600,
-            repeat: -1,
-        });
-    }
-
-    pathFunction2(obj){
-        this.target2 = new Phaser.Math.Vector2();
-            this.target2.x = this.gww*0.22
-            this.target2.y = this.gwh*0.787
-        this.physics.moveToObject(obj,this.target2,300);
-        this.tweens.add({
-            targets: obj,
-            alpha: { from: 0.5, to: 0 },
-            yoyo: true,
-            duration: 900,
-            repeat: -1,
-        });
-    }
-
-    pathFunction3(obj){
-        this.target3 = new Phaser.Math.Vector2();
-            this.target3.x = this.gww*0.369
-            this.target3.y = this.gwh*1.1
-        this.physics.moveToObject(obj,this.target3,450);
-        this.tweens.add({
-            targets: obj,
-            alpha: { from: 0.5, to: 0 },
-            yoyo: true,
-            duration: 1500,
-            repeat: -1,
-        });
-    }
-
-    shake(obj) {
-        this.tweens.add({
-            targets: obj,
-            x: { from: obj.x, to: obj.x + (Math.random() * 5 - 200) },
-            y: { from: obj.y, to: obj.y + (Math.random() * 5 - 200) },
-            duration: 500,
-            yoyo: true,
-            repeat: 5,
-            onComplete: () => obj.setAlpha(0)
-        })
-    }
     create(){
         this.gwh = this.game.config.height;
         this.gww = this.game.config.width;
@@ -390,48 +337,18 @@ class MiniGame2 extends Phaser.Scene {
             this.sh3.setAlpha(0);
             this.sh3.destroy();
             this.sh4.setAlpha(1);
-        }
+        }//
         if (this.health == 0) {
             this.cameras.main.fade(1000, 0,0,0);
-            this.winCondition(game1win);
-            this.time.delayedCall(1000, () =>this.scene.start('Fail'));
+            this.failCondition();
+            this.time.delayedCall(1000, () =>this.scene.start('npcScreen'));
         }
         if (this.points == 10) {
             this.cameras.main.fade(1000, 0,0,0);
-            game2score = this.points;
-            this.time.delayedCall(1000, () =>this.scene.start('npcScreen')); //change fail to new next game
+            this.winCondition(game2win);
+            this.time.delayedCall(1000, () =>this.scene.start('npcScree')); //change fail to new next game
         }
         this.pointcount.setText(this.points);
     }
 }
 
-class Slugs extends Phaser.Scene {
-    constructor() {
-        super('Housing');
-    }
-    create() {
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text( this.game.config.width*.4, this.game.config.height*.5185185, "You found housing!").setFontSize(50);
-        this.add.text( this.game.config.width* .4 , this.game.config.height* .6111111, "Congratulations!").setFontSize(20);
-        this.add.text(this.game.config.width* .4 , this.game.config.height* .7037037, "Click anywhere to continue.").setFontSize(20);
-        this.input.on('pointerdown', () => {
-            this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
-        });
-    }
-}
-class Fail extends Phaser.Scene {
-    constructor() {
-        super('Fail');
-    }
-    create() {
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
-        this.add.text(560,560, "You failed!").setFontSize(50);
-        this.add.text(660,660, "Nice aim you got there...").setFontSize(20);
-        this.add.text(760,760, "Click anywhere to continue.").setFontSize(20);
-        this.input.on('pointerdown', () => {
-            this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
-        });
-    }
-}

@@ -22,15 +22,27 @@ class MiniGameClass extends Phaser.Scene {
 
     winCondition(gamewin){
         gamewin == true;
-        this.add.text(this.width *.455, this.height/2, 'Success!')
-        .setWordWrapWidth(this.w * 0.25 - 2 * this.s)
+        this.add.text(this.width /2, this.height/2, 'Success!')
+        .setOrigin(.5)
         .setStyle(({ 
-                color: 0x00ff00,
+                color: '#0f0',
                 fontFamily: "pmd",
                 fontSize: 128,
                 align: "center",
             }));
     }
+
+    failCondition(){
+        this.add.text(this.width /2, this.height/2, 'You Failed!')
+        .setOrigin(.5)
+        .setStyle(({ 
+                color: '#f00',
+                fontFamily: "pmd",
+                fontSize: 128,
+                align: "center",
+            }));
+    }
+    
 //captioning
     showMessage(message) {
         this.messageBox.setText(message);
@@ -153,7 +165,7 @@ class MiniGameClass extends Phaser.Scene {
         });
     }
 
-    addTimerBar(barX, barY, timeX, timeY, secondsX, secondsY){
+    addTimerBar(barX, barY, timeX, timeY, secondsX, secondsY, player){
         this.timeLeft = gameOptions.initialTime;
         // timer bar        
         this.add.image(barX, barY, "timerBarBackground"); //background bar
@@ -169,13 +181,15 @@ class MiniGameClass extends Phaser.Scene {
                 let stepWidth = this.timerMask.displayWidth / gameOptions.initialTime*1;
                 this.timerMask.x -=  stepWidth;
                 if(this.timeLeft <= 0){
+                    this.player.body.moves = false;
                     this.dmg.play();
-                    this.timeLeft = 60;
                     housing = this.score;
-                    this.cameras.main.fadeOut(1000, 0, 0, 0)
+                    this.failCondition();
+                    this.cameras.main.fadeOut(2000, 0, 0, 0)
                     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
-                        this.scene.start('Homeless', {}, { alpha: 0, duration: 1000 });
+                        this.scene.start('npcScreen', {}, { alpha: 0, duration: 2000 });
                     })
+                    this.gameTimer.remove(); // This line stops the timer.
                 }
             },
             callbackScope: this,
@@ -197,6 +211,59 @@ class MiniGameClass extends Phaser.Scene {
         }))
     }
 
+    pathFunction1(obj){
+        this.target1 = new Phaser.Math.Vector2();
+            this.target1.x = this.gww*0.8
+            this.target1.y = this.gwh*0.74
+        this.physics.moveToObject(obj,this.target1,600);
+        this.tweens.add({
+            targets: obj,
+            alpha: { from: 0.5, to: 0 },
+            yoyo: true,
+            duration: 600,
+            repeat: -1,
+        });
+    }
+
+    pathFunction2(obj){
+        this.target2 = new Phaser.Math.Vector2();
+            this.target2.x = this.gww*0.22
+            this.target2.y = this.gwh*0.787
+        this.physics.moveToObject(obj,this.target2,300);
+        this.tweens.add({
+            targets: obj,
+            alpha: { from: 0.5, to: 0 },
+            yoyo: true,
+            duration: 900,
+            repeat: -1,
+        });
+    }
+
+    pathFunction3(obj){
+        this.target3 = new Phaser.Math.Vector2();
+            this.target3.x = this.gww*0.369
+            this.target3.y = this.gwh*1.1
+        this.physics.moveToObject(obj,this.target3,450);
+        this.tweens.add({
+            targets: obj,
+            alpha: { from: 0.5, to: 0 },
+            yoyo: true,
+            duration: 1500,
+            repeat: -1,
+        });
+    }
+
+    shake(obj) {
+        this.tweens.add({
+            targets: obj,
+            x: { from: obj.x, to: obj.x + (Math.random() * 5 - 200) },
+            y: { from: obj.y, to: obj.y + (Math.random() * 5 - 200) },
+            duration: 500,
+            yoyo: true,
+            repeat: 5,
+            onComplete: () => obj.setAlpha(0)
+        })
+    }
             
 //warning on create
     onEnter() {

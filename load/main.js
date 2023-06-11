@@ -22,7 +22,7 @@ let config = {
             debugShowVelocity: false
         }
     },
-    scene: [Load, Intro, Title, TextIntro, npcScreen, MiniGame1, MiniGame2, MiniGame3, Fail, Fail2, outro, UI, Homeless, Housing],
+    scene: [Load, Intro, Title, TextIntro, npcScreen, MiniGame1, MiniGame2, MiniGame3, outro, UI],
     title: "Mini Game Prototype",
     scaleMode: Phaser.Scale.ScaleModes.RESIZE,
     autoRound: true,
