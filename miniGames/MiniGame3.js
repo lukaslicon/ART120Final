@@ -166,6 +166,8 @@ class MiniGame3 extends MiniGameClass {
         this.path3(this.coin3);
         this.path4(this.coin4);
         this.path5(this.coin5);
+        this.muteButton();
+        this.fullScreenButton();
     }
 
     update(){

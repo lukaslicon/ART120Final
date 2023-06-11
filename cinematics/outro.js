@@ -59,5 +59,62 @@ class outro extends Cinematics {
             wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
         this.fadeIn(END, 3000, 45800);
+//game1  
+    if(game1win === true){
+        let game1_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "game1_win", { 
+            fontFamily: "pmd", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
+        this.fadeIn(END, 3000, 45800);
+    }
+    else {
+        let game1_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "game1_lose", { 
+            fontFamily: "pmd", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
+        this.fadeIn(END, 3000, 45800);
+    }
+//game2
+    if(game2win === true){
+        let game2_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "game2_win", { 
+            fontFamily: "pmd", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
+        this.fadeIn(END, 3000, 45800);
+    }
+    else {    
+        let game2_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "game2_lose", { 
+            fontFamily: "pmd", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
+        this.fadeIn(END, 3000, 45800);
+    }
+        //game3
+    if(game3win === true){
+        let game3_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "game3_win", { 
+            fontFamily: "pmd", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
+        this.fadeIn(END, 3000, 45800);
+    }
+    else {  
+        let game3_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "game3_lose", { 
+            fontFamily: "pmd", 
+            fill: "#ffffff", 
+            align: "center",
+            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
+        this.fadeIn(END, 3000, 45800);
+    }     
     }
 }

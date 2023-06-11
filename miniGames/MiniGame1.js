@@ -218,7 +218,6 @@ class MiniGame1 extends MiniGameClass {
             });
         }, [], this);
 
-//as
 
         //reset to middle button
         let reset = this.add.image(this.width*.01953125, this.height*.96527778 , 'reset').setInteractive();

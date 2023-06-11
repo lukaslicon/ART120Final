@@ -41,11 +41,11 @@ class npcScreen extends Cinematics {
 
         //background wind noise from tone.js
         const wind = new Tone.Noise('brown');
-        // const autoFilter = new Tone.AutoFilter({
-        //     baseFrequency: 200,
-        //     octaves: 8
-        // }).toDestination().start();
-        // wind.connect(autoFilter);
+         const autoFilter = new Tone.AutoFilter({
+             baseFrequency: 200,
+             octaves: 8
+        }).toDestination().start();
+        wind.connect(autoFilter);
 
         const noiseVol = new Tone.Volume(-50);
         wind.chain(noiseVol, Tone.Destination);

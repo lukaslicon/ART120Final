@@ -318,7 +318,8 @@ class MiniGame2 extends MiniGameClass {
         this.pathFunction1(this.coin13);
         this.pathFunction1(this.coin14);
         this.pathFunction3(this.coin15);
-        
+        this.muteButton();
+        this.fullScreenButton();
     }
     update(){
         if (this.health == 3) {
