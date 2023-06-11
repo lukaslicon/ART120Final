@@ -119,6 +119,7 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
+                this.winCondition(game1win);
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('Housing');
@@ -137,6 +138,7 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
+                this.winCondition(game1win);
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('Housing');
@@ -156,9 +158,10 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
+                this.winCondition(game1win);
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('Housing');
+                    this.scene.start('npcScreen');
                 }, this);
                 }
 
@@ -174,9 +177,10 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
+                this.winCondition(game1win);
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
-                    this.scene.start('Housing');
+                    this.scene.start('npcScreen');
                 }, this);;
                 }
             }, null, this);

@@ -19,6 +19,18 @@ class MiniGameClass extends Phaser.Scene {
 
         this.onEnter();
     }
+
+    winCondition(gamewin){
+        gamewin == true;
+        this.add.text(this.width *.455, this.height/2, 'Success!')
+        .setWordWrapWidth(this.w * 0.25 - 2 * this.s)
+        .setStyle(({ 
+                color: 0x00ff00,
+                fontFamily: "pmd",
+                fontSize: 128,
+                align: "center",
+            }));
+    }
 //captioning
     showMessage(message) {
         this.messageBox.setText(message);

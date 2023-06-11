@@ -66,7 +66,7 @@ class MiniGame2 extends Phaser.Scene {
     create(){
         this.gwh = this.game.config.height;
         this.gww = this.game.config.width;
-        let CleanText = this.add.text(540, 500, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
+        let CleanText = this.add.text(this.width * .28125, this.height * .46296, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
                 targets: CleanText,
@@ -393,16 +393,33 @@ class MiniGame2 extends Phaser.Scene {
         }
         if (this.health == 0) {
             this.cameras.main.fade(1000, 0,0,0);
+            this.winCondition(game1win);
             this.time.delayedCall(1000, () =>this.scene.start('Fail'));
         }
         if (this.points == 10) {
             this.cameras.main.fade(1000, 0,0,0);
+            game2score = this.points;
             this.time.delayedCall(1000, () =>this.scene.start('npcScreen')); //change fail to new next game
         }
         this.pointcount.setText(this.points);
     }
 }
 
+class Slugs extends Phaser.Scene {
+    constructor() {
+        super('Housing');
+    }
+    create() {
+        this.cameras.main.fadeIn(1000, 0, 0, 0);
+        this.add.text( this.game.config.width*.4, this.game.config.height*.5185185, "You found housing!").setFontSize(50);
+        this.add.text( this.game.config.width* .4 , this.game.config.height* .6111111, "Congratulations!").setFontSize(20);
+        this.add.text(this.game.config.width* .4 , this.game.config.height* .7037037, "Click anywhere to continue.").setFontSize(20);
+        this.input.on('pointerdown', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+            this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
+        });
+    }
+}
 class Fail extends Phaser.Scene {
     constructor() {
         super('Fail');

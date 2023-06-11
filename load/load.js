@@ -71,7 +71,7 @@ class Load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('title');
+        this.scene.start('MiniGame1');
     }
 }
     let gameOptions = {
@@ -81,5 +81,14 @@ class Load extends Phaser.Scene {
 housing = false;
 progress = 0;
 NPCmessage = 0;
+
 game1score = 11;
+game1win = false;
+
+game2score = 0;
+game2win = false;
+
+game3score = 0;
+game3win = false;
+
 musicMute = false;
