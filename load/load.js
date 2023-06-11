@@ -71,7 +71,7 @@ class Load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('MiniGame1');
+        this.scene.start('intro');
     }
 }
     let gameOptions = {

@@ -252,7 +252,6 @@ class MiniGameClass extends Phaser.Scene {
             repeat: -1,
         });
     }
-
     shake(obj) {
         this.tweens.add({
             targets: obj,
@@ -265,6 +264,81 @@ class MiniGameClass extends Phaser.Scene {
         })
     }
             
+    path1(obj){
+        this.tweens.add({
+            targets: obj,
+            y: 800,
+            yoyo: true,
+            duration: 1000,
+            repeat: -1,
+        });
+    }
+    path2(obj){
+        this.tweens.add({
+            targets: obj,
+            y:-700,
+            yoyo: true,
+            duration: 1000,
+            repeat: -1,
+        });
+    }
+    path3(obj){
+        this.tweens.add({
+            targets: obj,
+            y:800,
+            yoyo: true,
+            duration: 800,
+            repeat: -1,
+        });
+    }
+    path4(obj){
+        this.tweens.add({
+            targets: obj,
+            y:30,
+            yoyo: true,
+            duration: 1000,
+            repeat: -1,
+        });
+    }
+    path5(obj){
+        this.tweens.add({
+            targets: obj,
+            x:1900,
+            yoyo: true,
+            duration: 1000,
+            repeat: -1,
+        });
+    }
+    flip1(obj1, obj2) {
+        if(this.physics.overlap(obj1, obj2)) {
+            obj2.setFlipY(false);
+        }
+    }
+    flip2(obj1, obj2) {
+        if(this.physics.overlap(obj1, obj2)) {
+            obj2.setFlipY(true);
+        }
+    }
+    flip3(obj1, obj2) {
+        if(this.physics.overlap(obj1, obj2)) {
+            obj2.setFlip(true);
+        }
+    }
+    flip4(obj1, obj2) {
+        if(this.physics.overlap(obj1, obj2)) {
+            obj2.setFlip(false);
+        }
+    }
+    hurt(){
+        this.cameras.main.shake(300);
+        --health;
+        this.dmg.play(tuboConfig);
+    }
+    pointt(obj){
+        obj.destroy();
+        ++points;
+        this.catch.play();
+    }
 //warning on create
     onEnter() {
         console.warn('This MiniGameClass did not implement onEnter():', this.constructor.name);

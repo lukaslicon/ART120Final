@@ -43,86 +43,12 @@ class UI extends Phaser.Scene {
     }
 }
 
-class MiniGame3 extends Phaser.Scene {
+class MiniGame3 extends MiniGameClass {
     constructor() {
-        super('MiniGame3');
+        super('MiniGame3', 'MiniGame3');
     }
-    path1(obj){
-        this.tweens.add({
-            targets: obj,
-            y: 800,
-            yoyo: true,
-            duration: 1000,
-            repeat: -1,
-        });
-    }
-    path2(obj){
-        this.tweens.add({
-            targets: obj,
-            y:-700,
-            yoyo: true,
-            duration: 1000,
-            repeat: -1,
-        });
-    }
-    path3(obj){
-        this.tweens.add({
-            targets: obj,
-            y:800,
-            yoyo: true,
-            duration: 800,
-            repeat: -1,
-        });
-    }
-    path4(obj){
-        this.tweens.add({
-            targets: obj,
-            y:30,
-            yoyo: true,
-            duration: 1000,
-            repeat: -1,
-        });
-    }
-    path5(obj){
-        this.tweens.add({
-            targets: obj,
-            x:1900,
-            yoyo: true,
-            duration: 1000,
-            repeat: -1,
-        });
-    }
-    flip1(obj1, obj2) {
-        if(this.physics.overlap(obj1, obj2)) {
-            obj2.setFlipY(false);
-        }
-    }
-    flip2(obj1, obj2) {
-        if(this.physics.overlap(obj1, obj2)) {
-            obj2.setFlipY(true);
-        }
-    }
-    flip3(obj1, obj2) {
-        if(this.physics.overlap(obj1, obj2)) {
-            obj2.setFlip(true);
-        }
-    }
-    flip4(obj1, obj2) {
-        if(this.physics.overlap(obj1, obj2)) {
-            obj2.setFlip(false);
-        }
-    }
-    hurt(){
-        this.cameras.main.shake(300);
-        --health;
-        this.dmg.play(tuboConfig);
-    }
-    pointt(obj){
-        obj.destroy();
-        ++points;
-        this.catch.play();
-    }
-    create(){
+   
+    onEnter(){
         this.scene.launch('ui');
 
         this.CleanText = this.add.text(540, 500, "Let's clean this water full of toxins! \n Don't hurt the koi fish!").setStyle({ fontSize: 50, color: '#fff' })

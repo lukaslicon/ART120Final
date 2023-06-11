@@ -5,12 +5,12 @@ let tuboConfig = {
     mute: false,
 }
 
-class MiniGame2 extends Phaser.Scene {
+class MiniGame2 extends MiniGameClass {
     constructor() {
-        super('MiniGame2');
+        super('MiniGame2', 'MiniGame2');
     }
 
-    create(){
+    onEnter(){
         this.gwh = this.game.config.height;
         this.gww = this.game.config.width;
         let CleanText = this.add.text(this.width * .28125, this.height * .46296, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
