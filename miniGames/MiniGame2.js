@@ -10,7 +10,7 @@ class MiniGame2 extends Phaser.Scene {
         super('MiniGame2');
     }
 
-    path1(obj){
+    pathFunction1(obj){
         this.target1 = new Phaser.Math.Vector2();
             this.target1.x = this.gww*0.8
             this.target1.y = this.gwh*0.74
@@ -24,7 +24,7 @@ class MiniGame2 extends Phaser.Scene {
         });
     }
 
-    path2(obj){
+    pathFunction2(obj){
         this.target2 = new Phaser.Math.Vector2();
             this.target2.x = this.gww*0.22
             this.target2.y = this.gwh*0.787
@@ -38,7 +38,7 @@ class MiniGame2 extends Phaser.Scene {
         });
     }
 
-    path3(obj){
+    pathFunction3(obj){
         this.target3 = new Phaser.Math.Vector2();
             this.target3.x = this.gww*0.369
             this.target3.y = this.gwh*1.1
@@ -356,21 +356,21 @@ class MiniGame2 extends Phaser.Scene {
                 this.cameras.main.shake(300)
                 this.health--;
             })
-        this.path1(this.coin1);
-        this.path2(this.coin3);
-        this.path3(this.coin2);
-        this.path1(this.coin4);
-        this.path2(this.coin5);
-        this.path3(this.coin6);
-        this.path1(this.coin7);
-        this.path1(this.coin8);
-        this.path2(this.coin9);
-        this.path2(this.coin10);
-        this.path3(this.coin11);
-        this.path2(this.coin12);
-        this.path1(this.coin13);
-        this.path1(this.coin14);
-        this.path3(this.coin15);
+        this.pathFunction1(this.coin1);
+        this.pathFunction2(this.coin3);
+        this.pathFunction3(this.coin2);
+        this.pathFunction1(this.coin4);
+        this.pathFunction2(this.coin5);
+        this.pathFunction3(this.coin6);
+        this.pathFunction1(this.coin7);
+        this.pathFunction1(this.coin8);
+        this.pathFunction2(this.coin9);
+        this.pathFunction2(this.coin10);
+        this.pathFunction3(this.coin11);
+        this.pathFunction2(this.coin12);
+        this.pathFunction1(this.coin13);
+        this.pathFunction1(this.coin14);
+        this.pathFunction3(this.coin15);
         
     }
     update(){
