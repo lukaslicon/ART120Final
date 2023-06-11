@@ -10,13 +10,15 @@ Our team tackled this idea quite literally, with the player being sent forward i
 3. Procedural graphics, Phaser Graphics class and shader effects
 
 **Contributor Credits:**
-- **Lukas:**
+- **Lukas:** Technology Lead
 
-- **Akhror:**
+- **Akhror:** Testing Lead
 
-- **Jentsen:**
+- **Jentsen:** Production Lead
 
 **Asset Credits:**
+- Maximilian Breal from ART120 helped create few individual assets such as the glove and animation for our gif. 
+
 - Tileset for NPC Screen: https://clockworkraven.itch.io/raven-fantasy-pixel-art-tileset-green-forest
 
 - Font: https://www.dafont.com/pkmn-mystery-dungeon.font
