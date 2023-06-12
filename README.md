@@ -23,7 +23,7 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 - Font: https://www.dafont.com/pkmn-mystery-dungeon.font
 
-- Shader Code: https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/shaders/bundle.glsl.js
+- Shader: https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/shaders/bundle.glsl.js
 
 **Playable Prototypes:** 
 - Scene Flow: https://lukaslicon.github.io/SceneFlowPrototype/
@@ -31,5 +31,10 @@ Our team tackled this idea quite literally, with the player being sent forward i
 - Core Gameplay: https://lukaslicon.github.io/CoreGameplayPrototype/
 
 - Cinematics: https://lukaslicon.github.io/CinematicPrototype/
+
+**Rubric**
+- Link to deployed version of main game that works in mobile browser:
+
+- Links to deployed, mobile-playable versions of all three prototypes
 
 
