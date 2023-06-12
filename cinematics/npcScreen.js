@@ -38,25 +38,28 @@ class npcScreen extends Cinematics {
                 this.targetY = pointer.y;
             }
         });
-/*
+
+        
         //background wind noise from tone.js
-        const wind = new Tone.Noise('brown');
-         const autoFilter = new Tone.AutoFilter({
-             baseFrequency: 200,
-             octaves: 8
-        }).toDestination().start();
-        wind.connect(autoFilter);
+        // const wind = new Tone.Noise('brown');
+        //  const autoFilter = new Tone.AutoFilter({
+        //      baseFrequency: 200,
+        //      octaves: 8
+        // }).toDestination().start();
+        // wind.connect(autoFilter);
 
-        const noiseVol = new Tone.Volume(-50);
-        wind.chain(noiseVol, Tone.Destination);
+        // const noiseVol = new Tone.Volume(-50);
+        // wind.chain(noiseVol, Tone.Destination);
 
-        let loop = new Tone.Loop(() =>{
-            noiseVol.volume.value = Math.random() *-5;
+        // let loop = new Tone.Loop(() =>{
+        //     noiseVol.volume.value = Math.random() *-5;
 
-            wind.start();
-            wind.stop('+4');
-        }, '4n');
-*/
+        //     wind.start();
+        //     wind.stop('+4');
+        // }, '4n');
+
+        // how would i create a note that is a half step up in tone.js?
+
         //fade
         this.fadeInScene();
         this.fullScreenButton();
