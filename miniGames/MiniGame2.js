@@ -13,7 +13,7 @@ class MiniGame2 extends MiniGameClass {
     onEnter(){
         this.gwh = this.game.config.height;
         this.gww = this.game.config.width;
-        let CleanText = this.add.text(590, 700, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
+        let CleanText = this.add.text(290, 700, "Let's clean out this closet full of ghosts! \nWatch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
                 targets: CleanText,
@@ -22,16 +22,6 @@ class MiniGame2 extends MiniGameClass {
             });
         }, [], this);
         CleanText.setDepth(1);
-
-        let HUD = this.add.text(590, 900, 'Click on the slugs').setStyle({ fontSize: 50, color: '#fff' })
-        this.time.delayedCall(5000, () => {
-            this.tweens.add({
-                targets: HUD,
-                alpha: 0,
-                duration: 1000 // This is the duration of the fade out
-            });
-        }, [], this);
-        HUD.setDepth(1);
 
         this.dmg = this.sound.add("dmg");
         this.catch = this.sound.add("catch");

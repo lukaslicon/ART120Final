@@ -62,16 +62,6 @@ class MiniGame3 extends MiniGameClass {
         }, [], this);
         this.CleanText.setDepth(1);
 
-        this.HUDD = this.add.text(590, 900, 'Click to move.').setStyle({ fontSize: 50, color: '#fff' })
-        this.time.delayedCall(5000, () => {
-            this.tweens.add({
-                targets: this.HUDD,
-                alpha: 0,
-                duration: 1000 // This is the duration of the fade out
-            });
-        }, [], this);
-        this.HUDD.setDepth(1);
-
         //Make camera follow player type thing
         //Tap to dash, pick up objects type minigame
         //Avoid Koi fish
