@@ -122,7 +122,6 @@ class MiniGame1 extends MiniGameClass {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
                 this.catch.play(); //
                 game1score++;  // Increment the score
-
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
@@ -130,6 +129,7 @@ class MiniGame1 extends MiniGameClass {
                 this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('npcScreen');
                 }, this);
                 }
@@ -150,6 +150,7 @@ class MiniGame1 extends MiniGameClass {
                 this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('npcScreen');
                 }, this);
                 }
@@ -163,7 +164,6 @@ class MiniGame1 extends MiniGameClass {
                 rectangle.destroy();  // Destroy the rectangle the player collided with
                 this.catch.play();
                 game1score++;  // Increment the score
-
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
@@ -171,6 +171,7 @@ class MiniGame1 extends MiniGameClass {
                 this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('npcScreen');
                 }, this);
                 }
@@ -191,6 +192,7 @@ class MiniGame1 extends MiniGameClass {
                 this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('npcScreen');
                 }, this);;
                 }
@@ -239,7 +241,7 @@ class MiniGame1 extends MiniGameClass {
 
         //functions
         this.fadeInScene();
-        this.muteBGM();
+        this.muteButton(this.backMusic);
         this.fullScreenButton();
         this.addScore(100, 122, 'Score: ', 96, this.width*.15625 , this.height*.11574);
         this.addTimerBar(this.width / 2, this.height / 8, this.width*.375, this.height*.105,this.width*.41, this.height*.106, this.player);

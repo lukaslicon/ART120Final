@@ -6,8 +6,6 @@ class settings extends Phaser.Scene {
     create(){
         this.titleMusic = this.sound.add("titleMusic");
         this.titleMusic.loop = true;
-
-
     }
     //fullscreen
     fullScreenButton(){
@@ -22,32 +20,27 @@ class settings extends Phaser.Scene {
         });
     }
 
-    //mute music
-    muteBGM(){
-        this.backMusic = this.sound.add("BGM");
-        this.backMusic.loop = true;
-        this.backMusic.setVolume(.25);
-        this.musicButton = this.add.sprite(this.game.config.width/1.03, this.game.config.height/10, 'music', 0)
+    //mute
+    muteButton(music){
+        let musicButton = this.add.sprite(this.game.config.width/1.03, this.game.config.height/10, 'music', 0)
+        //how would i edit the sprite to be 3x bigger?
         .setScale(3)
         .setInteractive({useHandCursor: true})
+        .setFrame(muteButtonFrame)
         .on('pointerdown', () => {
-            if (musicMute == false) {
-                //mute BGM
-                musicMute = true;
-                this.backMusic.setMute(true);
-
-                //change animation frame to frame 1 (muted)
-                this.musicButton.setFrame(1);
-            } else {
-                //unmute BGM
-                musicMute = false;
-                this.backMusic.setMute(false);
-
-                //change animation frame to frame 0 (unmuted)
-                this.musicButton.setFrame(0);
+            if(musicMute == false){
+                musicMute = true; //music is muted
+                muteButtonFrame = 1;
+                music.setVolume(0);
+                musicButton.setFrame(muteButtonFrame)
+            }
+            else{
+                musicMute = false; //music is unmuted
+                muteButtonFrame = 0;
+                music.setVolume(1);
+                musicButton.setFrame(muteButtonFrame)
             }
         });
     }
-
-
 }
+

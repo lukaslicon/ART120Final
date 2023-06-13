@@ -3,9 +3,13 @@ class outro extends Cinematics {
         super('outro', 'outro');
     }
     onEnter() {
-        this.outroMusic = this.sound.add("titleMusic");
-        this.outroMusic.loop = true;
-        this.outroMusic.play();
+        if (musicMute == true){
+            this.outroMusic.play();
+            this.outroMusic.setVolume(0);
+         }
+         else{
+             this.outroMusic.play();
+         }
         
         let text1 = this.add.text(this.game.config.width/2, this.game.config.height/2, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
             fontFamily: "pmd", 
@@ -39,14 +43,10 @@ class outro extends Cinematics {
         }).setOrigin(0.5).setAlpha(0).setFontSize(42); // set origin to center
         this.fadeInthenOut(text4, 4000, 4000, 30000);
         
-        //gif
-        this.anims.create({
-            key: 'gifAnimation',
-            frames: this.anims.generateFrameNumbers('OutroGif', { start: 0, end: 17 }),
-            frameRate: 3,
-            delay : 40000
-        });
-        let image = this.add.sprite(this.game.config.width/2, this.game.config.height/2, 'OutroGif').setAlpha(0);
+        const outroVid = this.add.video(this.game.config.width/2, this.game.config.height/2, 'outroVid').setOrigin(0.5).setAlpha(0);
+        outroVid.play(true);
+        this.fadeInthenOut(outroVid, 2000, 1800, 40000);
+
         this.fadeInthenOut(image, 2000, 1800, 40000);
         image.play('gifAnimation');
 

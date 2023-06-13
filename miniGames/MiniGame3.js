@@ -240,13 +240,15 @@ class MiniGame3 extends MiniGameClass {
         if (health == 0) {
             this.failCondition();
             this.cameras.main.fade(1000, 0, 0, 0);
+            this.backMusic.stop();
             this.scene.stop('ui');
             this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
         }
         if (game3score == 8) {
-            game3win = true;
+            game3score = true;
             this.winCondition();
             this.cameras.main.fade(1000, 0, 0, 0);
+            this.backMusic.stop();
             this.scene.stop('ui');
             this.time.delayedCall(1000, () => this.scene.start('npcScreen')); //change fail to new next game
         }

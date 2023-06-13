@@ -72,7 +72,7 @@ class npcScreen extends Cinematics {
         //fade
         this.fadeInScene();
         this.fullScreenButton();
-        this.muteBGM();
+        this.muteButton(this.backMusic);
     }
     update() {
         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, this.targetX, this.targetY) < 10) {

@@ -7,6 +7,8 @@ class MiniGameClass extends settings {
         //sound
         this.dmg = this.sound.add("dmg");
         this.catch = this.sound.add("catch");
+        this.titleMusic = this.sound.add("titleMusic");
+        this.titleMusic.loop = true;
         this.backMusic = this.sound.add("BGM");
         this.backMusic.loop = true;
         this.backMusic.setVolume(1);
@@ -19,8 +21,7 @@ class MiniGameClass extends settings {
         this.onEnter();
     }
 
-    winCondition(gamewin) {
-        gamewin = true;
+    winCondition() {
         this.add.text(this.game.config.width / 2, this.game.config.height / 2, 'Success!')
             .setOrigin(.5)
             .setStyle(({

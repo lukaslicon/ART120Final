@@ -88,9 +88,11 @@ class Load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('MiniGame3');
+        this.scene.start('MiniGame2');
     }
 }
     let gameOptions = {
         initialTime: 60
     }
+
+    muteButtonFrame = 0;

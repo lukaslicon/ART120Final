@@ -8,7 +8,9 @@ class Cinematics extends settings {
         this.titleMusic.loop = true;
         this.backMusic = this.sound.add("BGM");
         this.backMusic.loop = true;
-        this.backMusic.setVolume(1);
+        this.backMusic.setVolume(.25);
+        this.outroMusic = this.sound.add("titleMusic");
+        this.outroMusic.loop = true;
 
         this.s = this.game.config.width * 0.01;
 
