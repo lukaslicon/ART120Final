@@ -10,19 +10,19 @@ class UI extends Phaser.Scene {
     }
     create() {
         this.sh1 = this.add.image(1800, 120, 'sh1')
-        this.sh1.setScale(0.25)
+        this.sh1.setScale(0.2)
         this.sh1.setAlpha(1)
         this.sh2 = this.add.image(1800, 120, 'sh2')
-        this.sh2.setScale(0.25)
+        this.sh2.setScale(0.2)
         this.sh2.setAlpha(0)
         this.sh3 = this.add.image(1800, 120, 'sh3')
-        this.sh3.setScale(0.25)
+        this.sh3.setScale(0.2)
         this.sh3.setAlpha(0)
         this.sh4 = this.add.image(1800, 120, 'sh4')
-        this.sh4.setScale(0.25)
+        this.sh4.setScale(0.2)
         this.sh4.setAlpha(0)
-        this.pointcount = this.add.text(0, 0)
-            .setStyle({ fontSize: 200, color: '#fff' })
+        this.pointcount = this.add.text(0,0)
+            .setStyle({ fontSize: 800 / 7, color: '#fff' })
     }
     update() {
         if (health == 3) {
