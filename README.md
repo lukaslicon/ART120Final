@@ -39,12 +39,15 @@ Our team tackled this idea quite literally, with the player being sent forward i
 - Shader: https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/shaders/bundle.glsl.js
 
 **Uses hand-typed textual program code**
+
 See code.
 
 **Repository shows contributions from several team members**
+
 See commit history.
 
 **Repository shows most design changes with useful commit messages**
+
 See commit history.
 
 **Playable using only touch-screen controls**
