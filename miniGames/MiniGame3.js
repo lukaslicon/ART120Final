@@ -51,6 +51,7 @@ class MiniGame3 extends MiniGameClass {
     onEnter() {
         this.scene.launch('ui');
 
+        
         this.CleanText = this.add.text(540, 500, "Let's clean this water full of toxins! \n Don't hurt the koi fish!").setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
@@ -59,6 +60,7 @@ class MiniGame3 extends MiniGameClass {
                 duration: 1000 // This is the duration of the fade out
             });
         }, [], this);
+        this.CleanText.setDepth(1);
 
         this.HUDD = this.add.text(590, 900, 'Click to move.').setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(5000, () => {
@@ -68,6 +70,7 @@ class MiniGame3 extends MiniGameClass {
                 duration: 1000 // This is the duration of the fade out
             });
         }, [], this);
+        this.HUDD.setDepth(1);
 
         //Make camera follow player type thing
         //Tap to dash, pick up objects type minigame
