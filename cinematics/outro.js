@@ -51,7 +51,7 @@ class outro extends Cinematics {
         image.play('gifAnimation');
 
         this.fullScreenButton();
-        this.muteButton();
+        // this.muteTitle();
 
         let END = this.add.text(this.game.config.width/2, this.game.config.height/1.3, "THE END", { 
             fontFamily: "pmd",
@@ -61,7 +61,7 @@ class outro extends Cinematics {
         }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
         this.fadeIn(END, 3000, 45800);
 //game1  
-    if(game1win === true){
+    if(game1win == true){
         let game1_win = this.add.text(this.game.config.width/2, this.game.config.height/6, "Game 1: Success...  Through sheer determination and resourcefulness, you navigated the complexities of the housing crisis and successfully secured a sanctuary to call home.", { 
             fontFamily: "pmd", 
             color: '#0f0',
@@ -80,7 +80,7 @@ class outro extends Cinematics {
         this.fadeIn(game1_lose, 3000, 45800);
     }
 //game2
-    if(game2win === true){
+    if(game2win == true){
         let game2_win = this.add.text(this.game.config.width/2, this.game.config.height/3, "Game 2: SUCCESS...  You have successfully eradicated the haunting infestation of ghost slugs that once plagued the closets of UCSC, restoring tranquility and safety to the institution.", { 
             fontFamily: "pmd", 
             color: '#0f0',
@@ -99,7 +99,7 @@ class outro extends Cinematics {
         this.fadeIn(game2_lose, 3000, 45800);
     }
 //game3
-    if(game3win === true){
+    if(game3win == true){
         let game3_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "Game 3: SUCCESS... Through your diligent efforts, you've successfully purged the environment of toxic waste, ensuring the survival and thriving of the koi fish ", { 
             fontFamily: "pmd", 
             color: '#0f0',

@@ -12,7 +12,6 @@ class MiniGameClass extends settings {
         this.backMusic.setVolume(.25);
 
         this.s = this.game.config.width * 0.01;
-
         this.messageBox = this.add.text(this.game.config.width * .455, this.game.config.height * 0.68)
             .setStyle({ fontSize: `${2 * this.s}px`, color: '#eea' })
             .setWordWrapWidth(this.w * 0.25 - 2 * this.s);
@@ -21,8 +20,8 @@ class MiniGameClass extends settings {
     }
 
     winCondition(gamewin) {
-        gamewin == true;
-        this.add.text(this.width / 2, this.height / 2, 'Success!')
+        gamewin = true;
+        this.add.text(this.game.config.width / 2, this.game.config.height / 2, 'Success!')
             .setOrigin(.5)
             .setStyle(({
                 color: '#0f0',
@@ -32,12 +31,12 @@ class MiniGameClass extends settings {
             }));
         // upon winning, play a procedurally generated chord
         const synth = new Tone.PolySynth().toDestination();
-        synth.volume.value = -5;
-        synth.triggerAttackRelease(["C#4", "F#4", "A#4", "C#5"], ["1", "0.75", "0.5", "0.25"]);
+        synth.volume.value = -15;
+        synth.triggerAttackRelease(["C#4", "F#4", "A#4", "C#5"], ["1.75", "1.25", "0.75", "0.25"]);
     }
 
     failCondition() {
-        this.add.text(this.width / 2, this.height / 2, 'You Failed!')
+        this.add.text(this.game.config.width / 2, this.game.config.height / 2, 'You Failed!')
             .setOrigin(.5)
             .setStyle(({
                 color: '#f00',

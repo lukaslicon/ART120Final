@@ -118,7 +118,8 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
-                this.winCondition(game1win);
+                game1win = true;
+                this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('npcScreen');
@@ -137,7 +138,8 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
-                this.winCondition(game1win);
+                game1win = true;
+                this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('npcScreen');
@@ -157,7 +159,8 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
-                this.winCondition(game1win);
+                game1win = true;
+                this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('npcScreen');
@@ -176,7 +179,8 @@ class MiniGame1 extends MiniGameClass {
                 if (game1score >= 12) {
                 this.player.body.moves = false;
                 //fade
-                this.winCondition(game1win);
+                game1win = true;
+                this.winCondition();
                 this.cameras.main.fadeOut(1500);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
                     this.scene.start('npcScreen');
@@ -227,7 +231,7 @@ class MiniGame1 extends MiniGameClass {
 
         //functions
         this.fadeInScene();
-        this.muteButton();
+        this.muteBGM();
         this.fullScreenButton();
         this.addScore(100, 122, 'Score: ', 96, this.width*.15625 , this.height*.11574);
         this.addTimerBar(this.width / 2, this.height / 8, this.width*.375, this.height*.105,this.width*.41, this.height*.106, this.player);

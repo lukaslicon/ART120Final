@@ -1,3 +1,18 @@
+
+housing = false;
+progress = 0;
+NPCmessage = 0;
+
+game1score = 11;
+game1win = false;
+
+game2score = 9;
+game2win = false;
+
+game3score = 7;
+game3win = false;
+
+musicMute = false;
 class Load extends Phaser.Scene {
     constructor(){
         super('load');
@@ -79,18 +94,3 @@ class Load extends Phaser.Scene {
     let gameOptions = {
         initialTime: 60
     }
-
-housing = false;
-progress = 0;
-NPCmessage = 0;
-
-game1score = 11;
-game1win = false;
-
-game2score = 9;
-game2win = false;
-
-game3score = 7;
-game3win = false;
-
-musicMute = false;
