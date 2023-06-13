@@ -9,19 +9,20 @@ class Load extends Phaser.Scene {
         
         //shaders
         this.load.glsl('bundle', 'assets/shaders/bundle.glsl.js');
-        this.load.image('portal', 'assets/images/portal.png')
+        this.load.image('portal', 'assets/images/portal.png');
         
         //global images
         this.load.path = 'assets/images/';
         this.load.image('fullscreen', 'fullscreen.png');
-        this.load.spritesheet('music', 'music.png', { frameWidth: 32, frameHeight: 32 });
-        this.load.audio('BGM', 'music/BGM.mp3')
-        this.load.audio('titleMusic', 'music/titleMusic.mp3')
         this.load.image("background", "map.png");
         this.load.image("introScreen", "preTitleScreen.png");
-        this.load.spritesheet('OutroGif', 'spritesheet.png', { frameWidth: 1920, frameHeight: 1082 });
         this.load.image("titleScreen", "TitleScreen.png");
-        this.load.image('play', 'play.png')
+        this.load.image('play', 'play.png');
+        this.load.image('pointer', 'pointer.png');
+        this.load.audio('BGM', 'music/BGM.mp3');
+        this.load.audio('titleMusic', 'music/titleMusic.mp3');
+        this.load.spritesheet('OutroGif', 'spritesheet.png', { frameWidth: 1920, frameHeight: 1082 });
+        this.load.spritesheet('music', 'music.png', { frameWidth: 32, frameHeight: 32 });
 
         //logos
         this.load.image('JLogo', 'logos/JEMStudios.png');
@@ -86,10 +87,10 @@ NPCmessage = 0;
 game1score = 11;
 game1win = false;
 
-game2score = 0;
+game2score = 9;
 game2win = false;
 
-game3score = 0;
+game3score = 7;
 game3win = false;
 
 musicMute = false;

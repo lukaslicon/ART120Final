@@ -14,10 +14,6 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {
-                x: 0,
-                y: 0
-            },
             debug: true,
             debugShowVelocity: false
         }
@@ -32,12 +28,12 @@ let config = {
 var game = new Phaser.Game(config);
 
 // Event listener for orientation change
-// game.scene.scenes.forEach(function (scene) {
-//     scene.scale.on('orientationchange', function (orientation) {
-//         if (orientation === Phaser.Scale.PORTRAIT) {
-//             scene.scale.resize(window.innerWidth, window.innerHeight);
-//         } else if (orientation === Phaser.Scale.LANDSCAPE) {
-//             scene.scale.resize(window.innerWidth, window.innerHeight);
-//         }
-//     });
-// });
+game.scene.scenes.forEach(function (scene) {
+    scene.scale.on('orientationchange', function (orientation) {
+        if (orientation === Phaser.Scale.PORTRAIT) {
+            scene.scale.resize(window.innerWidth, window.innerHeight);
+        } else if (orientation === Phaser.Scale.LANDSCAPE) {
+            scene.scale.resize(window.innerWidth, window.innerHeight);
+        }
+    });
+});

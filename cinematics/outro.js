@@ -6,7 +6,7 @@ class outro extends Cinematics {
         this.outroMusic = this.sound.add("titleMusic");
         this.outroMusic.loop = true;
         this.outroMusic.play();
-
+        
         let text1 = this.add.text(this.game.config.width/2, this.game.config.height/2, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
             fontFamily: "pmd", 
             fill: "#ffffff", 
@@ -46,14 +46,15 @@ class outro extends Cinematics {
             frameRate: 3,
             delay : 40000
         });
-
-
         let image = this.add.sprite(this.game.config.width/2, this.game.config.height/2, 'OutroGif').setAlpha(0);
         this.fadeInthenOut(image, 2000, 1800, 40000);
         image.play('gifAnimation');
 
-        let END = this.add.text(this.game.config.width/2, this.game.config.height/2, "THE END", { 
-            fontFamily: "pmd", 
+        this.fullScreenButton();
+        this.muteButton();
+
+        let END = this.add.text(this.game.config.width/2, this.game.config.height/1.3, "THE END", { 
+            fontFamily: "pmd",
             fill: "#ffffff", 
             align: "center",
             wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
@@ -61,60 +62,60 @@ class outro extends Cinematics {
         this.fadeIn(END, 3000, 45800);
 //game1  
     if(game1win === true){
-        let game1_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "game1_win", { 
+        let game1_win = this.add.text(this.game.config.width/2, this.game.config.height/6, "Game 1: Success...  Through sheer determination and resourcefulness, you navigated the complexities of the housing crisis and successfully secured a sanctuary to call home.", { 
             fontFamily: "pmd", 
-            fill: "#ffffff", 
+            color: '#0f0',
             align: "center",
-            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
-        this.fadeIn(END, 3000, 45800);
+            wordWrap: { width: this.game.config.width * .6  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(48); // set origin to center
+        this.fadeIn(game1_win, 3000, 45800);
     }
     else {
-        let game1_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "game1_lose", { 
+        let game1_lose = this.add.text(this.game.config.width/2, this.game.config.height/6, "Game 1: FAILURE... Despite your relentless efforts, a home remained out of your grasp, compelling you to adapt to the rustic simplicity of living in a park.", { 
             fontFamily: "pmd", 
-            fill: "#ffffff", 
+            color: '#f00',
             align: "center",
-            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
-        this.fadeIn(END, 3000, 45800);
+            wordWrap: { width: this.game.config.width * .6  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(48); // set origin to center
+        this.fadeIn(game1_lose, 3000, 45800);
     }
 //game2
     if(game2win === true){
-        let game2_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "game2_win", { 
+        let game2_win = this.add.text(this.game.config.width/2, this.game.config.height/3, "Game 2: SUCCESS...  You have successfully eradicated the haunting infestation of ghost slugs that once plagued the closets of UCSC, restoring tranquility and safety to the institution.", { 
             fontFamily: "pmd", 
-            fill: "#ffffff", 
+            color: '#0f0',
             align: "center",
-            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
-        this.fadeIn(END, 3000, 45800);
+            wordWrap: { width: this.game.config.width * .6  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(48); // set origin to center
+        this.fadeIn(game2_win, 3000, 45800);
     }
     else {    
-        let game2_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "game2_lose", { 
+        let game2_lose = this.add.text(this.game.config.width/2, this.game.config.height/3, "Game 2: FAILURE... Your mission to quell the ghost slug infestation at UCSC fell short, leading to their unstoppable spread and eventual global domination.", { 
             fontFamily: "pmd", 
-            fill: "#ffffff", 
+            color: '#f00',
             align: "center",
-            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
-        this.fadeIn(END, 3000, 45800);
+            wordWrap: { width: this.game.config.width * .6  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(48); // set origin to center
+        this.fadeIn(game2_lose, 3000, 45800);
     }
-        //game3
+//game3
     if(game3win === true){
-        let game3_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "game3_win", { 
+        let game3_win = this.add.text(this.game.config.width/2, this.game.config.height/2, "Game 3: SUCCESS... Through your diligent efforts, you've successfully purged the environment of toxic waste, ensuring the survival and thriving of the koi fish ", { 
             fontFamily: "pmd", 
-            fill: "#ffffff", 
+            color: '#0f0',
             align: "center",
-            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
-        this.fadeIn(END, 3000, 45800);
+            wordWrap: { width: this.game.config.width * .6  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(48); // set origin to center
+        this.fadeIn(game3_win, 3000, 45800);
     }
     else {  
-        let game3_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "game3_lose", { 
+        let game3_lose = this.add.text(this.game.config.width/2, this.game.config.height/2, "Game 3: FAILURE... Despite your best efforts, the toxic waste proved too formidable to eliminate, spelling a tragic end for the precious koi fish and rest of the bay.", { 
             fontFamily: "pmd", 
-            fill: "#ffffff", 
+            color: '#f00', 
             align: "center",
-            wordWrap: { width: this.game.config.width * .4166667  } // wrap words that exceed this width
-        }).setOrigin(0.5).setAlpha(0).setFontSize(96); // set origin to center
-        this.fadeIn(END, 3000, 45800);
+            wordWrap: { width: this.game.config.width * .6  } // wrap words that exceed this width
+        }).setOrigin(0.5).setAlpha(0).setFontSize(48); // set origin to center
+        this.fadeIn(game3_lose, 3000, 45800);
     }     
     }
 }

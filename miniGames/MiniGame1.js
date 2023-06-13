@@ -101,7 +101,6 @@ class MiniGame1 extends MiniGameClass {
         //launch on click effect
         this.input.on('pointerdown', (pointer) => {
             if (Phaser.Geom.Rectangle.Contains(this.player.getBounds(), pointer.x, pointer.y)) {
-                this.showMessage("*LAUNCH*");
                 const velocityX = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random X velocity
                 const velocityY = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random Y velocity
                 this.player.setVelocity(velocityX, velocityY);

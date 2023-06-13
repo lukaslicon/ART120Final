@@ -12,24 +12,9 @@ class Cinematics extends Phaser.Scene {
 
         this.s = this.game.config.width * 0.01;
 
-        this.messageBox = this.add.text(this.game.config.width * .5,  this.game.config.height * 0.68)
-        .setStyle({ fontSize: `${2 * this.s}px`, color: '#eea' })
-        .setWordWrapWidth(this.w * 0.25 - 2 * this.s)
-        .setOrigin(0.5, 0.5);
-
         this.onEnter();
     }
-//captioning
-    showMessage(message){
-        this.messageBox.setText(message);
-        this.messageBox.setDepth(1); 
-        this.tweens.add({
-            targets: this.messageBox,
-            alpha: { from: 1, to: 0 },
-            easing: 'Linear',
-            duration: 3000
-        });
-    }
+
 //fullscreen
     fullScreenButton(){
         this.add.image(this.game.config.width/1.03, this.game.config.height/30, 'fullscreen')
@@ -37,10 +22,8 @@ class Cinematics extends Phaser.Scene {
         .on('pointerdown', () => {
             if (this.scale.isFullscreen) {
                 this.scale.stopFullscreen();
-                this.showMessage("*Fullscreen disabled*");
             } else {
                 this.scale.startFullscreen();
-                this.showMessage("*Fullscreen enabled*");
             }
         });
     }
@@ -55,7 +38,6 @@ class Cinematics extends Phaser.Scene {
                 musicMute = true;
                 music.pause();
                 musicButton.setFrame(1)
-                this.showMessage("*Music Muted*");
             }
             else{
                 musicMute = false;
@@ -64,7 +46,6 @@ class Cinematics extends Phaser.Scene {
                     // If the music was started and it's paused, then resume it
                     music.resume();
                     musicButton.setFrame(2);
-                    this.showMessage("*Music Unmuted*");
                 } else {
                     // If the music was never started, then play it
                     musicOnStart = true;
@@ -72,7 +53,6 @@ class Cinematics extends Phaser.Scene {
                     music.loop = true;
                     music.setVolume(.25);
                     music.play();
-                    this.showMessage("*Music Started*");
                 }
             }
         });
@@ -166,7 +146,6 @@ class Cinematics extends Phaser.Scene {
 
         //first game
         if(NPCmessage == 1){
-            this.showMessage("*Talking to NPC*");
             this.textBox();
             let storymessage1 = "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse."
             this.message1 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage1, textConfig)
@@ -184,7 +163,6 @@ class Cinematics extends Phaser.Scene {
         }
         //second game
         if(NPCmessage == 2){
-            this.showMessage("*Talking to NPC*");
             this.textBox();
             let storymessage2 = "Then came the ghost slugs, appearing from nowhere, taking over everything. We needed exterminators, but there were too few, too late. It was a strange, slimy apocalypse.";
             this.message2 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage2, textConfig)
@@ -201,7 +179,6 @@ class Cinematics extends Phaser.Scene {
         }
         //third game
         if(NPCmessage == 3){
-            this.showMessage("*Talking to NPC*");
             this.textBox();
             let storymessage3 = "Our once thriving land began to suffocate under toxic waste, the environment decayed, and we scrambled to save what was left. The animals, the fish, their survival hung by a thread. It was a desperate race against the clock."
             this.message3 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage3, textConfig)
@@ -219,7 +196,6 @@ class Cinematics extends Phaser.Scene {
         }
         //outro
         if (NPCmessage == 4) {
-            this.showMessage("*Talking to NPC*");
             this.textBox();
             let storymessage4 = "You've heard my tales, seen the horrors that await. I believe you can make a difference, maybe even prevent this. Here, take this portal back to your world, learn from our future, and change yours.";
             this.message4 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage4, textConfig)
