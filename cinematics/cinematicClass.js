@@ -45,12 +45,16 @@ class Cinematics extends Phaser.Scene {
         });
     }
     muteButton(music){
-        this.add.image(this.game.config.width/1.03, this.game.config.height/10, 'fullscreen')
+        const musicButton = this.add.sprite(this.game.config.width/1.03, this.game.config.height/10, 'music', 0)
+        //how would i edit the sprite to be 3x bigger?
+        .setScale(3)
         .setInteractive({useHandCursor: true})
+        .setFrame(0)
         .on('pointerdown', () => {
             if(musicMute == false){
                 musicMute = true;
                 music.pause();
+                musicButton.setFrame(1)
                 this.showMessage("*Music Muted*");
             }
             else{
@@ -59,6 +63,7 @@ class Cinematics extends Phaser.Scene {
                 if(musicOnStart){
                     // If the music was started and it's paused, then resume it
                     music.resume();
+                    musicButton.setFrame(2);
                     this.showMessage("*Music Unmuted*");
                 } else {
                     // If the music was never started, then play it
