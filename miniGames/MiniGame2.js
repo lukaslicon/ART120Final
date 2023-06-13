@@ -13,7 +13,7 @@ class MiniGame2 extends MiniGameClass {
     onEnter(){
         this.gwh = this.game.config.height;
         this.gww = this.game.config.width;
-        let CleanText = this.add.text(this.width * .28125, this.height * .46296, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
+        let CleanText = this.add.text(590, 700, "Let's clean out this closet full of ghosts! \n Watch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
                 targets: CleanText,
