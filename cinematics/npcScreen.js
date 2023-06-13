@@ -16,15 +16,15 @@ class npcScreen extends Cinematics {
         let rect = new Phaser.Geom.Rectangle(1800, 0, 120, 150);
 
         this.add.image(this.gww / 2, this.gwh / 2, 'background');
-        this.player = this.physics.add.image(this.gww / 2, this.gwh * 0.55, 'player').setScale(window.devicePixelRatio * 3);
+        this.player = this.physics.add.image(this.gww / 2, this.gwh * 0.55, 'player').setScale(3);
         this.player.body.setCollideWorldBounds(true);
 
-        this.npc = this.physics.add.image(this.gww / 2, this.gwh * 0.28, 'NPC').setScale(window.devicePixelRatio * 3);
+        this.npc = this.physics.add.image(this.gww / 2, this.gwh * 0.28, 'NPC').setScale(3);
         this.npc.body.setImmovable(true);
 
         //pointer
         if (NPCmessage == 0) {
-            this.pointer = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(window.devicePixelRatio * 2);
+            this.pointer = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(2);
             this.tweens.add({
                 targets: this.pointer,
                 alpha: 0,

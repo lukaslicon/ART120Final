@@ -51,7 +51,6 @@ class MiniGame3 extends MiniGameClass {
     onEnter() {
         this.scene.launch('ui');
 
-        
         this.CleanText = this.add.text(540, 500, "Let's clean this water full of toxins! \n Don't hurt the koi fish!").setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
@@ -71,6 +70,7 @@ class MiniGame3 extends MiniGameClass {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
 
         const cursor = this.add.image(0, 0, 'cursor').setVisible(false);
+        let rect = new Phaser.Geom.Rectangle(1800, 0, 120, 150);
 
         this.bg1 = this.add.image(0, 0, 'bg1').setOrigin(0);
         this.bg1.displayHeight = this.sys.game.config.height;
@@ -84,11 +84,13 @@ class MiniGame3 extends MiniGameClass {
 
         this.target = new Phaser.Math.Vector2();
         this.input.on('pointerdown', (pointer) => {
-            this.target.x = pointer.x;
-            this.target.y = pointer.y;
+            if (!rect.contains(pointer.x, pointer.y)) {
+                this.target.x = pointer.x;
+                this.target.y = pointer.y;
 
-            this.physics.moveToObject(this.player, this.target, 600);
-            cursor.copyPosition(this.target).setVisible(true);
+                this.physics.moveToObject(this.player, this.target, 600);
+                cursor.copyPosition(this.target).setVisible(true);
+            }
         });
 
         this.flipper1 = this.add.rectangle(1000, 30, 1920, 10)
