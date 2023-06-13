@@ -43,24 +43,24 @@ class MiniGame2 extends MiniGameClass {
         this.bbg.y = this.sys.game.config.height/2;
 
         this.pointcount = this.add.text(0,0)
-            .setStyle({ fontSize: 800*window.devicePixelRatio / 7, color: '#fff' })
+            .setStyle({ fontSize: 800 / 7, color: '#fff' })
         this.points = 0;
         this.health = 4;
         this.sh1 = this.add.image(this.gww/1.08,this.gwh/10,'sh1')
-            this.sh1.setScale(window.devicePixelRatio / 4)
+            this.sh1.setScale(1/5)
             this.sh1.setAlpha(1)
         this.sh2 = this.add.image(this.gww/1.08,this.gwh/10,'sh2')
-            this.sh2.setScale(window.devicePixelRatio / 4)
+            this.sh2.setScale(1/5)
             this.sh2.setAlpha(0)
         this.sh3 = this.add.image(this.gww/1.08,this.gwh/10,'sh3')
-            this.sh3.setScale(window.devicePixelRatio / 4)
+            this.sh3.setScale(1/5)
             this.sh3.setAlpha(0)
         this.sh4 = this.add.image(this.gww/1.08,this.gwh/10,'sh4')
-            this.sh4.setScale(window.devicePixelRatio / 4)
+            this.sh4.setScale(1/5)
             this.sh4.setAlpha(0)
         this.coin1 = this.physics.add.image(this.gww*0.2,this.gwh*0.18,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 10)
+            .setScale(1 / 10)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -76,7 +76,7 @@ class MiniGame2 extends MiniGameClass {
             })
             this.coin2 = this.physics.add.image(this.gww*0.625,0,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 4)
+            .setScale(1 / 4)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -92,7 +92,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin3 = this.physics.add.image(this.gww*0.38,this.gwh*0.185,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 2)
+            .setScale(1 / 2)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -108,7 +108,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin4 = this.physics.add.image(this.gww-2,this.gwh,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 8)
+            .setScale(1 / 8)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -124,7 +124,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin5 = this.physics.add.image(2,this.gwh*0.363,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 2.5)
+            .setScale(1 / 2.5)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -140,7 +140,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin6 = this.physics.add.image(this.gww*0.12,this.gwh*0.92,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 2.9)
+            .setScale(1 / 2.9)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -156,7 +156,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin7 = this.physics.add.image(this.gww*0.364,this.gwh*0.25,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 4)
+            .setScale(1 / 4)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -172,7 +172,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin8 = this.physics.add.image(this.gww*0.67,this.gwh*0.21,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 2.65)
+            .setScale(1 / 2.65)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -188,7 +188,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin9 = this.physics.add.image(this.gww*0.364,this.gwh*0.83,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 3)
+            .setScale(1 / 3)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -204,7 +204,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin10 = this.physics.add.image(this.gww*0.66,this.gwh*0.46,"coin")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 4.8)
+            .setScale(1 / 4.8)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -220,7 +220,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin11 = this.physics.add.image(this.gww*0.677,this.gwh*0.398,"coinb")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 3)
+            .setScale(1 / 3)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -237,7 +237,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin12 = this.physics.add.image(this.gww*0.15,this.gwh,"coinb")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 4)
+            .setScale(1 / 4)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -254,7 +254,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin13 = this.physics.add.image(0,this.gwh*0.833,"coinb")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 3)
+            .setScale(1 / 3)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -271,7 +271,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin14 = this.physics.add.image(this.gww*0.645,0,"coinb")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 5.1)
+            .setScale(1 / 5.1)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
@@ -288,7 +288,7 @@ class MiniGame2 extends MiniGameClass {
             })
         this.coin15 = this.physics.add.image(5,this.gwh*0.21,"coinb")
             .setInteractive({useHandCursor:true})
-            .setScale(window.devicePixelRatio / 5.1)
+            .setScale(1 / 5.1)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
             .on('pointerdown', () => {
