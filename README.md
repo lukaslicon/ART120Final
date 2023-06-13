@@ -13,7 +13,7 @@ https://lukaslicon.itch.io/futurebound
    
 **Explanation of theme**
 "Nearby in space, but distant in time."
-Our team tackled this idea quite literally, with the player being sent forward into the future to view the exaggerated consequences of the housing crisis and possible deforestation.
+Our team tackled this idea quite literally, with the player being sent forward into the future to view the exaggerated consequences of the housing crisis and possible deforestation of UCSC.
 
 **Explanation of selectable requirements attempted**
 1. Advanced visual assets, with a video based ending
@@ -51,35 +51,46 @@ See commit history.
 See commit history.
 
 **Playable using only touch-screen controls**
+
 Fully touch-screen compatible with the use of discrete and continuous inputs.
 
 **Full-screen gameplay available on mobile browsers**
+
 Full-screen button at the top right of the screen.
 
 **No mobile-specific technical issues blocking completability of the game**
+
 Mobile completable by editing lines in the index.html file.
 
 **Player can learn controls from within the game while full screen**
+
 Player is urged on by a pointer animated by a tween to touch/click the screen to move around and is taught by mini games to click to move objects or move the player character.
 
 **Music can be turned off from inside of the game**
+
 Mute music button implemented at the top right of the screen below the fullscreen button.
 
 **Music preference is remembered across gameplay sessions in new browser windows**
+
 Music preference is stored as a local variable.
 
 **Core gameplay can be reached within 1 minute**
+
 Intro takes less than a minute to read and watch through.
 
 **Main progression can be completed within 10 minutes for new players experienced with related games**
+
 The 3 minigames and the interlude NPC screen are simple and relatively straightforward. The linear storyline helps keep the player on the right path at all times.
 
 **Selectable requirement #1 is satisfied**
+
 See code.
 (add specific line once done)
 **Selectable requirement #2 is satisfied**
+
 See code.
 (add specific line once done)
 **Selectable requirement #3 is satisfied**
+
 See code.
 (add specific line once done)
