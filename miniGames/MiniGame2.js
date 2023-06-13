@@ -340,14 +340,14 @@ class MiniGame2 extends MiniGameClass {
             this.sh4.setAlpha(1);
         }//
         if (this.health == 0) {
-            this.cameras.main.fade(1000, 0,0,0);
             this.failCondition();
+            this.cameras.main.fade(1000, 0,0,0);
             this.time.delayedCall(1000, () =>this.scene.start('npcScreen'));
         }
         if (this.points == 10) {
-            this.cameras.main.fade(1000, 0,0,0);
             this.winCondition(game2win);
-            this.time.delayedCall(1000, () =>this.scene.start('npcScree')); //change fail to new next game
+            this.cameras.main.fade(1000, 0,0,0);
+            this.time.delayedCall(1000, () =>this.scene.start('npcScreen')); //change fail to new next game
         }
         this.pointcount.setText(this.points);
     }

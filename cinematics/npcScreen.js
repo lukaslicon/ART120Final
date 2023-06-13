@@ -67,9 +67,8 @@ class npcScreen extends Cinematics {
         //     wind.stop('+4');
         // }, '4n');
 
-        // how would i create a note that is a half step up in tone.js?
-
-
+        // use a polysynth in tone.js to make a c#4 note for 1.0 seconds, then play a f#4 note for 0.75 seconds, then play a a#4 note for 0.5 seconds, then play a c#5 note for 0.25 seconds
+        
         //fade
         this.fadeInScene();
         this.fullScreenButton();
