@@ -40,6 +40,8 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 - Shader: https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/shaders/bundle.glsl.js
 
+- Portal Texture: Minecraft Default Portal Texture
+
 **Uses hand-typed textual program code**
 
 - See code.
