@@ -86,10 +86,12 @@ The 3 minigames and the interlude NPC screen are simple and relatively straightf
 
 See code.
 (add specific line once done)
+
 **Selectable requirement #2 is satisfied**
 
 See code.
 (add specific line once done)
+
 **Selectable requirement #3 is satisfied**
 
 See code.
