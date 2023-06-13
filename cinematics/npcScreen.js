@@ -23,8 +23,8 @@ class npcScreen extends Cinematics {
         this.npc.body.setImmovable(true);
 
         //pointer
-        if (NPCMessage == 0) {
-            this.pointer = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(window.devicePixelRatio * 1);
+        if (NPCmessage == 0) {
+            this.pointer = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(window.devicePixelRatio * 2);
             this.tweens.add({
                 targets: this.pointer,
                 alpha: 0,
@@ -68,6 +68,7 @@ class npcScreen extends Cinematics {
         // }, '4n');
 
         // how would i create a note that is a half step up in tone.js?
+
 
         //fade
         this.fadeInScene();
