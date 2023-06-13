@@ -21,6 +21,7 @@ class MiniGame2 extends MiniGameClass {
                 duration: 1000 // This is the duration of the fade out
             });
         }, [], this);
+        CleanText.setDepth(1);
 
         let HUD = this.add.text(590, 900, 'Click on the slugs').setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(5000, () => {
@@ -30,6 +31,7 @@ class MiniGame2 extends MiniGameClass {
                 duration: 1000 // This is the duration of the fade out
             });
         }, [], this);
+        HUD.setDepth(1);
 
         this.dmg = this.sound.add("dmg");
         this.catch = this.sound.add("catch");
