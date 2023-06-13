@@ -1,4 +1,4 @@
-class Cinematics extends Phaser.Scene {
+class Cinematics extends settings {
     constructor(key, name) {
         super(key);
         this.name = name;
@@ -15,47 +15,7 @@ class Cinematics extends Phaser.Scene {
         this.onEnter();
     }
 
-//fullscreen
-    fullScreenButton(){
-        this.add.image(this.game.config.width/1.03, this.game.config.height/30, 'fullscreen')
-        .setInteractive({useHandCursor: true})
-        .on('pointerdown', () => {
-            if (this.scale.isFullscreen) {
-                this.scale.stopFullscreen();
-            } else {
-                this.scale.startFullscreen();
-            }
-        });
-    }
-    muteButton(music){
-        const musicButton = this.add.sprite(this.game.config.width/1.03, this.game.config.height/10, 'music', 0)
-        .setScale(3)
-        .setInteractive({useHandCursor: true})
-        .setFrame(0)
-        .on('pointerdown', () => {
-            if(musicMute == false){
-                musicMute = true;
-                music.pause();
-                musicButton.setFrame(1)
-            }
-            else{
-                musicMute = false;
-                // Check if the music was ever started
-                if(musicOnStart){
-                    // If the music was started and it's paused, then resume it
-                    music.resume();
-                    musicButton.setFrame(2);
-                } else {
-                    // If the music was never started, then play it
-                    musicOnStart = true;
-                    music = this.sound.add("BGM"); 
-                    music.loop = true;
-                    music.setVolume(.25);
-                    music.play();
-                }
-            }
-        });
-    }
+
 //object
     fadeInthenOut(target, time1, time2, delay) {
         this.tweens.add({
@@ -146,7 +106,7 @@ class Cinematics extends Phaser.Scene {
         //first game
         if(NPCmessage == 1){
             this.textBox();
-            let storymessage1 = "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse."
+            let storymessage1 = "Did you know, traveler? The housing crisis that began in Santa Cruz, it became contagious, spreading far and wide. The world was unprepared... it was the first domino to fall in our collapse.";
             this.message1 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage1, textConfig)
             .setOrigin(0.5)
             .setAlpha(1);
@@ -179,7 +139,7 @@ class Cinematics extends Phaser.Scene {
         //third game
         if(NPCmessage == 3){
             this.textBox();
-            let storymessage3 = "Our once thriving land began to suffocate under toxic waste, the environment decayed, and we scrambled to save what was left. The animals, the fish, their survival hung by a thread. It was a desperate race against the clock."
+            let storymessage3 = "Our once thriving land began to suffocate under toxic waste, the environment decayed, and we scrambled to save what was left. The animals, the fish, their survival hung by a thread. It was a desperate race against the clock.";
             this.message3 = this.add.text(textBoxX + textBoxWidth * 0.5, textBoxY + textBoxHeight * 0.5, storymessage3, textConfig)
             .setOrigin(0.5)
             .setAlpha(1);
