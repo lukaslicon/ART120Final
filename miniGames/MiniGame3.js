@@ -48,6 +48,14 @@ class MiniGame3 extends MiniGameClass {
     }
 
     onEnter() {
+        if (musicMute == true){
+            this.backMusic.play();
+            this.backMusic.setVolume(0);
+         }
+         else{
+             this.backMusic.play();
+         }
+
         this.scene.launch('ui');
 
         this.CleanText = this.add.text(540, 500, "Let's clean this water full of toxins! \n Don't hurt the koi fish!").setStyle({ fontSize: 50, color: '#fff' })

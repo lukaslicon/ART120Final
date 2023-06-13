@@ -11,6 +11,14 @@ class MiniGame2 extends MiniGameClass {
     }
 
     onEnter(){
+        if (musicMute == true){
+            this.backMusic.play();
+            this.backMusic.setVolume(0);
+         }
+         else{
+             this.backMusic.play();
+         }
+
         this.gwh = this.game.config.height;
         this.gww = this.game.config.width;
         let CleanText = this.add.text(290, 700, "Let's clean out this closet full of ghosts! \nWatch out for the red ones!").setStyle({ fontSize: 50, color: '#fff' })

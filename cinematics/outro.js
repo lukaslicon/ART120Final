@@ -62,7 +62,7 @@ class outro extends Cinematics {
         this.fadeIn(END, 3000, 45800);
 //game1  
     if(game1win == true){
-        let game1_win = this.add.text(this.game.config.width/2, this.game.config.height/6, "Game 1: Success...  Through sheer determination and resourcefulness, you navigated the complexities of the housing crisis and successfully secured a sanctuary to call home.", { 
+        let game1_win = this.add.text(this.game.config.width/2, this.game.config.height/6, "Game 1: SUCCESS...  Through sheer determination and resourcefulness, you navigated the complexities of the housing crisis and successfully secured a sanctuary to call home.", { 
             fontFamily: "pmd", 
             color: '#0f0',
             align: "center",

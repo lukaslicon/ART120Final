@@ -9,7 +9,7 @@ class MiniGameClass extends settings {
         this.catch = this.sound.add("catch");
         this.backMusic = this.sound.add("BGM");
         this.backMusic.loop = true;
-        this.backMusic.setVolume(.25);
+        this.backMusic.setVolume(1);
 
         this.s = this.game.config.width * 0.01;
         this.messageBox = this.add.text(this.game.config.width * .455, this.game.config.height * 0.68)

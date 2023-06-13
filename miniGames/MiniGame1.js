@@ -8,6 +8,14 @@ class MiniGame1 extends MiniGameClass {
 
     }
     onEnter(){
+        if (musicMute == true){
+            this.backMusic.play();
+            this.backMusic.setVolume(0);
+         }
+         else{
+             this.backMusic.play();
+         }
+
         //config
         this.width = this.game.config.width;
         this.height = this.game.config.height;
