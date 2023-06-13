@@ -285,7 +285,7 @@ class MiniGameClass extends settings {
     }
     pointt(obj) {
         obj.destroy();
-        ++points;
+        ++game3score;
         this.catch.play();
     }
     //warning on create

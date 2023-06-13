@@ -1,5 +1,4 @@
 let health = 4;
-let points = 0;
 
 
 class UI extends Phaser.Scene {
@@ -39,7 +38,7 @@ class UI extends Phaser.Scene {
             this.sh3.destroy();
             this.sh4.setAlpha(1);
         }
-        this.pointcount.setText(points);
+        this.pointcount.setText(game3score);
     }
 }
 
@@ -236,7 +235,7 @@ class MiniGame3 extends MiniGameClass {
             this.scene.stop('ui');
             this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
         }
-        if (points == 8) {
+        if (game3score == 8) {
             game3win = true;
             this.winCondition();
             this.cameras.main.fade(1000, 0, 0, 0);
