@@ -15,7 +15,7 @@ https://lukaslicon.itch.io/futurebound
    
 **Explanation of theme**
 "Nearby in space, but distant in time."
-Our team tackled this idea quite literally, with the player being sent forward into the future to view the exaggerated consequences of the housing crisis and possible deforestation of UCSC.
+Our team tackled this idea quite literally, with the player being sent forward into the future to view the exaggerated consequences of the housing crisis, possible deforestation of UCSC, and a post-apocalyptic environment.
 
 **Explanation of selectable requirements attempted**
 1. Advanced visual assets, 
@@ -37,6 +37,8 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 **Gives credit for all major upstream assets**
 - Maximilian Breal from ARTG120 helped create assets such as the glove, koi fish, housing application, houses, and animation of ending background.
+
+- Jentsen created main character, NPC, pointer, fullscreen button, mute button, and nuclear barrel sprites, all backgrounds, title screen art and music, and BGM.
 
 - Tileset for NPC Screen: https://clockworkraven.itch.io/raven-fantasy-pixel-art-tileset-green-forest
 
@@ -80,7 +82,7 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 **Music preference is remembered across gameplay sessions in new browser windows**
 
-- Music preference is stored as a local variable.
+- Music preference is stored as a global variable.
 
 **Core gameplay can be reached within 1 minute**
 

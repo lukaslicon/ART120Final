@@ -19,7 +19,7 @@ let config = {
         }
     },
     scene: [Load, Intro, Title, TextIntro, npcScreen, MiniGame1, MiniGame2, MiniGame3, outro, UI],
-    title: "Mini Game Prototype",
+    title: "FutureBound",
     scaleMode: Phaser.Scale.ScaleModes.RESIZE,
     autoRound: true,
     orientation: 'auto'
