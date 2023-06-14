@@ -1,9 +1,6 @@
 # **CMPM120 Final Game: FutureBound**
 Final game created for CMPM120, UCSC Spring 2023
 
-**RUBRIC**
------------------
-
 **Link to deployed version of main game that works in mobile browser:**
 -----------------
 https://lukaslicon.itch.io/futurebound
