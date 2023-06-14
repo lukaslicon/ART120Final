@@ -11,7 +11,7 @@ Final game created for CMPM120, UCSC Spring 2023
 
    - Core Gameplay: https://lukaslicon.github.io/CoreGameplayPrototype/
 
-   - Cinematics: https://lukaslicon.github.io/CinematicPrototype/
+   - Cinematics: https://lukaslicon.github.io/CinematicsPrototype/
    
 **Explanation of theme**
 -----------------
