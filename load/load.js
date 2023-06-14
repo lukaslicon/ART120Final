@@ -1,18 +1,23 @@
 housing = false;
 progress = 0;
-NPCmessage = 3;
+NPCmessage = 0;
 
-game1score = 11;
+game1score = 0;
 game1win = false;
 
-game2score = 9;
+game2score = 0;
 game2win = false;
 
-game3score = 7;
+game3score = 0;
 game3win = false;
 
 musicMute = false;
 muteButtonFrame = 0;
+
+pointerDestroyed = false;
+game1pointer = false
+game2pointer = false;
+game3pointer = false;
 
 class Load extends Phaser.Scene {
     constructor(){
@@ -91,7 +96,7 @@ class Load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('outro');
+        this.scene.start('intro');
     }
 }
     let gameOptions = {

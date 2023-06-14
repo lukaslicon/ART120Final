@@ -26,7 +26,6 @@ class MiniGame1 extends MiniGameClass {
         this.player.body.setCollideWorldBounds(true); 
         //timer
 
-        
 //boundaries/goals
         //top
         this.groupTop = this.physics.add.group({
@@ -106,14 +105,30 @@ class MiniGame1 extends MiniGameClass {
         Phaser.Actions.PlaceOnLine(this.leftSide.getChildren(),leftLine);  
         Phaser.Actions.PlaceOnLine(this.rightSide.getChildren(),rightLine);           
 
+        //pointer
+        this.pointerHand = this.add.image(this.width/2, this.height/2, 'pointer').setScale(2).setOrigin(.5);
+        this.tweens.add({
+            targets: this.pointerHand,
+            alpha: 0,
+            duration: 2000,
+            ease: 'Linear',
+            repeat: -1,
+            yoyo: true,
+        });
+
         //launch on click effect
         this.input.on('pointerdown', (pointer) => {
             if (Phaser.Geom.Rectangle.Contains(this.player.getBounds(), pointer.x, pointer.y)) {
                 const velocityX = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random X velocity
                 const velocityY = Phaser.Math.Between(-playerVelocity, playerVelocity); // Random Y velocity
                 this.player.setVelocity(velocityX, velocityY);
+                if(game1pointer == false){
+                    this.pointerHand.destroy();
+                    game1pointer = true;
+                }
             }
         });
+
 
 //collisions for each group
         //TOP COLLISIONS
@@ -212,20 +227,10 @@ class MiniGame1 extends MiniGameClass {
         });           
         
         //game info
-        let housingText = this.add.text(this.width * .28125, this.height * .46296, 'Quick! Get in 12 housing apps!').setStyle({ fontSize: 50, color: '#fff' })
+        let housingText = this.add.text(this.width * .28125, this.height/4, 'Quick! Get in 12 housing apps!').setStyle({ fontSize: 50, color: '#fff' })
         this.time.delayedCall(3000, () => {
             this.tweens.add({
                 targets: housingText,
-                alpha: 0,
-                duration: 1000 // This is the duration of the fade out
-            });
-        }, [], this);
-
-        //HUD
-        let HUD = this.add.text(590, 900, 'Click the player to move.').setStyle({ fontSize: 50, color: '#fff' })
-        this.time.delayedCall(5000, () => {
-            this.tweens.add({
-                targets: HUD,
                 alpha: 0,
                 duration: 1000 // This is the duration of the fade out
             });

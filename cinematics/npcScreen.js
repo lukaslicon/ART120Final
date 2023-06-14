@@ -29,9 +29,9 @@ class npcScreen extends Cinematics {
 
         //pointer
         if (NPCmessage == 0) {
-            this.pointer = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(2);
+            this.pointerHand = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(2);
             this.tweens.add({
-                targets: this.pointer,
+                targets: this.pointerHand,
                 alpha: 0,
                 duration: 2000,
                 ease: 'Linear',
@@ -49,31 +49,14 @@ class npcScreen extends Cinematics {
                 this.physics.moveTo(this.player, pointer.x, pointer.y, 300);
                 this.targetX = pointer.x;
                 this.targetY = pointer.y;
-                this.pointer.destroy();
+                if(pointerDestroyed == false){
+                    this.pointerHand.destroy();
+                    pointerDestroyed = true;
+                }
+
             }
         });
 
-
-        //background wind noise from tone.js
-        // const wind = new Tone.Noise('brown');
-        //  const autoFilter = new Tone.AutoFilter({
-        //      baseFrequency: 200,
-        //      octaves: 8
-        // }).toDestination().start();
-        // wind.connect(autoFilter);
-
-        // const noiseVol = new Tone.Volume(-50);
-        // wind.chain(noiseVol, Tone.Destination);
-
-        // let loop = new Tone.Loop(() =>{
-        //     noiseVol.volume.value = Math.random() *-5;
-
-        //     wind.start();
-        //     wind.stop('+4');
-        // }, '4n');
-
-        // use a polysynth in tone.js to make a c#4 note for 1.0 seconds, then play a f#4 note for 0.75 seconds, then play a a#4 note for 0.5 seconds, then play a c#5 note for 0.25 seconds
-        
         //fade
         this.fadeInScene();
         this.fullScreenButton();

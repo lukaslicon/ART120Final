@@ -52,10 +52,10 @@ class outro extends Cinematics {
         setTimeout(() => {
             outroVid.play(true);
         }, 40000);
-
+//HUD
         this.fullScreenButton();
-        // this.muteTitle();
-
+        this.muteButton(this.outroMusic);
+        
         let END = this.add.text(this.game.config.width/2, this.game.config.height/1.3, "THE END", { 
             fontFamily: "pmd",
             fill: "#ffffff", 

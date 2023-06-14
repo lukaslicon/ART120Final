@@ -48,6 +48,8 @@ class MiniGame3 extends MiniGameClass {
     }
 
     onEnter() {
+        this.width = this.game.config.width;
+        this.height = this.game.config.height;
         if (musicMute == true){
             this.backMusic.play();
             this.backMusic.setVolume(0);
@@ -90,15 +92,29 @@ class MiniGame3 extends MiniGameClass {
         this.player.setScale(3);
 
         this.target = new Phaser.Math.Vector2();
+                //pointer
+                this.pointerHand = this.add.image(this.width / 10, this.height / 7, 'pointer').setScale(2).setDepth(1);
+                this.tweens.add({
+                    targets: this.pointerHand,
+                    alpha: 0,
+                    duration: 2000,
+                    ease: 'Linear',
+                    repeat: -1,
+                    yoyo: true,
+                });
         this.input.on('pointerdown', (pointer) => {
+            if(game3pointer == false){
+                this.pointerHand.destroy();
+                game3pointer = true;
+            }
             if (!rect.contains(pointer.x, pointer.y)) {
                 this.target.x = pointer.x;
                 this.target.y = pointer.y;
-
                 this.physics.moveToObject(this.player, this.target, 600);
                 cursor.copyPosition(this.target).setVisible(true);
             }
         });
+
 
         this.flipper1 = this.add.rectangle(1000, 30, 1920, 10)
             .setFillStyle(0xff0000, 0);

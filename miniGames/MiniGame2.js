@@ -57,6 +57,19 @@ class MiniGame2 extends MiniGameClass {
         this.sh4 = this.add.image(this.gww/1.08,this.gwh/10,'sh4')
             this.sh4.setScale(1/5)
             this.sh4.setAlpha(0)
+
+            
+        //pointer
+        this.pointerHand = this.add.image(this.gww / 2.5, this.gwh * 0.55, 'pointer').setScale(2);
+        this.tweens.add({
+            targets: this.pointerHand,
+            alpha: 0,
+            duration: 2000,
+            ease: 'Linear',
+            repeat: -1,
+            yoyo: true,
+        });
+
         this.coin1 = this.physics.add.image(this.gww*0.2,this.gwh*0.18,"coin")
             .setInteractive({useHandCursor:true})
             .setScale(1 / 10)
@@ -70,6 +83,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin1.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -86,6 +103,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin2.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -102,6 +123,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin3.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -118,6 +143,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin4.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -134,6 +163,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin5.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -150,6 +183,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin6.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -166,6 +203,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin7.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -182,6 +223,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin8.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -198,6 +243,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 300,
                     onComplete: () => this.coin9.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -214,6 +263,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin10.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.catch.play();
                 game2score++;
             })
@@ -230,6 +283,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin11.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.dmg.play();
                 this.cameras.main.shake(300)
                 this.health--;
@@ -247,6 +304,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin12.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.dmg.play();
                 this.cameras.main.shake(300)
                 this.health--;
@@ -264,6 +325,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin13.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.dmg.play();
                 this.cameras.main.shake(300)
                 this.health--;
@@ -281,6 +346,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin14.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.dmg.play();
                 this.cameras.main.shake(300)
                 this.health--;
@@ -298,6 +367,10 @@ class MiniGame2 extends MiniGameClass {
                     duration: 750,
                     onComplete: () => this.coin15.destroy()
                 })
+                if(game2pointer == false){
+                    this.pointerHand.destroy();
+                    game2pointer = true;
+                }
                 this.dmg.play();
                 this.cameras.main.shake(300)
                 this.health--;
@@ -319,6 +392,7 @@ class MiniGame2 extends MiniGameClass {
         this.pathFunction3(this.coin15);
         this.muteButton(this.backMusic);
         this.fullScreenButton();
+
     }
     update(){
         if (this.health == 3) {

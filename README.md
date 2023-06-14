@@ -18,9 +18,13 @@ https://lukaslicon.itch.io/futurebound
 Our team tackled this idea quite literally, with the player being sent forward into the future to view the exaggerated consequences of the housing crisis and possible deforestation of UCSC.
 
 **Explanation of selectable requirements attempted**
-1. Advanced visual assets, with a video based ending
-2. Procedural audio, succcess chord created from ToneJS
-3. Procedural graphics, Phaser Graphics class and shader effects in starting portal
+1. Advanced visual assets, 
+   - with a video based ending
+2. Procedural audio, 
+   - succcess chord created from ToneJS
+3. Procedural graphics, 
+   - Phaser Graphics class and shader effects in starting portal
+
 
 **Identifies all direct contributors and their roles**
 
@@ -32,7 +36,7 @@ Our team tackled this idea quite literally, with the player being sent forward i
 - **Jentsen:** Production Lead
 
 **Gives credit for all major upstream assets**
-- Maximilian Breal from ART120 helped create assets such as the glove, koi fish, housing application, and animation of ending background.
+- Maximilian Breal from ARTG120 helped create assets such as the glove, koi fish, housing application, houses, and animation of ending background.
 
 - Tileset for NPC Screen: https://clockworkraven.itch.io/raven-fantasy-pixel-art-tileset-green-forest
 
@@ -52,7 +56,7 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 **Repository shows most design changes with useful commit messages**
 
-- See commit history.
+- See commit history. 
 
 **Playable using only touch-screen controls**
 
@@ -64,7 +68,7 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 **No mobile-specific technical issues blocking completability of the game**
 
-- Mobile completable by editing lines in the index.html file.
+- Mobile completable with lines in the index.html file.
 
 **Player can learn controls from within the game while full screen**
 
@@ -88,15 +92,12 @@ Our team tackled this idea quite literally, with the player being sent forward i
 
 **Selectable requirement #1 is satisfied**
 
-- See code.
-(add specific line once done)
+- Advanced visual assets: outro.js:47
 
 **Selectable requirement #2 is satisfied**
 
-- See code.
-(add specific line once done)
+- Procedural audio: MiniGameClass.js:34
 
 **Selectable requirement #3 is satisfied**
 
-- See code.
-(add specific line once done)
+- Procedural shader graphics: intro.js:44
