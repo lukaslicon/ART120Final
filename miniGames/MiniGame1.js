@@ -227,7 +227,13 @@ class MiniGame1 extends MiniGameClass {
         });           
         
         //game info
-        let housingText = this.add.text(this.width * .28125, this.height/4, 'Quick! Get in 12 housing apps!').setStyle({ fontSize: 50, color: '#fff' })
+        let housingText = this.add.text(this.width /2, this.height/3, 'Quick! Get in 12 housing apps!')
+        .setStyle({ 
+            fontFamily: 'pmd',
+            fontSize: 64,
+            color: '#fff'
+        })
+        .setOrigin(0.5);
         this.time.delayedCall(3000, () => {
             this.tweens.add({
                 targets: housingText,
