@@ -1,7 +1,6 @@
-
 housing = false;
 progress = 0;
-NPCmessage = 0;
+NPCmessage = 3;
 
 game1score = 11;
 game1win = false;
@@ -13,6 +12,8 @@ game3score = 7;
 game3win = false;
 
 musicMute = false;
+muteButtonFrame = 0;
+
 class Load extends Phaser.Scene {
     constructor(){
         super('load');
@@ -36,9 +37,11 @@ class Load extends Phaser.Scene {
         this.load.image('pointer', 'pointer.png');
         this.load.audio('BGM', 'music/BGM.mp3');
         this.load.audio('titleMusic', 'music/titleMusic.mp3');
-        this.load.spritesheet('OutroGif', 'spritesheet.png', { frameWidth: 1920, frameHeight: 1082 });
         this.load.spritesheet('music', 'music.png', { frameWidth: 32, frameHeight: 32 });
 
+        //advanced visual asset (outro vid)
+        this.load.video('outroVid', 'outro.mp4', { loop: false, mute: true });
+        
         //logos
         this.load.image('JLogo', 'logos/JEMStudios.png');
         this.load.image('LLogo', 'logos/buggyGames.png');
@@ -88,11 +91,10 @@ class Load extends Phaser.Scene {
     }
     create()
     {
-        this.scene.start('MiniGame2');
+        this.scene.start('outro');
     }
 }
     let gameOptions = {
         initialTime: 60
     }
 
-    muteButtonFrame = 0;

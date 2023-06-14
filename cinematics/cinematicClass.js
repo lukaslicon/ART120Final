@@ -8,7 +8,7 @@ class Cinematics extends settings {
         this.titleMusic.loop = true;
         this.backMusic = this.sound.add("BGM");
         this.backMusic.loop = true;
-        this.backMusic.setVolume(.25);
+        this.backMusic.setVolume(1);
         this.outroMusic = this.sound.add("titleMusic");
         this.outroMusic.loop = true;
 
@@ -118,6 +118,7 @@ class Cinematics extends settings {
                 //fade
                 this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('MiniGame1');
                 }, this);
             }, [], this);
@@ -134,6 +135,7 @@ class Cinematics extends settings {
                 this.message2.destroy();
                 this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('MiniGame2');
                 }, this);
             }, [], this);
@@ -151,6 +153,7 @@ class Cinematics extends settings {
                 this.message3.destroy();
                 this.cameras.main.fadeOut(3000);
                 this.cameras.main.once('camerafadeoutcomplete', function (camera) {
+                    this.backMusic.stop();
                     this.scene.start('MiniGame3');
                 }, this);
             }, [], this);
@@ -166,8 +169,8 @@ class Cinematics extends settings {
             this.player.body.moves = false;
             this.time.delayedCall(13000, () => {
                 this.message4.destroy();
-                this.backMusic.stop();
                 this.cameras.main.fadeOut(3000, 0, 0, 0, (camera, progress) => {
+                    this.backMusic.stop();
                     if (progress === 1) {
                         this.scene.start('outro', {}, { alpha: 0, duration: 1000 });
                     }

@@ -8,10 +8,15 @@ class npcScreen extends Cinematics {
         this.s = this.game.config.width * 0.01;
         this.gww = this.game.config.width;
         this.gwh = this.game.config.height;
-        if (musicOnStart == false && musicMute == false) { //this is for starting on each scene... do not change this
-            musicOnStart = true; //now music is playing on a loop, we need this so it doesnt start everytime we re-enter the scene
+
+        if (musicMute == true){
             this.backMusic.play();
-        }
+            this.backMusic.setVolume(0);
+         }
+         else{
+             this.backMusic.play();
+         }
+         
         //rectangle behind background
         let rect = new Phaser.Geom.Rectangle(1800, 0, 120, 150);
 

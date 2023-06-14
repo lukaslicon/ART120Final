@@ -167,7 +167,7 @@ class MiniGame3 extends MiniGameClass {
         this.path3(this.coin3);
         this.path4(this.coin4);
         this.path5(this.coin5);
-        this.muteBGM();
+        this.muteButton(this.backMusic);
         this.fullScreenButton();
     }
 
@@ -245,7 +245,7 @@ class MiniGame3 extends MiniGameClass {
             this.time.delayedCall(1000, () => this.scene.start('npcScreen'));
         }
         if (game3score == 8) {
-            game3score = true;
+            game3win = true;
             this.winCondition();
             this.cameras.main.fade(1000, 0, 0, 0);
             this.backMusic.stop();

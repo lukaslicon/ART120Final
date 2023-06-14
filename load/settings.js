@@ -23,7 +23,6 @@ class settings extends Phaser.Scene {
     //mute
     muteButton(music){
         let musicButton = this.add.sprite(this.game.config.width/1.03, this.game.config.height/10, 'music', 0)
-        //how would i edit the sprite to be 3x bigger?
         .setScale(3)
         .setInteractive({useHandCursor: true})
         .setFrame(muteButtonFrame)

@@ -94,12 +94,19 @@ class Title extends Cinematics {
         super('title', 'title');
     }
     onEnter() {
+        //for music
+        if (musicMute == true){
+            this.titleMusic.play();
+            this.titleMusic.setVolume(0);
+        }
+        else{
+            this.titleMusic.play();
+        }
         //fade
         this.fadeInScene();
-        // this.titleMusic.play();
         this.add.image(960, 540, 'titleScreen');
         this.fullScreenButton();
-        // this.muteTitle();
+        this.muteButton(this.titleMusic);
         this.isClicked = false;
         let playButton = this.add.image(960, 740, 'play')
             .setScale(.8)

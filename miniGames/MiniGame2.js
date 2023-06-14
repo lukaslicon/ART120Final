@@ -71,7 +71,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin1.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
             this.coin2 = this.physics.add.image(this.gww*0.625,0,"coin")
             .setInteractive({useHandCursor:true})
@@ -87,7 +87,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin2.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin3 = this.physics.add.image(this.gww*0.38,this.gwh*0.185,"coin")
             .setInteractive({useHandCursor:true})
@@ -103,7 +103,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin3.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin4 = this.physics.add.image(this.gww-2,this.gwh,"coin")
             .setInteractive({useHandCursor:true})
@@ -119,7 +119,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin4.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin5 = this.physics.add.image(2,this.gwh*0.363,"coin")
             .setInteractive({useHandCursor:true})
@@ -135,7 +135,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin5.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin6 = this.physics.add.image(this.gww*0.12,this.gwh*0.92,"coin")
             .setInteractive({useHandCursor:true})
@@ -151,7 +151,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin6.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin7 = this.physics.add.image(this.gww*0.364,this.gwh*0.25,"coin")
             .setInteractive({useHandCursor:true})
@@ -167,7 +167,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin7.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin8 = this.physics.add.image(this.gww*0.67,this.gwh*0.21,"coin")
             .setInteractive({useHandCursor:true})
@@ -183,7 +183,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin8.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin9 = this.physics.add.image(this.gww*0.364,this.gwh*0.83,"coin")
             .setInteractive({useHandCursor:true})
@@ -199,7 +199,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin9.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin10 = this.physics.add.image(this.gww*0.66,this.gwh*0.46,"coin")
             .setInteractive({useHandCursor:true})
@@ -215,7 +215,7 @@ class MiniGame2 extends MiniGameClass {
                     onComplete: () => this.coin10.destroy()
                 })
                 this.catch.play();
-                game3score++;
+                game2score++;
             })
         this.coin11 = this.physics.add.image(this.gww*0.677,this.gwh*0.398,"coinb")
             .setInteractive({useHandCursor:true})
@@ -317,7 +317,7 @@ class MiniGame2 extends MiniGameClass {
         this.pathFunction1(this.coin13);
         this.pathFunction1(this.coin14);
         this.pathFunction3(this.coin15);
-       // this.muteButton(this.backMusic);
+        this.muteButton(this.backMusic);
         this.fullScreenButton();
     }
     update(){
@@ -351,7 +351,7 @@ class MiniGame2 extends MiniGameClass {
             this.backMusic.stop();
             this.time.delayedCall(1000, () =>this.scene.start('npcScreen')); //change fail to new next game
         }
-        this.pointcount.setText(game3score);
+        this.pointcount.setText(game2score);
     }
 }
 

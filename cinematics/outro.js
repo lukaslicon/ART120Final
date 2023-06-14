@@ -10,7 +10,7 @@ class outro extends Cinematics {
          else{
              this.outroMusic.play();
          }
-        
+
         let text1 = this.add.text(this.game.config.width/2, this.game.config.height/2, "As you step back through the pulsating portal, the turmoil of the apocalyptic universe fades away, replaced by the hum of your own reality.", { 
             fontFamily: "pmd", 
             fill: "#ffffff", 
@@ -42,13 +42,16 @@ class outro extends Cinematics {
             wordWrap: { width: this.game.config.width * .4166667 } // wrap words that exceed this width
         }).setOrigin(0.5).setAlpha(0).setFontSize(42); // set origin to center
         this.fadeInthenOut(text4, 4000, 4000, 30000);
-        
-        const outroVid = this.add.video(this.game.config.width/2, this.game.config.height/2, 'outroVid').setOrigin(0.5).setAlpha(0);
-        outroVid.play(true);
-        this.fadeInthenOut(outroVid, 2000, 1800, 40000);
 
-        this.fadeInthenOut(image, 2000, 1800, 40000);
-        image.play('gifAnimation');
+        //outro video
+        const outroVid = this.add.video(this.game.config.width/2, this.game.config.height/2, 'outroVid', { loop: true })
+            .setOrigin(0.5)
+            .setAlpha(0);
+        
+        this.fadeInthenOut(outroVid, 2000, 2000 , 40000)
+        setTimeout(() => {
+            outroVid.play(true);
+        }, 40000);
 
         this.fullScreenButton();
         // this.muteTitle();
