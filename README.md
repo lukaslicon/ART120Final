@@ -3,7 +3,7 @@ Final game created for CMPM120, UCSC Spring 2023
 
 **Link to deployed version of main game that works in mobile browser:**
 -----------------
-[https://lukaslicon.itch.io/futurebound](https://jentsen.itch.io/futurebound)
+[https://jentsen.itch.io/futurebound](https://jentsen.itch.io/futurebound)
 
 **Links to deployed, mobile-playable versions of all three prototypes**
 -----------------
